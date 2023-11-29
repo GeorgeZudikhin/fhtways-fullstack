@@ -10,6 +10,9 @@ def create_graph():
     G.add_node("C")
     G.add_node("D")
     G.add_node("E")
+    G.add_node("F")
+    G.add_node("G")
+    G.add_node("H")
 
     # Add directed edges with weights and descriptions
     G.add_edge("A", "B", weight=2, description="A to B")
@@ -32,6 +35,12 @@ def create_graph():
 
     G.add_edge("D", "E", weight=2, description="D to E")
     G.add_edge("E", "D", weight=2, description="E to D")
+
+    G.add_edge("E", "F", weight=2, description="E to F")
+    G.add_edge("F", "E", weight=2, description="F to E")
+
+    G.add_edge("F", "G", weight=2, description="F to G")
+    G.add_edge("G", "F", weight=2, description="G to F")
 
     return G
 
