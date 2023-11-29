@@ -60,13 +60,3 @@ def find_shortest_path(graph, start_node, end_node):
     
     except nx.NetworkXNoPath:
         return None, "No path exists between the specified nodes."
-
-def main():
-    graph = create_graph()
-    
-    path, descriptions = find_shortest_path(graph, 'A', 'D')
-    print("Path:", path)
-    print("Descriptions:", descriptions)
-
-if __name__ == "__main__":
-    main()
