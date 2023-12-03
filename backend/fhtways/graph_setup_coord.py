@@ -76,64 +76,26 @@ def create_graph():
 
     return G
 
-# Extracts the numerical part of a node name, e.g., 'F4.27' -> 27
-def extract_room_number(node_name):
-    room_number = ''.join(filter(lambda x: x.isdigit() or x == '.', node_name))
-    return float(room_number[:4])
-
-
-# Determines the turn direction based on the room number comparison
-def determine_turn_direction(from_node, to_node):
-    from_number = extract_room_number(from_node)
-    to_number = extract_room_number(to_node)
-    if to_number < from_number:
-        return 'left'
-    elif to_number > from_number:
-        return 'right'
-    else:
-        return 'straight'
-
-
 def find_shortest_path(graph, start_node, end_node):
     try:
         path = nx.dijkstra_path(graph, start_node, end_node)
-        path_edges = [(path[n], path[n + 1]) for n in range(len(path) - 1)]
+
+        # List to hold the edges in the path
+        path_edges = []
+
+        # Iterate over the nodes
+        for n in range(len(path) - 1):
+            # Creating edges. Each edge is a tuple of two consecutive nodes
+            edge = (path[n], path[n + 1])
+            path_edges.append(edge)
+        
+        # List to hold the descriptions for the edges in the path
         descriptions = []
-        accumulated_distance = 0
-        accumulated_nodes = 0
 
-        for i, edge in enumerate(path_edges):
-            current_node, next_node = edge
-            edge_data = graph[current_node][next_node]
-
-            if graph.nodes[current_node]['type'] == 'corridor' and graph.nodes[next_node]['type'] == 'corridor':
-                # Accumulate distance
-                accumulated_distance += edge_data['weight']
-                accumulated_nodes += 1
-
-            else:
-                # Add accumulated distance to the description
-                if accumulated_distance:
-                    descriptions.append(f"Go straight for {accumulated_distance} steps, passing {accumulated_nodes} rooms.")
-                    accumulated_distance = 0
-                    accumulated_nodes = 0
-
-                if graph.nodes[current_node]['type'] == 'room' and graph.nodes[next_node]['type'] == 'corridor':
-                    if i < len(path) - 2:  # Ensure there is a node after next_node to compare with
-                        next_next_node = path[i + 2]
-                        turn_direction = determine_turn_direction(next_node, next_next_node)
-                        descriptions.append(f"{edge_data['description']} and turn {turn_direction}")
-                        continue
-
-                elif graph.nodes[current_node]['type'] == 'corridor' and graph.nodes[next_node]['type'] == 'room':
-                    if i != 0:
-                        prev_node = path[i - 1]
-                        turn_direction = determine_turn_direction(prev_node, current_node)
-                        descriptions.append(f"Turn {turn_direction}, {edge_data['description']}")
-                        continue
-
-                # If there is no accumulated distance, add the current edge's description
-                descriptions.append(edge_data['description'])
+        for edge in path_edges:
+            # retrieves the description of the edge from the starting node edge[0] to the ending node edge[1]
+            description = graph[edge[0]][edge[1]]['description']
+            descriptions.append(description)
         
         return path, descriptions
     
