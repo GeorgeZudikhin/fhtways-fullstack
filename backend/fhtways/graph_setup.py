@@ -24,55 +24,55 @@ def create_graph():
     G.add_node("lift",    type="lift")
 
     # Add directed edges with weights and descriptions between rooms and their respective corridor nodes
-    G.add_edge("F4.27", "F4.27_c", weight=1, description="F4.27 to F4.27 corridor")
-    G.add_edge("F4.27_c", "F4.27", weight=1, description="F4.27 corridor to F4.27")
+    G.add_edge("F4.27", "F4.27_c", weight=1, description="F4.27 bis F4.27 Korridor")
+    G.add_edge("F4.27_c", "F4.27", weight=1, description="F4.27 Korridor bis F4.27")
 
-    G.add_edge("F4.26", "F4.26_c", weight=1, description="F4.26 to F4.26 corridor")
-    G.add_edge("F4.26_c", "F4.26", weight=1, description="F4.26 corridor to F4.26")
+    G.add_edge("F4.26", "F4.26_c", weight=1, description="F4.26 bis F4.26 Korridor")
+    G.add_edge("F4.26_c", "F4.26", weight=1, description="F4.26 Korridor bis F4.26")
 
-    G.add_edge("F4.25", "F4.25_c", weight=1, description="F4.25 to F4.25 corridor")
-    G.add_edge("F4.25_c", "F4.25", weight=1, description="F4.25 corridor to F4.25")
+    G.add_edge("F4.25", "F4.25_c", weight=1, description="F4.25 bis F4.25 Korridor")
+    G.add_edge("F4.25_c", "F4.25", weight=1, description="F4.25 Korridor bis F4.25")
 
-    G.add_edge("F4.24", "F4.24_c", weight=1, description="F4.24 to F4.24 corridor")
-    G.add_edge("F4.24_c", "F4.24", weight=1, description="F4.24 corridor to F4.24")
+    G.add_edge("F4.24", "F4.24_c", weight=1, description="F4.24 bis F4.24 Korridor")
+    G.add_edge("F4.24_c", "F4.24", weight=1, description="F4.24 Korridor bis F4.24")
 
-    G.add_edge("F4.23", "F4.23_c", weight=1, description="F4.23 to F4.23 corridor")
-    G.add_edge("F4.23_c", "F4.23", weight=1, description="F4.23 corridor to F4.23")
+    G.add_edge("F4.23", "F4.23_c", weight=1, description="F4.23 bis F4.23 Korridor")
+    G.add_edge("F4.23_c", "F4.23", weight=1, description="F4.23 Korridor bis F4.23")
 
-    G.add_edge("F4.22", "F4.22_c", weight=1, description="F4.22 to F4.22 corridor")
-    G.add_edge("F4.22_c", "F4.22", weight=1, description="F4.22 corridor to F4.22")
+    G.add_edge("F4.22", "F4.22_c", weight=1, description="F4.22 bis F4.22 Korridor")
+    G.add_edge("F4.22_c", "F4.22", weight=1, description="F4.22 Korridor bis F4.22")
 
-    G.add_edge("F4.20", "F4.20_c", weight=1, description="F4.20 to F4.20 corridor")
-    G.add_edge("F4.20_c", "F4.20", weight=1, description="F4.20 corridor to F4.20")
+    G.add_edge("F4.20", "F4.20_c", weight=1, description="F4.20 bis F4.20 Korridor")
+    G.add_edge("F4.20_c", "F4.20", weight=1, description="F4.20 Korridor bis F4.20")
 
 
     # Add directed edges with weights and descriptions between corridor nodes
-    G.add_edge("F4.27_c", "F4.26_c", weight=2, description="F4.27 corridor to F4.26 corridor")
-    G.add_edge("F4.26_c", "F4.27_c", weight=2, description="F4.26 corridor to F4.27 corridor")
+    G.add_edge("F4.27_c", "F4.26_c", weight=2, description="F4.27 Korridor bis F4.26 Korridor")
+    G.add_edge("F4.26_c", "F4.27_c", weight=2, description="F4.26 Korridor bis F4.27 Korridor")
 
-    G.add_edge("F4.26_c", "F4.25_c", weight=2, description="F4.26 corridor to F4.25 corridor")
-    G.add_edge("F4.25_c", "F4.26_c", weight=2, description="F4.25 corridor to F4.26 corridor")
+    G.add_edge("F4.26_c", "F4.25_c", weight=2, description="F4.26 Korridor bis F4.25 Korridor")
+    G.add_edge("F4.25_c", "F4.26_c", weight=2, description="F4.25 Korridor bis F4.26 Korridor")
 
-    G.add_edge("F4.25_c", "F4.24_c", weight=2, description="F4.25 corridor to F4.24 corridor")
-    G.add_edge("F4.24_c", "F4.25_c", weight=2, description="F4.24 corridor to F4.25 corridor")
+    G.add_edge("F4.25_c", "F4.24_c", weight=2, description="F4.25 Korridor bis F4.24 Korridor")
+    G.add_edge("F4.24_c", "F4.25_c", weight=2, description="F4.24 Korridor bis F4.25 Korridor")
 
-    G.add_edge("F4.24_c", "F4.23_c", weight=2, description="F4.24 corridor to F4.23 corridor")
-    G.add_edge("F4.23_c", "F4.24_c", weight=2, description="F4.23 corridor to F4.24 corridor")
+    G.add_edge("F4.24_c", "F4.23_c", weight=2, description="F4.24 Korridor bis F4.23 Korridor")
+    G.add_edge("F4.23_c", "F4.24_c", weight=2, description="F4.23 Korridor bis F4.24 Korridor")
 
-    G.add_edge("F4.23_c", "F4.22_c", weight=2, description="F4.23 corridor to F4.22 corridor")
-    G.add_edge("F4.22_c", "F4.23_c", weight=2, description="F4.22 corridor to F4.23 corridor")
+    G.add_edge("F4.23_c", "F4.22_c", weight=2, description="F4.23 Korridor bis F4.22 Korridor")
+    G.add_edge("F4.22_c", "F4.23_c", weight=2, description="F4.22 Korridor bis F4.23 Korridor")
 
-    G.add_edge("F4.22_c", "F4.20_c", weight=2, description="F4.22 corridor to F4.20 corridor")
-    G.add_edge("F4.20_c", "F4.22_c", weight=2, description="F4.20 corridor to F4.22 corridor")
+    G.add_edge("F4.22_c", "F4.20_c", weight=2, description="F4.22 Korridor bis F4.20 Korridor")
+    G.add_edge("F4.20_c", "F4.22_c", weight=2, description="F4.20 Korridor bis F4.22 Korridor")
 
-    G.add_edge("F4.20_c", "toilet", weight=2, description="F4.20 corridor to toilet")
-    G.add_edge("toilet", "F4.20_c", weight=2, description="Toilet to F4.20 corridor")
+    G.add_edge("F4.20_c", "toilet", weight=2, description="F4.20 Korridor bis toilet")
+    G.add_edge("toilet", "F4.20_c", weight=2, description="Toilet bis F4.20 Korridor")
 
-    G.add_edge("toilet", "hall", weight=2, description="Toilet to hall")
-    G.add_edge("hall", "toilet", weight=2, description="Hall to toilet")
+    G.add_edge("toilet", "hall", weight=2, description="Toilette bis Flur")
+    G.add_edge("hall", "toilet", weight=2, description="Flur bis Toilette")
 
-    G.add_edge("hall", "lift", weight=2, description="Hall to lift")
-    G.add_edge("lift", "hall", weight=2, description="Lift to hall")
+    G.add_edge("hall", "lift", weight=2, description="Flur bis Aufzug")
+    G.add_edge("lift", "hall", weight=2, description="Aufzug bis Flur")
 
     return G
 
@@ -87,11 +87,11 @@ def determine_turn_direction(from_node, to_node):
     from_number = extract_room_number(from_node)
     to_number = extract_room_number(to_node)
     if to_number < from_number:
-        return 'left'
+        return 'links'
     elif to_number > from_number:
-        return 'right'
+        return 'rechts'
     else:
-        return 'straight'
+        return 'geradeaus'
 
 
 def find_shortest_path(graph, start_node, end_node):
@@ -114,7 +114,7 @@ def find_shortest_path(graph, start_node, end_node):
             else:
                 # Add accumulated distance to the description
                 if accumulated_distance:
-                    descriptions.append(f"Go straight for {accumulated_distance} steps, passing {accumulated_nodes} rooms.")
+                    descriptions.append(f"Gehen Sie geradeaus fuer {accumulated_distance} Schritte, vorbei an {accumulated_nodes} Zimmern")
                     accumulated_distance = 0
                     accumulated_nodes = 0
 
@@ -122,14 +122,14 @@ def find_shortest_path(graph, start_node, end_node):
                     if i < len(path) - 2:  # Ensure there is a node after next_node to compare with
                         next_next_node = path[i + 2]
                         turn_direction = determine_turn_direction(next_node, next_next_node)
-                        descriptions.append(f"{edge_data['description']} and turn {turn_direction}")
+                        descriptions.append(f"{edge_data['description']} und biegen Sie {turn_direction} ab")
                         continue
 
                 elif graph.nodes[current_node]['type'] == 'corridor' and graph.nodes[next_node]['type'] == 'room':
                     if i != 0:
                         prev_node = path[i - 1]
                         turn_direction = determine_turn_direction(prev_node, current_node)
-                        descriptions.append(f"Turn {turn_direction}, {edge_data['description']}")
+                        descriptions.append(f"Biegen Sie {turn_direction} ab, {edge_data['description']}")
                         continue
 
                 # If there is no accumulated distance, add the current edge's description
