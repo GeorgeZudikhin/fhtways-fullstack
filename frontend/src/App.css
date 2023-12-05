@@ -1,0 +1,135 @@
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.App {
+  position: relative;
+}
+div {
+  display: block;
+}
+.logo-container{
+  height: 150px;
+}
+.school-logo {
+  position: absolute;
+  width: 11%;
+  height: auto;
+  left: 10px;
+  top:10px;
+}
+.project-logo {
+  position: absolute;
+  width: 17%;
+  height: auto;
+  top:0px;
+  left: 40%;
+}
+.content-container {
+  margin: 0 auto;
+  width: 70%;
+  text-align: justify;
+  position: relative;
+}
+p {
+  font-size: 19px;
+  color: #696868;
+}
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+
+}
+.search-bar {
+  margin-left: 200px;
+}
+input {
+  width: 93%;
+  padding: 40px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+
+}
+.button-container {
+  margin-top: 25px;
+  margin-left: 40%;
+}
+button {
+  width: 30%;
+  padding: 20px 70px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  font-size: 19px;
+  color: white;
+  font-weight: bolder;
+  background-color: #0a65c0;
+}
+.footer-nav {
+  width: 100%;
+  height: 103px;
+  background-color: #0a65c0;
+  position: relative;
+  font-weight: bold;
+  font-size: 17px;
+  color: white;
+  text-align: center;
+}
+
+.footer-nav ul {
+  padding: 0;
+}
+
+.footer-nav > ul > li {
+  display: inline-block;
+  margin: 10px 20px; /* Hier kannst du den Abstand zwischen den Listenelementen anpassen */
+  list-style: none;
+}
+
+
+/* Styles for the top right image buttons */
+.top-right-buttons {
+  position: absolute;
+  top: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  display: flex;
+  flex-direction: row; /* Display buttons in a row */
+  gap: 10px; /* Adjust the space between buttons */
+}
+
+.top-image-button {
+  width: 40px; /* Set the width of the image button */
+  height: 40px; /* Set the height of the image button */
+  cursor: pointer;
+}
