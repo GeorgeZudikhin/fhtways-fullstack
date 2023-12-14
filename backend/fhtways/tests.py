@@ -1,12 +1,11 @@
 from django.test import TestCase
-import pytest
 from .graph_setup_coord import *
 
 def test_create_graph():
     G = create_graph()
     assert isinstance(G, nx.DiGraph)
-    assert len(G.nodes()) > 0  # Ensure nodes are added
-    assert len(G.edges()) > 0  # Ensure edges are added
+    assert len(G.nodes()) > 0 
+    assert len(G.edges()) > 0  
 
 def test_calculate_turn_direction():
     # Test for a right turn
@@ -36,5 +35,3 @@ def test_find_shortest_path():
     path, descriptions = find_shortest_path(G, "F4.24", "non_existent_node")
     assert path is None
     assert descriptions == "No path exists between the specified nodes."
-
-# Create your tests here.
