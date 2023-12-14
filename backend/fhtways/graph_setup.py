@@ -42,57 +42,58 @@ def create_graph():
     G.add_node("F4.05",         type="room")
     G.add_node("F4.04_F4.05_c", type="corridor")
 
-    G.add_node("toilet",        type="wc")
-    G.add_node("stairs_left",   type="stairs")
-    G.add_node("stairs_middle", type="stairs")
-    G.add_node("stairs_rigth",  type="stairs")
-    G.add_node("lift",          type="lift")
+    G.add_node("toilet",             type="wc")
+    G.add_node("stairs_left",        type="stairs")
+    G.add_node("stairs_middle",      type="stairs")
+    G.add_node("stairs_rigth",       type="stairs")
+    G.add_node("stairs_rigth_conn",  type="conn")
+    G.add_node("lift",               type="lift")
 
     # Add directed edges with weights and descriptions between rooms and their respective corridor nodes
     G.add_edge("F4.27", "F4.27_c", weight=3, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.27, gehen Sie 3 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.27_c", "F4.27", weight=3, description="Gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.27 zu erreichen.")
+    G.add_edge("F4.27_c", "F4.27", weight=3, description="gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.27 zu erreichen.")
 
     G.add_edge("F4.26", "F4.26_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.26, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.26_c", "F4.26", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.26 zu erreichen.")
+    G.add_edge("F4.26_c", "F4.26", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.26 zu erreichen.")
 
     G.add_edge("F4.25", "F4.25_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.25, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.25_c", "F4.25", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.25 zu erreichen.")
+    G.add_edge("F4.25_c", "F4.25", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.25 zu erreichen.")
 
     G.add_edge("F4.24", "F4.24_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.24, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.24_c", "F4.24", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.24 zu erreichen.")
+    G.add_edge("F4.24_c", "F4.24", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.24 zu erreichen.")
 
     G.add_edge("F4.23", "F4.23_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.23, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.23_c", "F4.23", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.23 zu erreichen.")
+    G.add_edge("F4.23_c", "F4.23", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.23 zu erreichen.")
 
     G.add_edge("F4.22", "F4.22_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.22, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.22_c", "F4.22", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.22 zu erreichen.")
+    G.add_edge("F4.22_c", "F4.22", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.22 zu erreichen.")
 
     G.add_edge("F4.20", "F4.20_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.20, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.20_c", "F4.20", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.21 zu erreichen.")
+    G.add_edge("F4.20_c", "F4.20", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.21 zu erreichen.")
 
     G.add_edge("F4.08", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.08, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.01_F4.08_c", "F4.08", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.08 zu erreichen.")
+    G.add_edge("F4.01_F4.08_c", "F4.08", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.08 zu erreichen.")
 
     G.add_edge("F4.07", "F4.02_F4.07_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.07, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.02_F4.07_c", "F4.07", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.07 zu erreichen.")
+    G.add_edge("F4.02_F4.07_c", "F4.07", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.07 zu erreichen.")
 
     G.add_edge("F4.06", "F4.03_F4.06_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.06, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.03_F4.06_c", "F4.06", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.06 zu erreichen.")
+    G.add_edge("F4.03_F4.06_c", "F4.06", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.06 zu erreichen.")
 
     G.add_edge("F4.05", "F4.04_F4.05_c", weight=3, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.05, gehen Sie 3 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.04_F4.05_c", "F4.05", weight=3, description="Gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.05 zu erreichen.")
+    G.add_edge("F4.04_F4.05_c", "F4.05", weight=3, description="gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.05 zu erreichen.")
 
     G.add_edge("F4.04", "F4.04_F4.05_c", weight=3, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.04, gehen Sie 3 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.04_F4.05_c", "F4.04", weight=3, description="Gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.04 zu erreichen.")
+    G.add_edge("F4.04_F4.05_c", "F4.04", weight=3, description="gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.04 zu erreichen.")
 
     G.add_edge("F4.03", "F4.03_F4.06_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.03, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.03_F4.06_c", "F4.03", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.03 zu erreichen.")
+    G.add_edge("F4.03_F4.06_c", "F4.03", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.03 zu erreichen.")
 
     G.add_edge("F4.02", "F4.02_F4.07_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.02, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.02_F4.07_c", "F4.02", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.02 zu erreichen.")
+    G.add_edge("F4.02_F4.07_c", "F4.02", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.02 zu erreichen.")
 
-    G.add_edge("F4.01", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.01, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.01_F4.08_c", "F4.01", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.01 zu erreichen.")
+    G.add_edge("F4.01", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.01, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen,.")
+    G.add_edge("F4.01_F4.08_c", "F4.01", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.01 zu erreichen.")
 
 
     # Add directed edges with weights and descriptions between corridor nodes
@@ -148,8 +149,11 @@ def create_graph():
     G.add_edge("F4.03_F4.06_c", "F4.04_F4.05_c", weight=3, description="Gehen Sie den Korridor 2 Schritte geradeaus weiter entlang.")
     G.add_edge("F4.04_F4.05_c", "F4.03_F4.06_c", weight=3, description="Gehen Sie den Korridor 2 Schritte geradeaus weiter entlang.")
 
-    G.add_edge("F4.04_F4.05_c", "stairs_right", weight=6, description="Gehen Sie den Korridor 2 Schritte geradeaus weiter entlang, biegen Sie nach links ab, gehen Sie mit 4 Schritten bis zum Ende des Korridors und öffnen Sie die Tür an der rechten Seite, um die Stiegen zu erreichen.")
-    G.add_edge("stairs_right", "F4.04_F4.05_c", weight=6, description="Öffnen Sie die Tür, um in den Korridor der 4.Etage zu gelangen, und biegen Sie nach links ab. Gehen Sie den Korridor 4 Schritte geradeaus weiter entlang, biegen Sie nach rechts ab.")
+    G.add_edge("F4.04_F4.05_c", "stairs_right_conn", weight=2, description="Gehen Sie im Korridor zwei Schritte geradeaus. Sie werden eine Wand spüren, an der Sie sich orientieren können.")
+    G.add_edge("stairs_right_conn", "F4.04_F4.05_c", weight=2, description="Gehen Sie im Korridor zwei Schritte geradeaus.")
+
+    G.add_edge("stairs_right_conn", "stairs_right", weight=6, description="Zählen Sie 6 Schritte, bis Sie das Ende des Korridors erreichen. Hier finden Sie eine Tür auf Ihrer rechten Seite. Fühlen Sie nach dem Türgriff, um die Tür zu öffnen und die Stiegen zu erreichen.")
+    G.add_edge("stairs_right", "stairs_right_conn", weight=6, description="Öffnen Sie die Tür vor Ihnen, um in den Korridor der 4. Etage zu gelangen, und biegen Sie unmittelbar links ab. Gehen Sie den Korridor 6 Schritte geradeaus weiter, bis Sie spüren, dass die Wand auf Ihrer linken Seite endet. Dies zeigt das Auftreten eines neuen Korridors auf Ihrer rechten Seite an.")
     
     return G
 
@@ -191,7 +195,7 @@ def find_shortest_path(graph, start_node, end_node):
             else:
                 # Add accumulated distance to the description
                 if accumulated_distance:
-                    descriptions.append(f"Gehen Sie geradeaus für {accumulated_distance} Schritte, vorbei an {accumulated_nodes} Zimmern")
+                    descriptions.append(f"Gehen Sie geradeaus {accumulated_distance} Schritte im Korridor, vorbei an {accumulated_nodes} Zimmern")
                     accumulated_distance = 0
                     accumulated_nodes = 0
 
