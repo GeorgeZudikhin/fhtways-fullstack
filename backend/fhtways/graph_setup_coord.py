@@ -56,8 +56,8 @@ def create_graph():
     G.add_node("lift",              coord=(-12, -1), type="lift")
 
     # Add directed edges with weights and descriptions between rooms and their respective corridor nodes
-    G.add_edge("F4.27", "F4.27_c", weight=3, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.27, gehen Sie 3 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.27_c", "F4.27", weight=3, description="gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.27 zu erreichen.")
+    G.add_edge("F4.27", "F4.27_c", weight=4, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.27, gehen Sie 3 Schritte geradaus, um den Korridor zu erreichen.")
+    G.add_edge("F4.27_c", "F4.27", weight=4, description="gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.27 zu erreichen.")
 
     G.add_edge("F4.26", "F4.26_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.26, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
     G.add_edge("F4.26_c", "F4.26", weight=2, description="gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.26 zu erreichen.")
@@ -204,9 +204,13 @@ def calculate_turn_direction(angle1, angle2):
 
 
 def calculate_angles(graph, prev_node, current_node, next_node):
-    node_data1 = graph.nodes[prev_node] if prev_node else graph.nodes[current_node]
-    node_data2 = graph.nodes[current_node]
-    node_data3 = graph.nodes[next_node] if next_node else None
+    try:
+        node_data1 = graph.nodes[prev_node] if prev_node else graph.nodes[current_node]
+        node_data2 = graph.nodes[current_node]
+        node_data3 = graph.nodes[next_node] if next_node else None
+    except KeyError as e:
+        print(f"Node {e} does not exist in the graph")
+        return None
 
     coord1 = node_data1.get('coord') 
     coord2 = node_data2.get('coord')
