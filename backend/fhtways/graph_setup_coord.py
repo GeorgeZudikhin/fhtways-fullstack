@@ -106,7 +106,7 @@ def create_graph():
     G.add_edge("F4.02", "F4.02_F4.07_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.02, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
     G.add_edge("F4.02_F4.07_c", "F4.02", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.02 zu erreichen.")
 
-    G.add_edge("F4.01", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.01, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen,.")
+    G.add_edge("F4.01", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.01, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
     G.add_edge("F4.01_F4.08_c", "F4.01", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.01 zu erreichen.")
 
 
@@ -171,7 +171,7 @@ def create_graph():
     G.add_edge("stairs-middle", "toilets", weight=6, description="Nachdem Sie den 4.Stock erreicht haben, gehen Sie geradeaus, indem Sie 2 Schritte machen und nach recht abbiegen. Danach machen Sie 2 Schritte geradeaus und biegen Sie demnächst nach links ab. Öffnen Sie die Tür vor Ihnen und Sie erreichen die Toilette.")
 
     G.add_edge("toilets", "lift", weight=4, description="Öffnen Sie die Toilettentür, machen Sie 2 Schritte geradaus, biegen Sie nach rechts ab und machen Sie 2 Schritte geradeaus. Biegen Sie nach rechts ab und Sie erreichen die Lifte.")
-    G.add_edge("lift", "toilets", weight=4, description="Verlassen Sie den Lift, indem Sie 2 Schritte geradeaus machen und nach limks abbiegen. Danach machen Sie 2 Schritte geradeaus und biegen Sie demnächst nach links ab. Öffnen Sie die Tür vor Ihnen und Sie erreichen die Toilette.")
+    G.add_edge("lift", "toilets", weight=4, description="Verlassen Sie den Lift, indem Sie 2 Schritte geradeaus machen und nach links abbiegen. Danach machen Sie 2 Schritte geradeaus und biegen Sie demnächst nach links ab. Öffnen Sie die Tür vor Ihnen und Sie erreichen die Toilette.")
 
     G.add_edge("door_right", "stairs_middle", weight=8, description="Gehen Sie 5 Schritte geradeaus und biegen Sie nach rechts ab. Gehen Sie noch 2 Schritte nach vorne und Sie erreichen die Stiegen.")
     G.add_edge("stairs_middle", "door_right", weight=8, description="Nachdem Sie die 4.Etage erreicht haben, gehen Sie 2 Schritte geradeaus und biegen Sie demnächt nach links ab. Gehen Sie geradeaus weiter, bis sie die Türe vor ihnen erreichen, und öffnen Sie diese Tür.")
@@ -197,7 +197,7 @@ def calculate_turn_direction(angle1, angle2):
     print(f"angle_diff: {angle_diff}")
 
     if angle1 == 0 or angle2 == 0:
-        print("description not appended, one of the angles = 0")
+        print("turn description not appended, one of the angles = 0")
         return None
     elif angle_diff == 90:
         print("description 'links' appended")
@@ -211,6 +211,7 @@ def calculate_turn_direction(angle1, angle2):
 
 
 def calculate_angles(graph, prev_node, current_node, next_node):
+    # Check if nodes exist
     try:
         node_data1 = graph.nodes[prev_node] if prev_node else graph.nodes[current_node]
         node_data2 = graph.nodes[current_node]
@@ -219,6 +220,7 @@ def calculate_angles(graph, prev_node, current_node, next_node):
         print(f"Node {e} does not exist in the graph")
         return None
 
+    # Extract the coord parameter from the nodes
     coord1 = node_data1.get('coord') 
     coord2 = node_data2.get('coord')
     coord3 = node_data3.get('coord') if node_data3 else None
@@ -250,7 +252,6 @@ def find_shortest_path(graph, start_node, end_node):
 
         for i, edge in enumerate(path_edges):
             current_node, next_node = edge
-            current_index = path.index(current_node)
             prev_node = path[i - 1] if i > 0 else current_node
             edge_data = graph[current_node][next_node]
             print(prev_node + " - " + str(graph.nodes[prev_node]['coord']))
@@ -276,6 +277,7 @@ def find_shortest_path(graph, start_node, end_node):
                 if accumulated_distance:
                     print("Finally appending the entire corridor description")
                     descriptions.append(f"Gehen Sie geradeaus {accumulated_distance} Schritte im Korridor, vorbei an {accumulated_nodes} Zimmern")
+                    print(descriptions)
                     accumulated_distance = 0
                     accumulated_nodes = 0
 
