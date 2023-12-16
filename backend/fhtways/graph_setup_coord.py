@@ -187,17 +187,15 @@ def create_graph():
 
 
     # Binding the middle part of the hall
-    G.add_edge("door_left", "stairs_middle", weight=8, description="Gehen Sie vom linken Eingang zum rechten Eingang. Es sind 14 Schritte geradeaus. Achten Sie auf die Veränderungen im Echo des Raums.")
-    G.add_edge("stairs_middle", "door_left", weight=8, description="Gehen Sie vom linken Eingang zum rechten Eingang. Es sind 14 Schritte geradeaus. Achten Sie auf die Veränderungen im Echo des Raums.")
+    G.add_edge("door_left", "stairs_middle", weight=8, description="Um zur Treppe des 4. Stocks zu gelangen, gehen Sie 5 Schritte geradeaus, dann biegen Sie nach links ab und machen Sie noch 2 Schritte nach vorne. Hier erreichen Sie die Treppe. Seien Sie äußerst vorsichtig, um Stufen und Hindernisse zu erkennen und sicher zu navigieren.")
+    G.add_edge("stairs_middle", "door_left", weight=8, description="Nachdem Sie die 4. Etage erreicht haben, gehen Sie 2 Schritte geradeaus und biegen Sie dann nach rechts ab. Setzen Sie Ihren Weg fort, bis Sie die Tür vor sich erreichen. Achten Sie auf den Boden, um Unebenheiten zu spüren und sicherzustellen, dass Sie auf dem richtigen Weg sind.")
 
 
-    G.add_edge("door_left", "door_right", weight=14, description="Gehen Sie 14 Schritte geradeaus, um die Tür vor Ihnen zu erreichen. Achten Sie auf die Beschaffenheit des Bodens und die Akustik der Umgebung, um Ihre Bewegung zu orientieren.")
-    G.add_edge("door_right", "door_left", weight=14, description="Gehen Sie 14 Schritte geradeaus, um die Tür vor Ihnen zu erreichen. Achten Sie auf die Beschaffenheit des Bodens und die Akustik der Umgebung, um Ihre Bewegung zu orientieren.")
-
-
-    G.add_edge("door_left", "lift", weight=10, description="Gehen Sie 10 Schritte geradeaus, während Sie sich auf der rechten Seite halten. Fühlen Sie die Wand und orientieren Sie sich in der Umgebung, um den Weg zum Lift zu finden.")
+    G.add_edge("door_left", "lift", weight=10, description="Nachdem Sie zur Tür gelangt haben, die zur Halle der 4.Etage führt, gehen Sie zur rechten Seite des Raumes, um die rechte Wand zu erreichen. Von dort aus gehen Sie 10 Schritte geradeaus entlang der rechten Wand. Wenn Sie die Lifttaste erreichen, die zirka auf Ihrer Brusthöhe befindet, drücken Sie sie, um den Aufzug zu rufen.")
     G.add_edge("lift", "door_left", weight=10, description="Verlassen Sie den Lift mit zwei Schritten und biegen Sie dann links ab. Gehen Sie weitere 8 Schritte geradeaus, um eine Tür zu erreichen. Fühlen Sie nach der Türklinke, um in den Eingangsbereich der 4. Etage zu gelangen.")
 
+    G.add_edge("door_left", "door_right", weight=14, description="Gehen Sie 14 Schritte geradeaus durch die ganze Halle des 4.Stocks, bis Sie die Tür vor Ihnen erreichen. Achten Sie auf die taktilen Pflastersteine unter Ihren Füßen, die Ihnen den Weg weisen, und die Akustik in der Halle des 4.Stocks, um Ihre Orientierung zu verbessern.")
+    G.add_edge("door_right", "door_left", weight=14, description="Gehen Sie 14 Schritte geradeaus durch die ganze Halle des 4.Stocks, bis Sie die Tür vor Ihnen erreichen. Achten Sie auf die taktilen Pflastersteine unter Ihren Füßen, die Ihnen den Weg weisen, und die Akustik in der Halle des 4.Stocks, um Ihre Orientierung zu verbessern.")
 
     G.add_edge("door_left", "toilets", weight=3, description="Drehen Sie sich direkt nach rechts und machen Sie drei gleichmäßige Schritte. Fühlen Sie nach der Türklinke auf der rechten Seite und öffnen Sie die Tür, um die Toilette zu erreichen.")
     G.add_edge("toilets", "door_left", weight=3, description="Öffnen Sie die Toilettentür, machen Sie drei gleichmäßige Schritte geradeaus, drehen Sie sich nach links und fühlen Sie nach der Türklinke vor Ihnen. Öffnen Sie die Tür und gehen Sie geradeaus.")
