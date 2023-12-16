@@ -56,134 +56,173 @@ def create_graph():
     G.add_node("stairs_right_conn", coord=(48, 3),   type="conn")
     G.add_node("stairs_right",      coord=(48, 8),   type="stairs")
 
+
+
     # Add directed edges on the left side of the floor
-    G.add_edge("stairs_left", "stairs_left_conn", weight=6, description="Öffnen Sie die Tür vor Ihnen, um in den Korridor der 4. Etage zu gelangen, und biegen Sie unmittelbar rechts ab. Gehen Sie den Korridor 5 Schritte geradeaus weiter, bis Sie spüren, dass die Wand auf Ihrer rechten Seite endet. Dies zeigt das Auftreten eines neuen Korridors auf Ihrer linken Seite an.")
+    G.add_edge("stairs_left", "stairs_left_conn", weight=6, description="Öffnen Sie die Tür vor Ihnen, um in den Korridor der 4. Etage zu gelangen und biegen Sie unmittelbar rechts ab. Gehen Sie den Korridor 5 Schritte geradeaus weiter, bis Sie spüren, dass die Wand auf Ihrer rechten Seite endet. Dies zeigt das Auftreten eines neuen Korridors auf Ihrer linken Seite an.")
     G.add_edge("stairs_left_conn", "stairs_left", weight=6, description="Gehen Sie den Korridor 6 Schritte geradeaus weiter entlang, bis Sie das Ende des Korridors erreichen. Hier finden Sie eine Tür auf Ihrer linken Seite. Fühlen Sie nach dem Türgriff, um die Tür zu öffnen und die Stiegen zu erreichen.")
 
-    G.add_edge("stairs_left_conn", "F4.27_c", weight=2, description="Gehen Sie im Korridor zwei Schritte geradeaus.")
-    G.add_edge("F4.27_c", "stairs_left_conn", weight=2, description="Gehen Sie im Korridor zwei Schritte geradeaus. Sie werden eine Wand spüren, an der Sie sich orientieren können.")
+
+    G.add_edge("stairs_left_conn", "F4.27_c", weight=2, description="Gehen Sie vom Treppenhaus aus 2 Schritte geradeaus im Korridor. Fühlen Sie den Boden unter Ihren Füßen, um sich zu orientieren.")
+    G.add_edge("F4.27_c", "stairs_left_conn", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Sie werden die Wand auf Ihrer rechten Seite bemerken. Nutzen Sie diese als Orientierungshilfe.")
+
 
     # Add directed edges between room nodes and their respective corridor nodes
-    G.add_edge("F4.27", "F4.27_c", weight=4, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.27, gehen Sie 4 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.27_c", "F4.27", weight=4, description="Gehen Sie 4 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.27 zu erreichen.")
+    G.add_edge("F4.27", "F4.27_c", weight=4, description="Öffnen Sie die Tür und verlassen Sie Raum F4.27. Gehen Sie 4 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.27_c", "F4.27", weight=4, description="Gehen Sie 4 Schritte geradeaus im Korridor. Fühlen Sie nach der Tür auf Ihrer rechten Seite, um Raum F4.27 zu betreten.")
 
-    G.add_edge("F4.26", "F4.26_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.26, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.26_c", "F4.26", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.26 zu erreichen.")
 
-    G.add_edge("F4.25", "F4.25_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.25, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.25_c", "F4.25", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.25 zu erreichen.")
+    G.add_edge("F4.26", "F4.26_c", weight=2, description="Öffnen Sie die Tür und verlassen Sie Raum F4.26. Gehen Sie 2 Schritte geradeaus. Sie erreichen den Korridor. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.26_c", "F4.26", weight=2, description="Gehen Sie 2 Schritte geradeaus im Korridor. Fühlen Sie nach der Tür auf Ihrer linken Seite, um Raum F4.26 zu betreten.")
 
-    G.add_edge("F4.24", "F4.24_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.24, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.24_c", "F4.24", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.24 zu erreichen.")
 
-    G.add_edge("F4.23", "F4.23_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.23, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.23_c", "F4.23", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.23 zu erreichen.")
+    G.add_edge("F4.25", "F4.25_c", weight=2, description="Öffnen Sie die Tür von Raum F4.25 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.25_c", "F4.25", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer rechten Seite, um Raum F4.25 zu betreten.")
 
-    G.add_edge("F4.22", "F4.22_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.22, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.22_c", "F4.22", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.22 zu erreichen.")
 
-    G.add_edge("F4.20", "F4.20_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.20, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.20_c", "F4.20", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.21 zu erreichen.")
+    G.add_edge("F4.24", "F4.24_c", weight=2, description="Öffnen Sie die Tür von Raum F4.24 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.24_c", "F4.24", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer linken Seite, um Raum F4.24 zu betreten.")
 
-    G.add_edge("F4.08", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.08, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.01_F4.08_c", "F4.08", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.08 zu erreichen.")
 
-    G.add_edge("F4.07", "F4.02_F4.07_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.07, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.02_F4.07_c", "F4.07", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.07 zu erreichen.")
+    G.add_edge("F4.23", "F4.23_c", weight=2, description="Öffnen Sie die Tür von Raum F4.23 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.23_c", "F4.23", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer rechten Seite, um Raum F4.23 zu betreten.")
 
-    G.add_edge("F4.06", "F4.03_F4.06_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.06, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.03_F4.06_c", "F4.06", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.06 zu erreichen.")
 
-    G.add_edge("F4.05", "F4.04_F4.05_c", weight=3, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.05, gehen Sie 3 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.04_F4.05_c", "F4.05", weight=3, description="Gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.05 zu erreichen.")
+    G.add_edge("F4.22", "F4.22_c", weight=2, description="Öffnen Sie die Tür von Raum F4.22 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.22_c", "F4.22", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer linken Seite, um Raum F4.22 zu betreten.")
 
-    G.add_edge("F4.04", "F4.04_F4.05_c", weight=3, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.04, gehen Sie 3 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.04_F4.05_c", "F4.04", weight=3, description="Gehen Sie 3 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.04 zu erreichen.")
 
-    G.add_edge("F4.03", "F4.03_F4.06_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.03, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.03_F4.06_c", "F4.03", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.03 zu erreichen.")
+    G.add_edge("F4.20", "F4.20_c", weight=2, description="Öffnen Sie die Tür von Raum F4.20 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.20_c", "F4.20", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer rechten Seite, um Raum F4.20 zu betreten.")
 
-    G.add_edge("F4.02", "F4.02_F4.07_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.02, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.02_F4.07_c", "F4.02", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.02 zu erreichen.")
 
-    G.add_edge("F4.01", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.01, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen.")
-    G.add_edge("F4.01_F4.08_c", "F4.01", weight=2, description="Gehen Sie 2 Schritte geradeaus, öffnen Sie die Tür, um den Raum F4.01 zu erreichen.")
+    G.add_edge("F4.08", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür von Raum F4.08 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.01_F4.08_c", "F4.08", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer linken Seite, um Raum F4.08 zu betreten.")
+
+
+    G.add_edge("F4.07", "F4.02_F4.07_c", weight=2, description="Öffnen Sie die Tür von Raum F4.07 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.02_F4.07_c", "F4.07", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer rechten Seite, um Raum F4.07 zu betreten.")
+
+
+    G.add_edge("F4.06", "F4.03_F4.06_c", weight=2, description="Öffnen Sie die Tür von Raum F4.06 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.03_F4.06_c", "F4.06", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer linken Seite, um Raum F4.06 zu betreten.")
+
+
+    G.add_edge("F4.05", "F4.04_F4.05_c", weight=3, description="Öffnen Sie die Tür von Raum F4.05 und treten Sie heraus. Gehen Sie 3 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.04_F4.05_c", "F4.05", weight=3, description="Gehen Sie im Korridor 3 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer rechten Seite, um Raum F4.05 zu betreten.")
+
+ 
+    G.add_edge("F4.04", "F4.04_F4.05_c", weight=3, description="Öffnen Sie die Tür von Raum F4.04 und treten Sie heraus. Gehen Sie 3 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.04_F4.05_c", "F4.04", weight=3, description="Gehen Sie im Korridor 3 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer linken Seite, um Raum F4.04 zu betreten.")
+
+
+    G.add_edge("F4.03", "F4.03_F4.06_c", weight=2, description="Öffnen Sie die Tür von Raum F4.03 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.03_F4.06_c", "F4.03", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Suchen Sie die Tür auf Ihrer rechten Seite, um Raum F4.03 zu betreten")
+
+
+    G.add_edge("F4.02", "F4.02_F4.07_c", weight=2, description="Öffnen Sie die Tür von Raum F4.02 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.02_F4.07_c", "F4.02", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Fühlen Sie nach der Tür auf Ihrer linken Seite, um Raum F4.02 zu betreten.")
+
+
+    G.add_edge("F4.01", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, verlassen Sie den Raum F4.01, gehen Sie 2 Schritte geradaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
+    G.add_edge("F4.01_F4.08_c", "F4.01", weight=2, description="Gehen Sie im Korridor geradeaus für zwei Schritte. Fühlen Sie nach der Tür vor Ihnen und öffnen Sie diese, um Raum F4.01 zu betreten.")
 
 
     # Add directed edges between corridor/connection nodes
-    G.add_edge("F4.27_c", "F4.26_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
-    G.add_edge("F4.26_c", "F4.27_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
+    G.add_edge("F4.27_c", "F4.26_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.26_c", "F4.27_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
 
-    G.add_edge("F4.26_c", "F4.25_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
-    G.add_edge("F4.25_c", "F4.26_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
 
-    G.add_edge("F4.25_c", "F4.24_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
-    G.add_edge("F4.24_c", "F4.25_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
+    G.add_edge("F4.26_c", "F4.25_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.25_c", "F4.26_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
 
-    G.add_edge("F4.24_c", "F4.23_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
-    G.add_edge("F4.23_c", "F4.24_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
 
-    G.add_edge("F4.23_c", "F4.22_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
-    G.add_edge("F4.22_c", "F4.23_c", weight=3, description="Gehen Sie 3 Schritte geradeaus im Korridor.")
+    G.add_edge("F4.25_c", "F4.24_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.24_c", "F4.25_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
 
-    G.add_edge("F4.22_c", "F4.20_conn", weight=3, description="Gehen Sie 2 Schritte geradeaus im Korridor, bis Sie auf die Wand stoßen.")
-    G.add_edge("F4.20_conn", "F4.22_c", weight=3, description="F4.20_conn to F4.22_c.")
 
-    G.add_edge("F4.20_conn", "F4.20_c", weight=3, description="F4.20_conn to F4.20_c.")
-    G.add_edge("F4.20_c", "F4.20_conn", weight=3, description="F4.20_c to F4.20_conn.")
+    G.add_edge("F4.24_c", "F4.23_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.23_c", "F4.24_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren")
 
-    G.add_edge("F4.01_F4.08_c", "F4.02_F4.07_c", weight=3, description="Gehen Sie den Korridor 3 Schritte geradeaus weiter.")
-    G.add_edge("F4.02_F4.07_c", "F4.01_F4.08_c", weight=3, description="Gehen Sie den Korridor 3 Schritte geradeaus weiter.")
 
-    G.add_edge("F4.02_F4.07_c", "F4.03_F4.06_c", weight=3, description="Gehen Sie den Korridor 3 Schritte geradeaus weiter entlang.")
-    G.add_edge("F4.03_F4.06_c", "F4.02_F4.07_c", weight=3, description="Gehen Sie den Korridor 3 Schritte geradeaus weiter entlang.")
+    G.add_edge("F4.23_c", "F4.22_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren")
+    G.add_edge("F4.22_c", "F4.23_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren")
 
-    G.add_edge("F4.03_F4.06_c", "F4.04_F4.05_c", weight=3, description="Gehen Sie den Korridor 3 Schritte geradeaus weiter entlang.")
-    G.add_edge("F4.04_F4.05_c", "F4.03_F4.06_c", weight=3, description="Gehen Sie den Korridor 3 Schritte geradeaus weiter entlang.")
 
-    G.add_edge("door_left", "F4.20_c", weight=1, description="Door left to F4.20_c.")
-    G.add_edge("F4.20_c", "door_left", weight=1, description="F4.20_c to Door left.")
+    G.add_edge("F4.22_c", "F4.20_conn", weight=3, description="Gehen Sie zwei Schritte im Korridor geradeaus, bis Sie auf eine Wand stoßen. Diese Wand kennzeichnet das Ende des Korridors und signalisiert eine Richtungsänderung.")
+    G.add_edge("F4.20_conn", "F4.22_c", weight=3, description="Gehen Sie zwei Schritte im Korridor geradeaus, bis Sie auf eine Wand stoßen. Diese Wand kennzeichnet das Ende des Korridors und signalisiert eine Richtungsänderung.")
 
-    G.add_edge("door_right", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür, gehen Sie den Korridor 2 Schritte geradeaus weiter.")
-    G.add_edge("F4.01_F4.08_c", "door_right", weight=2, description="Gehen Sie den Korridor 2 Schritte geradeaus weiter bis Sie die Tür erreichen.")
+
+    G.add_edge("F4.20_conn", "F4.20_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.20_c", "F4.20_conn", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+
+
+    G.add_edge("F4.01_F4.08_c", "F4.02_F4.07_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.02_F4.07_c", "F4.01_F4.08_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+
+
+    G.add_edge("F4.02_F4.07_c", "F4.03_F4.06_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.03_F4.06_c", "F4.02_F4.07_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+
+
+    G.add_edge("F4.03_F4.06_c", "F4.04_F4.05_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.04_F4.05_c", "F4.03_F4.06_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+
+
+    G.add_edge("door_left", "F4.20_c", weight=1, description="Nachdem Sie die Tür geöffnet haben, machen Sie einen Schritt vorwärts, um den Korridor zu betreten.")
+    G.add_edge("F4.20_c", "door_left", weight=1, description="Machen Sie einen Schritt vorwärts, um die Tür zu erreichen. Fühlen Sie nach der Türklinke, um in die Halle der 4. Etage zu gelangen.")
+
+
+    G.add_edge("door_right", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür und gehen Sie zwei Schritte geradeaus im Korridor. Fühlen Sie den Boden und orientiere Sie sich in der Umgebung.")
+    G.add_edge("F4.01_F4.08_c", "door_right", weight=2, description="Gehen Sie zwei Schritte geradeaus im Korridor, bis Sie die Tür vor sich fühlen. Verwenden Sie Ihren Tastsinn, um die Türklinke zu finden")
+
 
     # Add directed edges on the right side of the floor
-    G.add_edge("F4.04_F4.05_c", "stairs_right_conn", weight=2, description="Gehen Sie im Korridor zwei Schritte geradeaus. Sie werden eine Wand spüren, an der Sie sich orientieren können.")
-    G.add_edge("stairs_right_conn", "F4.04_F4.05_c", weight=2, description="Gehen Sie im Korridor zwei Schritte geradeaus.")
+    G.add_edge("F4.04_F4.05_c", "stairs_right_conn", weight=2, description="Gehen Sie zwei Schritte geradeaus im Korridor. Fühlen Sie die Wand, um sich zu orientieren und die Richtung zu halten.")
+    G.add_edge("stairs_right_conn", "F4.04_F4.05_c", weight=2, description="Gehen Sie zwei Schritte geradeaus im Korridor. Fühlen Sie die Wand, um sich zu orientieren und die Richtung zu halten.")
 
-    G.add_edge("stairs_right_conn", "stairs_right", weight=5, description="Gehen Sie den Korridor 5 Schritte geradeaus weiter entlang, bis Sie das Ende des Korridors erreichen. Hier finden Sie eine Tür auf Ihrer rechten Seite. Fühlen Sie nach dem Türgriff, um die Tür zu öffnen und die Stiegen zu erreichen.")
-    G.add_edge("stairs_right", "stairs_right_conn", weight=5, description="Öffnen Sie die Tür vor Ihnen, um in den Korridor der 4. Etage zu gelangen, und biegen Sie unmittelbar links ab. Gehen Sie den Korridor 5 Schritte geradeaus weiter, bis Sie spüren, dass die Wand auf Ihrer linken Seite endet. Dies zeigt das Auftreten eines neuen Korridors auf Ihrer rechten Seite an.")
+
+    G.add_edge("stairs_right_conn", "stairs_right", weight=5, description="Gehen Sie fünf Schritte geradeaus im Korridor. Suchen Sie die Tür auf der rechten Seite am Ende des Korridors. Fühlen Sie nach dem Türgriff, um die Treppe zu erreichen.")
+    G.add_edge("stairs_right", "stairs_right_conn", weight=5, description="Gehen Sie fünf Schritte geradeaus im Korridor. Suchen Sie die Tür auf der rechten Seite am Ende des Korridors. Fühlen Sie nach dem Türgriff, um die Treppe zu erreichen.")
+
 
     # Binding the middle part of the hall
-    G.add_edge("door_left", "stairs_middle", weight=8, description="Gehen Sie 5 Schritte geradeaus und biegen Sie nach links ab. Gehen Sie noch 2 Schritte nach vorne und Sie erreichen die Stiegen.")
-    G.add_edge("stairs_middle", "door_left", weight=8, description="Nachdem Sie die 4.Etage erreicht haben, gehen Sie 2 Schritte geradeaus und biegen Sie demnächt nach rechts ab. Gehen Sie geradeaus weiter, bis sie die Türe vor ihnen erreichen, und öffnen Sie diese Tür.")
+    G.add_edge("door_left", "stairs_middle", weight=8, description="Um zur Treppe des 4. Stocks zu gelangen, gehen Sie 5 Schritte geradeaus, dann biegen Sie nach links ab und machen Sie noch 2 Schritte nach vorne. Hier erreichen Sie die Treppe. Seien Sie äußerst vorsichtig, um Stufen und Hindernisse zu erkennen und sicher zu navigieren.")
+    G.add_edge("stairs_middle", "door_left", weight=8, description="Nachdem Sie die 4. Etage erreicht haben, gehen Sie 2 Schritte geradeaus und biegen Sie dann nach rechts ab. Setzen Sie Ihren Weg fort, bis Sie die Tür vor sich erreichen. Achten Sie auf den Boden, um Unebenheiten zu spüren und sicherzustellen, dass Sie auf dem richtigen Weg sind.")
 
-    G.add_edge("door_left", "door_right", weight=14, description="Door left to Door right.")
-    G.add_edge("door_right", "door_left", weight=14, description="Door right to Door left.")
 
-    G.add_edge("door_left", "lift", weight=10, description="Door left to Lift.")
-    G.add_edge("lift", "door_left", weight=10, description="Lift to Door left.")
+    G.add_edge("door_left", "lift", weight=10, description="Nachdem Sie zur Tür gelangt haben, die zur Halle der 4.Etage führt, gehen Sie zur rechten Seite des Raumes, um die rechte Wand zu erreichen. Von dort aus gehen Sie 10 Schritte geradeaus entlang der rechten Wand. Wenn Sie die Lifttaste erreichen, die zirka auf Ihrer Brusthöhe befindet, drücken Sie sie, um den Aufzug zu rufen.")
+    G.add_edge("lift", "door_left", weight=10, description="Verlassen Sie den Lift mit zwei Schritten und biegen Sie dann links ab. Gehen Sie weitere 8 Schritte geradeaus, um eine Tür zu erreichen. Fühlen Sie nach der Türklinke, um in den Eingangsbereich der 4. Etage zu gelangen.")
 
-    G.add_edge("door_left", "toilets", weight=3, description="Biegen Sie gleich nach rechts ab und machen Sie 3 Schritte. Öffnen Sie die Tür und Sie erreichen die Toilette.")
-    G.add_edge("toilets", "door_left", weight=3, description="Öffnen Sie die Tür der Toilette, machen Sie 3 Schritte geradaus, biegen Sie nach links ab. Öffnen Sie die Tür vor Ihnen und gehen Sie geradeaus.")
-    
-    G.add_edge("toilets", "stairs-middle", weight=6, description="Öffnen Sie die Toilettentür, machen Sie 2 Schritte geradaus, biegen Sie nach rechts ab und machen Sie 2 Schritte geradeaus. Biegen Sie nach links ab und Sie erreichen die Stiegen des 4.Stocks.")
-    G.add_edge("stairs-middle", "toilets", weight=6, description="Nachdem Sie den 4.Stock erreicht haben, gehen Sie geradeaus, indem Sie 2 Schritte machen und nach recht abbiegen. Danach machen Sie 2 Schritte geradeaus und biegen Sie demnächst nach links ab. Öffnen Sie die Tür vor Ihnen und Sie erreichen die Toilette.")
+    G.add_edge("door_left", "door_right", weight=14, description="Gehen Sie 14 Schritte geradeaus durch die ganze Halle des 4.Stocks, bis Sie die Tür vor Ihnen erreichen. Achten Sie auf die taktilen Pflastersteine unter Ihren Füßen, die Ihnen den Weg weisen, und die Akustik in der Halle des 4.Stocks, um Ihre Orientierung zu verbessern.")
+    G.add_edge("door_right", "door_left", weight=14, description="Gehen Sie 14 Schritte geradeaus durch die ganze Halle des 4.Stocks, bis Sie die Tür vor Ihnen erreichen. Achten Sie auf die taktilen Pflastersteine unter Ihren Füßen, die Ihnen den Weg weisen, und die Akustik in der Halle des 4.Stocks, um Ihre Orientierung zu verbessern.")
 
-    G.add_edge("toilets", "lift", weight=4, description="Öffnen Sie die Toilettentür, machen Sie 2 Schritte geradaus, biegen Sie nach rechts ab und machen Sie 2 Schritte geradeaus. Biegen Sie nach rechts ab und Sie erreichen die Lifte.")
-    G.add_edge("lift", "toilets", weight=4, description="Verlassen Sie den Lift, indem Sie 2 Schritte geradeaus machen und nach links abbiegen. Danach machen Sie 2 Schritte geradeaus und biegen Sie demnächst nach links ab. Öffnen Sie die Tür vor Ihnen und Sie erreichen die Toilette.")
+    G.add_edge("door_left", "toilets", weight=3, description="Drehen Sie sich direkt nach rechts und machen Sie drei gleichmäßige Schritte. Fühlen Sie nach der Türklinke auf der rechten Seite und öffnen Sie die Tür, um die Toilette zu erreichen.")
+    G.add_edge("toilets", "door_left", weight=3, description="Öffnen Sie die Toilettentür, machen Sie drei gleichmäßige Schritte geradeaus, drehen Sie sich nach links und fühlen Sie nach der Türklinke vor Ihnen. Öffnen Sie die Tür und gehen Sie geradeaus.")
 
-    G.add_edge("door_right", "stairs_middle", weight=8, description="Gehen Sie 5 Schritte geradeaus und biegen Sie nach rechts ab. Gehen Sie noch 2 Schritte nach vorne und Sie erreichen die Stiegen.")
-    G.add_edge("stairs_middle", "door_right", weight=8, description="Nachdem Sie die 4.Etage erreicht haben, gehen Sie 2 Schritte geradeaus und biegen Sie demnächt nach links ab. Gehen Sie geradeaus weiter, bis sie die Türe vor ihnen erreichen, und öffnen Sie diese Tür.")
 
-    G.add_edge("lift", "stairs-middle", weight=2, description="Öffnen Sie die Toilettentür, machen Sie 2 Schritte geradaus und Sie erreichen die Stiegen des 4.Stocks.")
-    G.add_edge("stairs-middle", "lift", weight=2, description="Nachdem Sie den 4.Stock erreicht haben, gehen Sie geradeaus, indem Sie 2 Schritte machen. Öffnen Sie die Tür vor Ihnen und Sie erreichen die Toilette.")
-    
-    G.add_edge("door_right", "toilets", weight=12, description="door_right to toilet.")
-    G.add_edge("toilets", "door_right", weight=12, description="toilets to door_right.")
+    G.add_edge("toilets", "stairs-middle", weight=6, description="Öffnen Sie die Toilettentür, gehen Sie zwei gleichmäßige Schritte geradeaus, dann drehen Sie sich nach rechts und machen zwei weitere Schritte. Drehen Sie sich nach links und folgen Sie dem akustischen Signal, um die Stiegen des 4. Stocks zu erreichen.")
+    G.add_edge("stairs-middle", "toilets", weight=6, description="Nachdem Sie den 4. Stock erreicht haben, gehen Sie zwei gleichmäßige Schritte geradeaus, drehen Sie sich nach rechts. Gehen Sie zwei weitere Schritte und drehen Sie sich dann nach links. Öffnen Sie die Tür vor Ihnen, um die Toilette zu erreichen.")
 
-    G.add_edge("door_right", "lift", weight=7, description="door_right to lift.")
-    G.add_edge("lift", "door_right", weight=7, description="lift to door_right.")
+
+    G.add_edge("toilets", "lift", weight=4, description="Öffnen Sie die Toilettentür, machen Sie zwei gleichmäßige Schritte geradeaus, drehen Sie sich um 90 Grad nach rechts und machen zwei weitere Schritte. Drehen Sie sich erneut um 90 Grad nach rechts. Folgen Sie der veränderten Bodentextur, um die Lifte zu erreichen.")
+    G.add_edge("lift", "toilets", weight=4, description="Verlassen Sie den Lift, machen Sie zwei Schritte geradeaus und drehen Sie sich nach links. Machen Sie zwei weitere Schritte und drehen Sie sich dann nach links. Öffnen Sie die Tür vor Ihnen, um die Toilette zu erreichen.")
+
+
+    G.add_edge("door_right", "stairs_middle", weight=8, description="Gehen Sie fünf gleichmäßige Schritte geradeaus und drehen Sie sich nach rechts. Machen Sie noch zwei Schritte geradeaus und Sie erreichen die Stiegen.")
+    G.add_edge("stairs_middle", "door_right", weight=8, description="Nachdem Sie die 4. Etage erreicht haben, gehen Sie zwei gleichmäßige Schritte geradeaus und drehen Sie sich dann nach links. Gehen Sie weiter geradeaus, bis Sie die Tür vor sich fühlen, und öffnen Sie diese Tür.")
+
+
+    G.add_edge("lift", "stairs-middle", weight=2, description="Verlassen Sie den Lift und gehen Sie zwei Schritte geradeaus. Sie erreichen dann die Treppen des 4. Stocks. Fühlen Sie die Wand oder das Geländer, um sich zur Treppe zu orientieren.")
+    G.add_edge("stairs-middle", "lift", weight=2, description="Nachdem Sie den 4. Stock erreicht haben, gehen Sie zwei Schritte geradeaus. Öffnen Sie die Tür vor Ihnen, um zum Lift zu gelangen. Achten Sie auf die Änderung der Umgebungsgeräusche und den Bodenbelag, um den Lift zu identifizieren.")
+
+
+    G.add_edge("door_right", "toilets", weight=12, description="Halten Sie sich an der linken Seite, wenn Sie zur Toilette gehen. Gehen Sie 12 Schritte nach vorne, bis Sie die Tür links vor sich spüren. Verwenden Sie Ihren Tastsinn, um die Tür zu identifizieren.")
+    G.add_edge("toilets", "door_right", weight=12, description="Verlassen Sie die Toilette, machen Sie zwei Schritte und biegen Sie nach rechts ab. Gehen Sie zehn Schritte nach vorne, bis Sie die Tür vor sich erreichen. Spüren Sie nach der Tür, um den Eingang zu finden.")
+
+
+    G.add_edge("door_right", "lift", weight=7, description="Halten Sie sich an der linken Seite, wenn Sie zu den Aufzügen gehen. Gehen Sie 7 Schritte nach vorne, bis Sie die Aufzüge links vor sich spüren. Verwenden Sie Ihren Tastsinn, um die Aufzüge zu lokalisieren.")
+    G.add_edge("lift", "door_right", weight=7, description="Verlassen Sie den Lift, gehen Sie zwei Schritte nach vorne und biegen Sie dann rechts ab. Machen Sie 5 Schritte nach vorne, bis Sie die Tür vor sich erreichen. Fühlen Sie nach der Tür, um den Eingangsbereich zu erkennen.")
 
     return G
 
