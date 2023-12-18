@@ -12,5 +12,5 @@ def pathfinding(request, start, end):
     description_text += ' -> '. join(path)
     description_text += '\n'
     description_text += "Descriptions: "
-    description_text += ' -> '.join(descriptions)
+    description_text += ' '.join(descriptions)
     return HttpResponse(description_text, content_type="text/plain; charset=utf-8")
