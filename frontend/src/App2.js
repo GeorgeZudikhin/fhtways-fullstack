@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from './assets/logo.jpg';
+import logo from './assets/Logo.jpg';
 import fhtwlogo from  './assets/fhtw_logo.svg.png';
 import adiobook from  './assets/audiobook.PNG';
 import aplus from  './assets/aplus.PNG';
