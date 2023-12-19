@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-from .graph_setup import *
+from .graph_setup_coord import *
 
 def pathfinding(request, start, end):
     graph = create_graph()
@@ -12,5 +12,5 @@ def pathfinding(request, start, end):
     description_text += ' -> '. join(path)
     description_text += '\n'
     description_text += "Descriptions: "
-    description_text += '. '.join(descriptions)
-    return HttpResponse(description_text, content_type="text/plain")
+    description_text += ' '.join(descriptions)
+    return HttpResponse(description_text, content_type="text/plain; charset=utf-8")
