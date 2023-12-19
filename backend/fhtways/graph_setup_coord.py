@@ -117,7 +117,7 @@ def create_graph():
 
 
     G.add_edge("F4.03", "F4.03_F4.06_c", weight=2, description="Öffnen Sie die Tür von Raum F4.03 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
-    G.add_edge("F4.03_F4.06_c", "F4.03", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Suchen Sie die Tür auf Ihrer rechten Seite, um Raum F4.03 zu betreten")
+    G.add_edge("F4.03_F4.06_c", "F4.03", weight=2, description="Gehen Sie im Korridor 2 Schritte geradeaus. Suchen Sie die Tür auf Ihrer rechten Seite, um Raum F4.03 zu betreten.")
 
 
     G.add_edge("F4.02", "F4.02_F4.07_c", weight=2, description="Öffnen Sie die Tür von Raum F4.02 und treten Sie heraus. Gehen Sie 2 Schritte geradeaus, um den Korridor zu erreichen. Achten Sie auf die Veränderung in der Akustik, die den Übergang zum Korridor anzeigt.")
@@ -129,32 +129,32 @@ def create_graph():
 
 
     # Add directed edges between corridor/connection nodes
-    G.add_edge("F4.27_c", "F4.26_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
-    G.add_edge("F4.26_c", "F4.27_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.27_c", "F4.26_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.26_c", "F4.27_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
 
 
-    G.add_edge("F4.26_c", "F4.25_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
-    G.add_edge("F4.25_c", "F4.26_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.26_c", "F4.25_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.25_c", "F4.26_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
 
 
-    G.add_edge("F4.25_c", "F4.24_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
-    G.add_edge("F4.24_c", "F4.25_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.25_c", "F4.24_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.24_c", "F4.25_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
 
 
-    G.add_edge("F4.24_c", "F4.23_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
-    G.add_edge("F4.23_c", "F4.24_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren")
+    G.add_edge("F4.24_c", "F4.23_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.23_c", "F4.24_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
 
 
-    G.add_edge("F4.23_c", "F4.22_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren")
-    G.add_edge("F4.22_c", "F4.23_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren")
+    G.add_edge("F4.23_c", "F4.22_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.22_c", "F4.23_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
 
 
     G.add_edge("F4.22_c", "F4.20_conn", weight=3, description="Gehen Sie zwei Schritte im Korridor geradeaus, bis Sie auf eine Wand stoßen. Diese Wand kennzeichnet das Ende des Korridors und signalisiert eine Richtungsänderung.")
     G.add_edge("F4.20_conn", "F4.22_c", weight=3, description="Gehen Sie zwei Schritte im Korridor geradeaus, bis Sie auf eine Wand stoßen. Diese Wand kennzeichnet das Ende des Korridors und signalisiert eine Richtungsänderung.")
 
 
-    G.add_edge("F4.20_conn", "F4.20_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
-    G.add_edge("F4.20_c", "F4.20_conn", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.20_conn", "F4.20_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
+    G.add_edge("F4.20_c", "F4.20_conn", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens, um Ihre Bewegung zu orientieren.")
 
 
     G.add_edge("F4.01_F4.08_c", "F4.02_F4.07_c", weight=3, description="Bewegen Sie sich im Korridor drei Schritte geradeaus. Achten Sie auf die Beschaffenheit des Bodens und die Akustik des Raumes, um Ihre Bewegung zu orientieren.")
@@ -174,7 +174,7 @@ def create_graph():
 
 
     G.add_edge("door_right", "F4.01_F4.08_c", weight=2, description="Öffnen Sie die Tür und gehen Sie zwei Schritte geradeaus im Korridor. Fühlen Sie den Boden und orientiere Sie sich in der Umgebung.")
-    G.add_edge("F4.01_F4.08_c", "door_right", weight=2, description="Gehen Sie zwei Schritte geradeaus im Korridor, bis Sie die Tür vor sich fühlen. Verwenden Sie Ihren Tastsinn, um die Türklinke zu finden")
+    G.add_edge("F4.01_F4.08_c", "door_right", weight=2, description="Gehen Sie zwei Schritte geradeaus weiter im Korridor, bis Sie die Tür vor sich fühlen. Verwenden Sie Ihren Tastsinn, um die Türklinke zu finden.")
 
 
     # Add directed edges on the right side of the floor
@@ -183,7 +183,7 @@ def create_graph():
 
 
     G.add_edge("stairs_right_conn", "stairs_right", weight=5, description="Gehen Sie fünf Schritte geradeaus im Korridor. Suchen Sie die Tür auf der rechten Seite am Ende des Korridors. Fühlen Sie nach dem Türgriff, um die Treppe zu erreichen.")
-    G.add_edge("stairs_right", "stairs_right_conn", weight=5, description="Gehen Sie fünf Schritte geradeaus im Korridor. Suchen Sie die Tür auf der rechten Seite am Ende des Korridors. Fühlen Sie nach dem Türgriff, um die Treppe zu erreichen.")
+    G.add_edge("stairs_right", "stairs_right_conn", weight=5, description="Öffnen Sie die Tür vor Ihnen, um in den Korridor der 4. Etage zu gelangen und biegen Sie unmittelbar links ab. Gehen Sie den Korridor 5 Schritte geradeaus weiter, bis Sie spüren, dass die Wand auf Ihrer linken Seite endet. Dies zeigt das Auftreten eines neuen Korridors auf Ihrer rechten Seite an.")
 
 
     # Binding the middle part of the hall
@@ -309,19 +309,19 @@ def find_shortest_path(graph, start_node, end_node):
                 accumulated_nodes += 1
                 
                 if turn:
-                    descriptions.append(f"Biegen Sie {turn} ab. ")
+                    descriptions.append(f"Biegen Sie {turn} ab.")
 
             else:
                 # Add accumulated distance to the description
                 if accumulated_distance:
                     print("Finally appending the entire corridor description")
-                    descriptions.append(f"Gehen Sie geradeaus {accumulated_distance} Schritte im Korridor, vorbei an {accumulated_nodes} Zimmern")
+                    descriptions.append(f"Gehen Sie geradeaus {accumulated_distance} Schritte im Korridor. Orientieren Sie sich an den Zimmern auf ihrer rechten Seite: Sie werden an {accumulated_nodes} Zimmern vorbeigehen.")
                     print(descriptions)
                     accumulated_distance = 0
                     accumulated_nodes = 0
 
                 if turn:
-                    descriptions.append(f"Biegen Sie {turn} ab. ")
+                    descriptions.append(f"Biegen Sie {turn} ab.")
         
                 # If there is no accumulated distance, add the current edge's description
                 print("Simply appending edge description")
