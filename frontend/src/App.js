@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
 import Logo from './assets/Logo.jpg';
 import fhtwlogo from  './assets/fhtw_logo.svg.png';
 import adiobook from  './assets/audiobook.PNG';
@@ -21,12 +22,13 @@ import App2 from './App2.js';
 
 
 function MainApp() {
-  const [contrastMode, setContrastMode] = useState(false);
-  const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
-  const [isParagraphLarge, setIsParagraphLarge] = useState(false);
-  const [lineHeight, setLineHeight] = useState(1.5); // Initial line height
-  const [reset] = useState(1.5); // Initial line height
-  const toggleContrast = () => {
+    const navigate = useNavigate();
+    const [contrastMode, setContrastMode] = useState(false);
+    const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
+    const [isParagraphLarge, setIsParagraphLarge] = useState(false);
+    const [lineHeight, setLineHeight] = useState(1.5); // Initial line height
+    const [reset] = useState(1.5); // Initial line height
+    const toggleContrast = () => {
     setContrastMode(!contrastMode);
     // Logic to change contrast mode and colors accordingly
     if (!contrastMode) {
@@ -38,35 +40,59 @@ function MainApp() {
     }
   };
 
-  const resetContrast = () => {
-    setContrastMode(false);
-    document.body.style.backgroundColor = '#ffffff';
-    document.body.style.color = '#000000';
-  };
+    const resetContrast = () => {
+        setContrastMode(false);
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#000000';
+    };
 
-  const increaseFontSize = () => {
-    setFontSize(fontSize + 4); // Schriftgröße um 4 Pixel erhöhen
-    setIsParagraphLarge(true); // Setze den Zustand für den vergrößerten Absatz auf true
-  };
+    const increaseFontSize = () => {
+        setFontSize(fontSize + 4); // Schriftgröße um 4 Pixel erhöhen
+        setIsParagraphLarge(true); // Setze den Zustand für den vergrößerten Absatz auf true
+    };
 
-  const resetFontSize = () => {
-    setFontSize(16); // Schriftgröße auf 16 Pixel zurücksetzen
-    setIsParagraphLarge(false); // Setze den Zustand für den vergrößerten Absatz auf false
-  };
-  const increaseLineHeight = () => {
-    setLineHeight(lineHeight + 0.2); // Zeilenabstand um 0.2 erhöhen
-  };
+    const resetFontSize = () => {
+        setFontSize(16); // Schriftgröße auf 16 Pixel zurücksetzen
+        setIsParagraphLarge(false); // Setze den Zustand für den vergrößerten Absatz auf false
+    };
+    const increaseLineHeight = () => {
+        setLineHeight(lineHeight + 0.2); // Zeilenabstand um 0.2 erhöhen
+    };
 
-  const resetLineHeight = () => {
-    setLineHeight(1.5); // Zeilenabstand zurücksetzen
-  };
-  const resetAll = () => {
-    setFontSize(16);
-    setLineHeight(1.5);
-    setContrastMode(false);
-    document.body.style.backgroundColor = '#ffffff';
-    document.body.style.color = '#000000';
-  };
+    const resetLineHeight = () => {
+        setLineHeight(1.5); // Zeilenabstand zurücksetzen
+    };
+
+    const resetAll = () => {
+        setFontSize(16);
+        setLineHeight(1.5);
+        setContrastMode(false);
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#000000';
+    };
+
+    const handleFindPath = async () => {
+        const start = document.querySelector('[placeholder="Geben Sie Ihren Startpunkt an..."]').value;
+        const end = document.querySelector('[placeholder="Geben Sie Ihr Ziel an..."]').value;
+
+        console.log("start: ", start);
+        console.log("end: ", end);
+
+        try {
+            const response = await fetch(`http://localhost:8000/fhtways/find-path/?start=${start}&end=${end}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log("Received data:", data);
+
+            // Navigate to App2 with the path description
+            navigate('/app2', { state: { pathDescription: data.path } });
+        } catch (error) {
+            console.error('Error fetching path data:', error);
+        }
+    };
+
     return (
         <div className={`App ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>                <div className="top-right-buttons">             
                 <a href="#" onClick={() => { /* Action for Button 1 */ }}>
@@ -143,7 +169,7 @@ function MainApp() {
 
                      <div className={'button-container'}>
                         <Link to="/app2">
-                            <button>Los!</button>
+                            <button onClick={handleFindPath}>Los!</button>
                         </Link>
                      </div>
                     <p style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit den Buchstaben "M", "W" oder “D” im [Zimmer] können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten navigieren</p>
@@ -195,4 +221,5 @@ function App() {
         </Router>
     );
 }
+
 export default App;

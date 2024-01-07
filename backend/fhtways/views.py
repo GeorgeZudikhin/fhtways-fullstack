@@ -1,16 +1,13 @@
 # Create your views here.
-from django.http import HttpResponse, JsonResponse
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .graph_setup_coord import *
 
-def find_path(request):
-    start = request.GET.get('start')
-    end = request.GET.get('end')
-    graph = create_graph()
-    path, descriptions = find_shortest_path(graph, start, end)
-
-    # description_text = "Path: "
-    # description_text += ' -> '. join(path)
-    # description_text += '\n'
-    # description_text += "Descriptions: "
-    # description_text += ' '.join(descriptions)
-    return JsonResponse({'path_description': descriptions})
+class PathFindingView(APIView):
+    def get(self, request, *args, **kwargs):
+        start = request.query_params.get('start')
+        end = request.query_params.get('end')
+        graph = create_graph()
+        _, descriptions = find_shortest_path(graph, start, end)
+        
+        return Response({"path": descriptions})
