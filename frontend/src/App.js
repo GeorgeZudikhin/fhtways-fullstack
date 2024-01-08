@@ -79,14 +79,21 @@ function MainApp() {
         console.log("end: ", end);
 
         try {
-            const response = await fetch(`http://localhost:8000/fhtways/find-path/?start=${start}&end=${end}`);
+            const response = await fetch('http://localhost:8000/fhtways/find-path/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ start, end }),
+            });
+    
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
+    
             const data = await response.json();
-            console.log("Received data:", data);
-
             navigate('/app2', { state: { pathDescription: data.path } });
+    
         } catch (error) {
             console.error('Error fetching path data:', error);
         }

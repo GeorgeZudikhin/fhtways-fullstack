@@ -276,7 +276,7 @@ def find_shortest_path(graph, start_node, end_node):
                 # Add accumulated distance to the description
                 if accumulated_distance:
                     print("Finally appending the entire corridor description")
-                    descriptions.append(f"Gehen Sie geradeaus {accumulated_distance} Schritte im Korridor. Orientieren Sie sich an den Zimmern auf ihrer rechten Seite: Sie werden an {accumulated_nodes} Zimmern vorbeigehen. ")
+                    descriptions.append(f"Gehe geradeaus {accumulated_distance} Schritte im Korridor. Orientiere dich an den Zimmern auf deiner rechten Seite: du wirst an {accumulated_nodes} Zimmern vorbeigehen. ")
                     print(descriptions)
                     accumulated_distance = 0
                     accumulated_nodes = 0
