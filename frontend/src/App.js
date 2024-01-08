@@ -22,7 +22,10 @@ import App2 from './App2.js';
 
 
 function MainApp() {
+    const [start, setStart] = useState('');
+    const [end, setEnd] = useState('');
     const navigate = useNavigate();
+    
     const [contrastMode, setContrastMode] = useState(false);
     const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
     const [isParagraphLarge, setIsParagraphLarge] = useState(false);
@@ -72,9 +75,6 @@ function MainApp() {
     };
 
     const handleFindPath = async () => {
-        const start = document.querySelector('[placeholder="Geben Sie Ihren Startpunkt an..."]').value;
-        const end = document.querySelector('[placeholder="Geben Sie Ihr Ziel an..."]').value;
-
         console.log("start: ", start);
         console.log("end: ", end);
 
@@ -86,7 +86,6 @@ function MainApp() {
             const data = await response.json();
             console.log("Received data:", data);
 
-            // Navigate to App2 with the path description
             navigate('/app2', { state: { pathDescription: data.path } });
         } catch (error) {
             console.error('Error fetching path data:', error);
@@ -146,6 +145,8 @@ function MainApp() {
                                 <input
                                     type="text"
                                     placeholder="Geben Sie Ihren Startpunkt an..."
+                                    value={start}
+                                    onChange={(e) => setStart(e.target.value)}
                                     style={{ width: '100%' }}
                                 />
                             </div>
@@ -159,6 +160,8 @@ function MainApp() {
                                 <input
                                     type="text"
                                     placeholder="Geben Sie Ihr Ziel an..."
+                                    value={end}
+                                    onChange={(e) => setEnd(e.target.value)}
                                     style={{ width: '100%' }}
                                 />
                             </div>
@@ -168,9 +171,7 @@ function MainApp() {
                 </div>
 
                      <div className={'button-container'}>
-                        <Link to="/app2">
-                            <button onClick={handleFindPath}>Los!</button>
-                        </Link>
+                        <button onClick={handleFindPath}>Los!</button>
                      </div>
                     <p style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit den Buchstaben "M", "W" oder “D” im [Zimmer] können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten navigieren</p>
                     <p style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes, z.B. F für das Gebäude </p>

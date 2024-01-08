@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .graph_setup_coord import *
 
 class PathFindingView(APIView):
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         start = request.query_params.get('start')
         end = request.query_params.get('end')
         graph = create_graph()

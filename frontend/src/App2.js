@@ -17,6 +17,7 @@ import Linkedin from  './assets/icons/linkedin.png';
 import Email from  './assets/icons/mail.png';
 import { Link } from 'react-router-dom';
 
+
 function App2(){
     const location = useLocation();
     const pathDescription = location.state?.pathDescription || 'No path description available';
@@ -103,8 +104,12 @@ function App2(){
                 <div>
                   <h1>Path Description</h1>
                   <p>{pathDescription}</p>
-                  {/* Other elements as needed */}
                 </div>
+  </div>
+  <div className={'button-container'}>
+    <Link to="/">
+    <button>Neue Suche</button>
+    </Link>
   </div>
    <nav className={'footer-nav'} style={{ textAlign: 'center', bottom: 0}}>
                  <ul style={{ listStyle: 'none', padding: 0 }}>
