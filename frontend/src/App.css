@@ -151,3 +151,39 @@ button {
 .large-font {
   font-size: 20px; /* Hier die gewünschte Schriftgröße eintragen */
 }
+body.contrast-mode {
+  background-color: #000;
+  color: #fff;
+}
+/* Existing styles... */
+
+@media (max-width: 768px) {
+  /* Adjust styles for tablet and smaller screens */
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    width: 80%;
+  }
+
+  .content-container {
+    width: 90%; /* Adjust width as needed */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust styles for mobile screens */
+  .button-container {
+    margin-left: 0;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .content-container {
+    width: 100%;
+  }
+}
