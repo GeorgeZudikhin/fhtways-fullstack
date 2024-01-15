@@ -1,90 +1,66 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.App {
+body {
+  font-size: 16px;
   position: relative;
 }
+
 div {
   display: block;
 }
-.logo-container{
+
+.logo-container {
   height: 150px;
 }
+
 .school-logo {
   position: absolute;
   width: 11%;
   height: auto;
   left: 10px;
-  top:10px;
+  top: 10px;
 }
+
 .project-logo {
   position: absolute;
   width: 17%;
   height: auto;
-  top:0px;
+  top: 0;
   left: 40%;
 }
+
 .content-container {
   margin: 0 auto;
   width: 70%;
   text-align: justify;
   position: relative;
 }
+
 p {
   font-size: 19px;
   color: #696868;
 }
+
 .search-bar-container {
   display: flex;
   flex-direction: column;
+}
 
-}
 .search-bar {
-  margin-left: 200px;
+  margin-left: 5%;
 }
+
 input {
-  width: 93%;
-  padding: 40px;
+  width: 90%;
+  padding: 20px;
   font-size: 20px;
   border: 1px solid #ccc;
   border-radius: 50px;
-
 }
+
 .button-container {
   margin-top: 25px;
   margin-left: 40%;
 }
+
 button {
   width: 30%;
   padding: 20px 70px;
@@ -95,11 +71,12 @@ button {
   font-weight: bolder;
   background-color: #0a65c0;
 }
+
 .footer-nav {
   width: 100%;
   height: 200px;
   background-color: #0a65c0;
-  position:absolute;
+  position: absolute;
   font-weight: bold;
   font-size: 17px;
   color: white;
@@ -112,53 +89,40 @@ button {
 
 .footer-nav > ul > li {
   display: inline-block;
-  margin: 10px 20px; 
+  margin: 10px 20px;
   list-style: none;
 }
 
-.footer-nav > ul > li > a:link {
-  color: #FFF;
-  text-decoration: none;
-}
+.footer-nav > ul > li > a:link,
 .footer-nav > ul > li > a:visited {
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
 }
+
 .footer-nav > ul > li > a:active {
   color: #282c34;
   text-decoration: none;
 }
+
 .top-right-buttons {
   position: absolute;
-  top: 20px; 
-  right: 20px; 
+  top: 20px;
+  right: 20px;
   display: flex;
-  flex-direction: row; 
-  gap: 10px; 
+  flex-direction: row;
+  gap: 10px;
 }
 
 .top-image-button {
-  width: 40px; 
-  height: 40px; 
-  cursor: pointer;
-}
-.footer-image-button {
-  width: 40px; 
-  height: 40px; 
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
-.large-font {
-  font-size: 20px; /* Hier die gewünschte Schriftgröße eintragen */
-}
-body.contrast-mode {
-  background-color: #000;
-  color: #fff;
-}
-/* Existing styles... */
+/* Media queries... */
 
 @media (max-width: 768px) {
-  /* Adjust styles for tablet and smaller screens */
+  
   .button-container {
     display: flex;
     justify-content: center;
@@ -169,21 +133,40 @@ body.contrast-mode {
   }
 
   .content-container {
-    width: 90%; /* Adjust width as needed */
+    width: 90%;
+    text-align: left;
   }
 }
 
 @media (max-width: 480px) {
-  /* Adjust styles for mobile screens */
   .button-container {
     margin-left: 0;
   }
-
   button {
     width: 100%;
   }
-
+  .project-logo {
+    width: 30%;
+    height: auto;
+  }
+  .school-logo {
+    width: 22%;
+    height: auto;
+  }
   .content-container {
     width: 100%;
   }
+  .top-right-buttons {
+    top: 70px;
+  }
+  .top-image-button {
+    height: 30px;
+    width: 40px;
+  }
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

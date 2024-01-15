@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; 
-import { useNavigate } from 'react-router-dom'; 
 import Logo from './assets/Logo.jpg';
 import fhtwlogo from  './assets/fhtw_logo.svg.png';
 import adiobook from  './assets/audiobook.PNG';
@@ -19,18 +18,6 @@ import App2 from './App2.js';
 
 
 function MainApp() {
-<<<<<<< Updated upstream
-    const [start, setStart] = useState('');
-    const [end, setEnd] = useState('');
-    const navigate = useNavigate();
-    
-    const [contrastMode, setContrastMode] = useState(false);
-    const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
-    const [isParagraphLarge, setIsParagraphLarge] = useState(false);
-    const [lineHeight, setLineHeight] = useState(1.5); // Initial line height
-    const [reset] = useState(1.5); // Initial line height
-    const toggleContrast = () => {
-=======
   const [contrastMode, setContrastMode] = useState(false);
   const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
   const [isParagraphLarge, setIsParagraphLarge] = useState(false);
@@ -46,7 +33,6 @@ function MainApp() {
 
 //Contrast
   const toggleContrast = () => {
->>>>>>> Stashed changes
     setContrastMode(!contrastMode);
     if (!contrastMode) {
       document.body.style.backgroundColor = '#000000';
@@ -68,65 +54,6 @@ function MainApp() {
       });
     }
   };
-<<<<<<< Updated upstream
-
-    const resetContrast = () => {
-        setContrastMode(false);
-        document.body.style.backgroundColor = '#ffffff';
-        document.body.style.color = '#000000';
-    };
-
-    const increaseFontSize = () => {
-        setFontSize(fontSize + 4); // Schriftgröße um 4 Pixel erhöhen
-        setIsParagraphLarge(true); // Setze den Zustand für den vergrößerten Absatz auf true
-    };
-
-    const resetFontSize = () => {
-        setFontSize(16); // Schriftgröße auf 16 Pixel zurücksetzen
-        setIsParagraphLarge(false); // Setze den Zustand für den vergrößerten Absatz auf false
-    };
-    const increaseLineHeight = () => {
-        setLineHeight(lineHeight + 0.2); // Zeilenabstand um 0.2 erhöhen
-    };
-
-    const resetLineHeight = () => {
-        setLineHeight(1.5); // Zeilenabstand zurücksetzen
-    };
-
-    const resetAll = () => {
-        setFontSize(16);
-        setLineHeight(1.5);
-        setContrastMode(false);
-        document.body.style.backgroundColor = '#ffffff';
-        document.body.style.color = '#000000';
-    };
-
-    const handleFindPath = async () => {
-        console.log("start: ", start);
-        console.log("end: ", end);
-
-        try {
-            const response = await fetch('http://localhost:8000/fhtways/find-path/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ start, end }),
-            });
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-    
-            const data = await response.json();
-            navigate('/app2', { state: { pathDescription: data.path } });
-    
-        } catch (error) {
-            console.error('Error fetching path data:', error);
-        }
-    };
-
-=======
   const resetContrast = () => {
     setContrastMode(false);
     document.body.style.backgroundColor = '#ffffff';
@@ -231,7 +158,6 @@ const increaseLineHeight = () => {
         element.style.color = ''; // Reset to default or your desired color
     });
   };
->>>>>>> Stashed changes
     return (
             <div className={`App ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>                    
                     
@@ -281,34 +207,6 @@ const increaseLineHeight = () => {
                     Wegbeschreibungen!</p>
                     
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
-<<<<<<< Updated upstream
-                    <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', columnGap: '10px', marginBottom: '5px' }}>
-                        <p style={{ fontWeight: 'bolder', margin: '0', fontSize: '32px' }}>Start</p>
-                        <div style={{ display: 'flex', alignItems: 'center', marginLeft: '-5px' }}>
-                            <div className={'search-bar'} style={{ width: '100%' }}>
-                                <input
-                                    type="text"
-                                    placeholder="Geben Sie Ihren Startpunkt an..."
-                                    value={start}
-                                    onChange={(e) => setStart(e.target.value)}
-                                    style={{ width: '100%' }}
-                                />
-                            </div>
-                        </div>
-                        <div style={{ width: '20px' }}></div>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', columnGap: '10px', marginBottom: '5px' }}>
-                        <p style={{ fontWeight: 'bold', margin: '0', fontSize: '32px'}}>Ziel</p>
-                        <div style={{ display: 'flex', alignItems: 'center', marginLeft: '-5px' }}>
-                            <div className={'search-bar'} style={{ width: '100%' }}>
-                                <input
-                                    type="text"
-                                    placeholder="Geben Sie Ihr Ziel an..."
-                                    value={end}
-                                    onChange={(e) => setEnd(e.target.value)}
-                                    style={{ width: '100%' }}
-                                />
-=======
                   <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', columnGap: '10px', marginBottom: '5px' }}>
                     <p className="contrastable-text" style={{ fontWeight: 'bolder', margin: '0', fontSize: '32px' }}>Start</p>
                     <div style={{ display: 'flex', alignItems: 'center', marginLeft: '-5px' }}>
@@ -339,20 +237,12 @@ const increaseLineHeight = () => {
                                 style={{ width: '100%' }}
                                 onChange={handleEndNodeChange}
                             />
->>>>>>> Stashed changes
                             </div>
                         </div>
                         <div style={{ width: '20px' }}></div>
                         </div>
                 </div>
 
-<<<<<<< Updated upstream
-                     <div className={'button-container'}>
-                        <button onClick={handleFindPath}>Los!</button>
-                     </div>
-                    <p style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit den Buchstaben "M", "W" oder “D” im [Zimmer] können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten navigieren</p>
-                    <p style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes, z.B. F für das Gebäude </p>
-=======
                     <div className={'button-container'}>
                         <Link to="/app2">
                         <button disabled={!isValidInput} onClick={() => isValidInput || alert(errorMessage)}>                            Los!
@@ -366,7 +256,6 @@ const increaseLineHeight = () => {
                     )}
                     <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit den Buchstaben "M", "W" oder “D” im [Zimmer] können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten navigieren</p>
                     <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes, z.B. F für das Gebäude </p>
->>>>>>> Stashed changes
                 </div>
             </div>
            
@@ -384,5 +273,4 @@ function App() {
         </Router>
     );
 }
-
 export default App;
