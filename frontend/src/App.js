@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; 
 import { useNavigate } from 'react-router-dom'; 
 import Logo from './assets/Logo.jpg';
@@ -31,6 +31,15 @@ function MainApp() {
     const [isParagraphLarge, setIsParagraphLarge] = useState(false);
     const [lineHeight, setLineHeight] = useState(1.5); // Initial line height
     const [reset] = useState(1.5); // Initial line height
+
+    const startInputRef = useRef(null);
+    const endInputRef = useRef(null);
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault(); // prevents the page from reloading
+        handleFindPath();
+    };
+
     const toggleContrast = () => {
     setContrastMode(!contrastMode);
     // Logic to change contrast mode and colors accordingly
@@ -42,6 +51,46 @@ function MainApp() {
       document.body.style.color = '#000000';
     }
   };
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+        if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+            return;
+        }
+
+        switch(event.key) {
+            case '+':
+                increaseFontSize(); // increases the font size
+                break;
+            case '-':
+                resetFontSize(); // resets the font size
+                break;
+            case 'c':
+                toggleContrast(); // changes the contrast
+                break;
+            case 'd':
+                resetContrast(); // resets the contrast
+                break;
+            case 'z':
+                setLineHeight(prevLineHeight => prevLineHeight + 0.1); // increases the line spacing
+                break;
+            case 't':
+                resetLineHeight(); // resets the line spacing
+                break;
+            case 'r':
+                resetAll(); // resets everything
+                break;
+            default:
+                break;
+        }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+        window.removeEventListener('keydown', handleKeyPress);
+    };
+}, [fontSize]); 
+
 
     const resetContrast = () => {
         setContrastMode(false);
@@ -50,20 +99,20 @@ function MainApp() {
     };
 
     const increaseFontSize = () => {
-        setFontSize(fontSize + 4); // Schriftgröße um 4 Pixel erhöhen
-        setIsParagraphLarge(true); // Setze den Zustand für den vergrößerten Absatz auf true
+        setFontSize(fontSize + 1);
+        setIsParagraphLarge(true); 
     };
 
     const resetFontSize = () => {
-        setFontSize(16); // Schriftgröße auf 16 Pixel zurücksetzen
-        setIsParagraphLarge(false); // Setze den Zustand für den vergrößerten Absatz auf false
+        setFontSize(16); 
+        setIsParagraphLarge(false); 
     };
     const increaseLineHeight = () => {
-        setLineHeight(lineHeight + 0.2); // Zeilenabstand um 0.2 erhöhen
+        setLineHeight(lineHeight + 0.2); 
     };
 
     const resetLineHeight = () => {
-        setLineHeight(1.5); // Zeilenabstand zurücksetzen
+        setLineHeight(1.5); 
     };
 
     const resetAll = () => {
@@ -130,8 +179,6 @@ function MainApp() {
                 </a>
             </div>
             
-            
-           
             <div>
             <div className="content-container" style={{ textAlign: 'center' }}>
                 <h1 style={{ color: '#0a65c0' }}>Pathfinding for All - Enter Your Route and Explore FHTW</h1>
@@ -178,7 +225,11 @@ function MainApp() {
                 </div>
 
                      <div className={'button-container'}>
-                        <button onClick={handleFindPath}>Los!</button>
+                     <button onClick={handleFindPath} onKeyPress={(event) => {
+                        if (event.key === 'Enter') {
+                            handleFindPath();
+                        }
+                     }}>Los!</button>
                      </div>
                     <p style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit den Buchstaben "M", "W" oder “D” im [Zimmer] können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten navigieren</p>
                     <p style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes, z.B. F für das Gebäude </p>
@@ -215,6 +266,7 @@ function MainApp() {
         </ul>
              <p style={{ fontSize: '15px', color: 'white', fontWeight: 'bold' }}>© Copyright 2023 - FHTWays</p>
             </nav>
+            
         </div>
     );
 }
