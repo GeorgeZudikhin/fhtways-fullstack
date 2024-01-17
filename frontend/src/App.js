@@ -27,7 +27,7 @@ function MainApp() {
   const [lineHeightCounter, setLineHeightCounter] = useState(0);
   const [startNode, setStartNode] = useState('');
   const [endNode, setEndNode] = useState('');
-  const [isValidInput, setIsValidInput] = useState(true); // New state for input validity
+  const [isValidInput, setIsValidInput] = useState(false);
 
   const validNodes = ['F4', 'Aufzug', 'Toilette', 'F4.27', 'F4.26', 'F4.25', 'F4.24', 'F4.23', 'F4.22', 'F4.20', 'F4.08', 'F4.07', 'F4.06', 'F4.05', 'F4.04', 'F4.03', 'F4.02', 'F4.01'];
 
@@ -125,11 +125,11 @@ const increaseLineHeight = () => {
   
     // Set error message for invalid format
     if (start.trim() === '' || end.trim() === '') {
-      setErrorMessage('Please enter both start and end room numbers.');
+      setErrorMessage('Bitte geben Sie sowohl die Anfangs- als auch die Endraumnummer ein.');
     } else if (!isValidFormat) {
-      setErrorMessage('Invalid input format! Please enter the room number in the correct format.');
+      setErrorMessage('Ungültiges Eingabeformat! Bitte geben Sie die Zimmernummer im richtigen Format ein.');
     } else if (!isValid) {
-      setErrorMessage(`Invalid input! Please enter valid room numbers. Acceptable room numbers are: ${validNodes.join(', ')}`);
+      setErrorMessage(`Ungültige Eingabe! Bitte geben Sie gültige Zimmernummern ein. Zulässige Zimmernummern sind: ${validNodes.join(', ')}`);
     } else {
       setErrorMessage(''); // Clear error message if input is valid
     }
@@ -163,21 +163,21 @@ const increaseLineHeight = () => {
                     
                 <div className="top-right-buttons">             
                 <a href="#" onClick={() => { /* Action for Button 1 */ }}>
-                    <img className="top-image-button" src={adiobook} alt="Button 1" />
+                    <img className="top-image-button" src={adiobook} alt="Button für Screenreader" />
                 </a>
                 
-                <a href="#" onClick={increaseFontSize}><img className="top-image-button" src={aplus} alt="Button 2" /></a>
-                <a href="#" onClick={decreaseFontSize}><img className="top-image-button" src={aminus} alt="Button 3" /></a>
+                <a href="#" onClick={increaseFontSize}><img className="top-image-button" src={aplus} alt="Button Schrift größer" /></a>
+                <a href="#" onClick={decreaseFontSize}><img className="top-image-button" src={aminus} alt="Button Schrift kleiner" /></a>
 
-                <a href="#" onClick={toggleContrast}><img className="top-image-button" src={bnw} alt="Button 4" /></a>
-                <a href="#" onClick={resetContrast}><img className="top-image-button" src={farbe} alt="Button 5" /></a>
+                <a href="#" onClick={toggleContrast}><img className="top-image-button" src={bnw} alt="Button für Kontrast" /></a>
+                <a href="#" onClick={resetContrast}><img className="top-image-button" src={farbe} alt="Button für Kontrast zurücksetzen" /></a>
                
-                <a href="#" onClick={increaseLineHeight}><img className="top-image-button" src={zplus} alt="Button 6" /></a>
-                <a href="#" onClick={resetLineHeight}><img className="top-image-button" src={znormal} alt="Button 7" /></a>
+                <a href="#" onClick={increaseLineHeight}><img className="top-image-button" src={zplus} alt="Button für Zeileanbstand größer" /></a>
+                <a href="#" onClick={resetLineHeight}><img className="top-image-button" src={znormal} alt="Button für Zeilenabstand kleiner" /></a>
                
-                <a href="#" onClick={resetAll}><img className="top-image-button" src={returnz} alt="Button 8" /></a>
+                <a href="#" onClick={resetAll}><img className="top-image-button" src={returnz} alt="Button für alles zurücksetzen" /></a>
                 <a href="#" onClick={() => { /* Action for Button 1 */ }}>
-                    <img className="top-image-button" src={sprache} alt="Button 1" />
+                    <img className="top-image-button" src={sprache} alt="Button für Sprache ändern" />
                 </a>
                 
             </div>
@@ -209,14 +209,14 @@ const increaseLineHeight = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', columnGap: '10px', marginBottom: '5px' }}>
                     <p className="contrastable-text" style={{ fontWeight: 'bolder', margin: '0', fontSize: '32px' }}>Start</p>
-                    <div style={{ display: 'flex', alignItems: 'center', marginLeft: '-5px' }}>
-                      <div className={'search-bar'} style={{ width: '100%', marginBottom: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center'}}>
+                      <div className={'search-bar-start'} style={{ width: '100%', marginBottom: '10px' }}>
                             <input
                                 id="startInput"
                                 type="text"
                                 pattern="[A-Z]\d+(\.\d+)?"
                                 placeholder="Geben Sie Ihren Startpunkt an..."
-                                style={{ width: '100%' }}
+                                style={{ width: '100%', backgroundColor: startNode ? '#cfe3fa' : '#ffffff'}}
                                 onChange={handleStartNodeChange}
       
                             />
@@ -228,13 +228,13 @@ const increaseLineHeight = () => {
                         <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', columnGap: '10px', marginBottom: '5px' }}>
                           <p className="contrastable-text" style={{ fontWeight: 'bold', margin: '0', fontSize: '32px' }}>Ziel</p>
                           <div style={{ display: 'flex', alignItems: 'center', marginLeft: '-5px' }}>
-                            <div className={'search-bar'} style={{ width: '100%', marginBottom: '10px' }}>
+                            <div className={'search-bar-end'} style={{ width: '100%', marginBottom: '10px' }}>
                             <input
-                                
+                                id="endInput"
                                 type="text"
                                 pattern="[A-Z]\d+(\.\d+)?"
-                                placeholder="Geben Sie Ihr Ziel an..."
-                                style={{ width: '100%' }}
+                                placeholder="Geben Sie Ihren Endpunkt an..."
+                                style={{ width: '100%', backgroundColor: endNode ? '#cfe3fa' : '#ffffff'}}
                                 onChange={handleEndNodeChange}
                             />
                             </div>
@@ -245,7 +245,10 @@ const increaseLineHeight = () => {
 
                     <div className={'button-container'}>
                         <Link to="/app2">
-                        <button disabled={!isValidInput} onClick={() => isValidInput || alert(errorMessage)}>                            Los!
+                        <button disabled={!isValidInput} onClick={() => isValidInput || alert(errorMessage)} style={{
+                        backgroundColor: isValidInput ? '#0a65c0' : '#CCCCCC', 
+                        cursor: isValidInput ? 'pointer' : 'not-allowed'}}>                           
+                         Los!
                         </button>
                         </Link>
                     </div>
