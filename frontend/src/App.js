@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; 
 import Logo from './assets/Logo.jpg';
 import fhtwlogo from  './assets/fhtw_logo.svg.png';
@@ -54,6 +54,7 @@ function MainApp() {
       });
     }
   };
+
   const resetContrast = () => {
     setContrastMode(false);
     document.body.style.backgroundColor = '#ffffff';
@@ -90,8 +91,67 @@ const increaseLineHeight = () => {
     if (lineHeightCounter < 5) {
         setLineHeight(lineHeight=>lineHeight + 0.2);
         setLineHeightCounter(counter => counter + 1);
-      }
+      };
+  
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+        if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+            return;
+        }
+
+        switch(event.key) {
+            case '+':
+                increaseFontSize(); // increases the font size
+                break;
+            case '-':
+                decreaseFontSize(); // resets the font size
+                break;
+            case 'c':
+                toggleContrast(); // changes the contrast
+                break;
+            case 'd':
+                resetContrast(); // resets the contrast
+                break;
+            case 'z':
+                increaseLineHeight(); // increases the line spacing
+                break;
+            case 't':
+                resetLineHeight(); // resets the line spacing
+                break;
+            case 'r':
+                resetAll(); // resets everything
+                break;
+            default:
+                break;
+        }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+        window.removeEventListener('keydown', handleKeyPress);
+    };
+}, [fontSize]); 
+
+    const handleFindPath = async () => {
+        console.log("start: ", startNode);
+        console.log("end: ", endNode);
+
+        try {
+            const response = await fetch('http://localhost:8000/fhtways/find-path/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ startNode, endNode }),
+            });
     
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            navigate('/app2', { state: { pathDescription: data.path } });    
   };
 
   const resetLineHeight = () => {
@@ -192,8 +252,6 @@ const increaseLineHeight = () => {
                 </a>
             </div>
             
-            
-           
             <div>
                 <div className="content-container" style={{ textAlign: 'center', fontSize: `${fontSize}px` }}>
                 <h1 style={{ color: '#0a65c0' }}>Pathfinding for All - Enter Your Route and Explore FHTW</h1>
@@ -242,7 +300,6 @@ const increaseLineHeight = () => {
                         <div style={{ width: '20px' }}></div>
                         </div>
                 </div>
-
                     <div className={'button-container'}>
                         <Link to="/app2">
                         <button disabled={!isValidInput} onClick={() => isValidInput || alert(errorMessage)} style={{
@@ -261,7 +318,7 @@ const increaseLineHeight = () => {
                     <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes, z.B. F für das Gebäude </p>
                 </div>
             </div>
-           
+          
         </div>
     );
 }
