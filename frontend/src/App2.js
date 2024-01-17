@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import logo from './assets/Logo.jpg';
 import fhtwlogo from  './assets/fhtw_logo.svg.png';
 import adiobook from  './assets/audiobook.PNG';
@@ -17,66 +16,106 @@ import Linkedin from  './assets/icons/linkedin.png';
 import Email from  './assets/icons/mail.png';
 import { Link } from 'react-router-dom';
 
-
 function App2(){
-    const location = useLocation();
-    const pathDescription = location.state?.pathDescription || 'No path description available';
-    console.log("Path Description in App2:", pathDescription); // Log the path description
-    const [contrastMode, setContrastMode] = useState(false);
-    const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
-    const [isParagraphLarge, setIsParagraphLarge] = useState(false);
-    const [lineHeight, setLineHeight] = useState(1.5); // Initial line height
-    const [reset] = useState(1.5); // Initial line height
-    const toggleContrast = () => {
-      setContrastMode(!contrastMode);
-      // Logic to change contrast mode and colors accordingly
-      if (!contrastMode) {
-        document.body.style.backgroundColor = '#000000';
-        document.body.style.color = '#ffffff';
-      } else {
-        document.body.style.backgroundColor = '#ffffff';
-        document.body.style.color = '#000000';
-      }
-    };
+  const [contrastMode, setContrastMode] = useState(false);
+  const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
+  const [isParagraphLarge, setIsParagraphLarge] = useState(false);
+  const [lineHeight, setLineHeight] = useState(1.5); // Initial line height
+  const [reset] = useState(1.5); // Initial line height
+  const [fontSizeCounter, setFontSizeCounter] = useState(0);
+  const [lineHeightCounter, setLineHeightCounter] = useState(0);
+
+//Contrast
+  const toggleContrast = () => {
+    setContrastMode(!contrastMode);
+    if (!contrastMode) {
+      document.body.style.backgroundColor = '#000000';
+      document.body.style.color = '#ffffff';
   
-    const resetContrast = () => {
-      setContrastMode(false);
+      // Change text color to white for all elements with class 'contrastable-text'
+      const contrastableTextElements = document.querySelectorAll('.contrastable-text');
+      contrastableTextElements.forEach(element => {
+        element.style.color = '#ffffff';
+      });
+    } else {
       document.body.style.backgroundColor = '#ffffff';
       document.body.style.color = '#000000';
-    };
   
-    const increaseFontSize = () => {
-      setFontSize(fontSize + 4); // Schriftgröße um 4 Pixel erhöhen
-      setIsParagraphLarge(true); // Setze den Zustand für den vergrößerten Absatz auf true
-    };
+      // Reset text color for all elements with class 'contrastable-text'
+      const contrastableTextElements = document.querySelectorAll('.contrastable-text');
+      contrastableTextElements.forEach(element => {
+        element.style.color = ''; // Reset to default or your desired color
+      });
+    }
+  };
+  const resetContrast = () => {
+    setContrastMode(false);
+    document.body.style.backgroundColor = '#ffffff';
+    document.body.style.color = '#000000';
+    // Reset text color for all elements with class 'contrastable-text'
+    const contrastableTextElements = document.querySelectorAll('.contrastable-text');
+    contrastableTextElements.forEach(element => {
+        element.style.color = ''; // Reset to default or your desired color
+    });
+  };
+
+//Font
+  const increaseFontSize = () => {
+    if (fontSizeCounter < 5) {
+      setFontSize(fontSize => fontSize + 4);
+      setFontSizeCounter(counter => counter + 1);
+    }
+  };
   
-    const resetFontSize = () => {
-      setFontSize(16); // Schriftgröße auf 16 Pixel zurücksetzen
-      setIsParagraphLarge(false); // Setze den Zustand für den vergrößerten Absatz auf false
-    };
-    const increaseLineHeight = () => {
-      setLineHeight(lineHeight + 0.2); // Zeilenabstand um 0.2 erhöhen
-    };
+  const decreaseFontSize = () => {
+    if (fontSizeCounter > 0) {
+      setFontSize(fontSize => fontSize - 4);
+      setFontSizeCounter(counter => counter - 1);
+    }
+  };
   
-    const resetLineHeight = () => {
-      setLineHeight(1.5); // Zeilenabstand zurücksetzen
-    };
-    const resetAll = () => {
-      setFontSize(16);
-      setLineHeight(1.5);
-      setContrastMode(false);
-      document.body.style.backgroundColor = '#ffffff';
-      document.body.style.color = '#000000';
+  const resetFontSize = () => {
+    setFontSize(16);
+    setFontSizeCounter(0);
+  };
+//LineHeight
+const increaseLineHeight = () => {
+  if (lineHeightCounter < 5) {
+      setLineHeight(lineHeight=>lineHeight + 0.2);
+      setLineHeightCounter(counter => counter + 1);
+    }
+  
+};
+
+const resetLineHeight = () => {
+  if (lineHeightCounter > 0) {
+    setLineHeight(lineHeight=>lineHeight - 0.2);
+    setLineHeightCounter(counter => counter - 1);
+  }
+};
+//Reset
+  const resetAll = () => {
+    setFontSize(16);
+    setFontSizeCounter(0);
+    setLineHeight(1.5);
+    setContrastMode(false);
+    document.body.style.backgroundColor = '#ffffff';
+    document.body.style.color = '#000000';
+    const contrastableTextElements = document.querySelectorAll('.contrastable-text');
+    contrastableTextElements.forEach(element => {
+        element.style.color = ''; // Reset to default or your desired color
+      });
     };
   return (
-                <div className={`App2 ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>                <div className="top-right-buttons">             
+                <div className={`App2 ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>             
+                <div className="top-right-buttons">             
 
                 <a href="#" onClick={() => { /* Action for Button 1 */ }}>
                     <img className="top-image-button" src={adiobook} alt="Button 1" />
                 </a>
                 
                 <a href="#" onClick={increaseFontSize}><img className="top-image-button" src={aplus} alt="Button 2" /></a>
-                <a href="#" onClick={resetFontSize}><img className="top-image-button" src={aminus} alt="Button 3" /></a>
+                <a href="#" onClick={decreaseFontSize}><img className="top-image-button" src={aminus} alt="Button 3" /></a>
 
                 <a href="#" onClick={toggleContrast}><img className="top-image-button" src={bnw} alt="Button 4" /></a>
                 <a href="#" onClick={resetContrast}><img className="top-image-button" src={farbe} alt="Button 5" /></a>
@@ -91,58 +130,26 @@ function App2(){
        
    </div>
    <div className={'logo-container'}>
-   <img className={'project-logo'} src={logo} alt="Project Logo" />
+   <img className={'project-logo'} src={logo} alt="Project Logo" style={{ maxWidth: '100%', height: 'auto' }} />   
 
-       <a href="https://www.technikum-wien.at/" target="_blank" rel="noopener noreferrer">
-       <div className={'logo-container'}>
-           <img className={'school-logo'} src={fhtwlogo} alt="FHTW Logo" />
-       </div>
-       </a>
+      <a href="" target="_blank" rel="noopener noreferrer">
+          <div className={'logo-container'}>
+          <img className={'school-logo'} src={fhtwlogo} alt="FHTW Logo" style={{ maxWidth: '100%', height: 'auto' }} />
+          </div>
+        </a>
    </div>
    <div className="content-container" style={{ textAlign: 'center' }}>
                 <h1 style={{ color: '#0a65c0' }}>Pathfinding for All - Enter Your Route and Explore FHTW</h1>
-                <div>
-                  <h1>Path Description</h1>
-                  <p>{pathDescription}</p>
                 </div>
-  </div>
-  <div className={'button-container'}>
-    <Link to="/">
-    <button>Neue Suche</button>
-    </Link>
-  </div>
-   <nav className={'footer-nav'} style={{ textAlign: 'center', bottom: 0}}>
-                 <ul style={{ listStyle: 'none', padding: 0 }}>
-                <li><Link to="/">Startseite</Link></li>
-                <li>Impressum</li>
-                <li>Kontakt</li>
-                <li>Über uns</li>
-                </ul>
-                <ul style={{ listStyle: 'none', padding: 0, display: 'flex', justifyContent: 'center' }}>
-                <li>
-                    <a href="https://moodle.technikum-wien.at/" target="_blank" rel="noopener noreferrer">
-                    <img className="top-image-button" src={Moodle} alt="Moodle" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://cis.technikum-wien.at/cis/index.html" target="_blank" rel="noopener noreferrer">
-                    <img className="top-image-button" src={Cis} alt="Cis" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/school/uas-technikum-wien/?originalSubdomain=at" target="_blank" rel="noopener noreferrer">
-                    <img className="top-image-button" src={Linkedin} alt="Linkedin" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://sogo.technikum-wien.at/SOGo/">
-                    <img className="top-image-button" src={Email} alt="Email" />
-                    </a>
-                </li>
-        </ul>
-             <p style={{ fontSize: '15px', color: 'white', fontWeight: 'bold' }}>© Copyright 2023 - FHTWays</p>
-            </nav>
+                <p className="contrastable-text"  style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}>
+                        Mit FHTWays </p>
+                <div className={'button-container'}>
+                        <Link to="/">
+                            <button>neu suchen!</button>
+                        </Link>
+                     </div>
         </div>
+        
     );
 }
 export default App2;
