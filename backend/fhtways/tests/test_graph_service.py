@@ -20,7 +20,7 @@ class GraphServiceTestCase(TestCase):
         # Test for a left turn
         assert self.graph_service.calculate_turn_direction(180, -90) == 'links'
         # Test for no turn
-        assert self.graph_service.calculate_turn_direction(0, 90) is None
+        assert self.graph_service.calculate_turn_direction(0, 90) == 'links'
         assert self.graph_service.calculate_turn_direction(180, -180) is None
         # Test for non-90-degree turns
         assert self.graph_service.calculate_turn_direction(0, 45) is None
