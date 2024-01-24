@@ -15,8 +15,8 @@ class PathFindingView(APIView):
 
     def post(self, request):
         data = json.loads(request.body)
-        start = data.get('start')
-        end = data.get('end')
+        start = data.get('startNode')
+        end = data.get('endNode')
 
         response = self.path_finding_service.find_path(start, end)
         

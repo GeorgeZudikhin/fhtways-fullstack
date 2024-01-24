@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import Logo from './assets/Logo.jpg';
 import fhtwlogo from  './assets/fhtw_logo.svg.png';
 import adiobook from  './assets/audiobook.PNG';
@@ -12,15 +13,15 @@ import zplus from  './assets/zplus.PNG';
 import returnz from  './assets/return.PNG';
 import sprache from  './assets/sprache.PNG';
 
-
 import './App.css';
 import App2 from './App2.js';
 
 
 function MainApp() {
+  const navigate = useNavigate();
   const [contrastMode, setContrastMode] = useState(false);
   const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
-  const [isParagraphLarge, setIsParagraphLarge] = useState(false);
+  const [isParagraphLarge] = useState(false);
   const [lineHeight, setLineHeight] = useState(1.5); // Initial line height
   const [reset] = useState(1.5); // Initial line height
   const [fontSizeCounter, setFontSizeCounter] = useState(0);
@@ -80,18 +81,14 @@ function MainApp() {
       setFontSizeCounter(counter => counter - 1);
     }
   };
-  
-  const resetFontSize = () => {
-    setFontSize(16);
-    setFontSizeCounter(0);
-  };
 
 //LineHeight
-const increaseLineHeight = () => {
+  const increaseLineHeight = () => {
     if (lineHeightCounter < 5) {
         setLineHeight(lineHeight=>lineHeight + 0.2);
         setLineHeightCounter(counter => counter + 1);
-      };
+    }
+  };  
   
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -151,7 +148,11 @@ const increaseLineHeight = () => {
             }
     
             const data = await response.json();
-            navigate('/app2', { state: { pathDescription: data.path } });    
+            navigate('/app2', { state: { startNode, endNode, pathDescription: data.path } }); 
+
+          } catch (error) {
+            console.error('Error fetching path data:', error);
+        }       
   };
 
   const resetLineHeight = () => {
@@ -162,7 +163,7 @@ const increaseLineHeight = () => {
  };
 
  //input
- const handleStartNodeChange = (e) => {
+  const handleStartNodeChange = (e) => {
     const input = e.target.value.trim().toUpperCase();
     setStartNode(input);
     validateInput(input, endNode);
@@ -272,6 +273,7 @@ const increaseLineHeight = () => {
                             <input
                                 id="startInput"
                                 type="text"
+                                value={startNode}
                                 pattern="[A-Z]\d+(\.\d+)?"
                                 placeholder="Geben Sie Ihren Startpunkt an..."
                                 style={{ width: '100%', backgroundColor: startNode ? '#cfe3fa' : '#ffffff'}}
@@ -283,13 +285,14 @@ const increaseLineHeight = () => {
                         <div style={{ width: '20px' }}></div>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', columnGap: '10px', marginBottom: '5px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', columnGap: '10px',  marginBottom: '5px' }}>
                           <p className="contrastable-text" style={{ fontWeight: 'bold', margin: '0', fontSize: '32px' }}>Ziel</p>
                           <div style={{ display: 'flex', alignItems: 'center', marginLeft: '-5px' }}>
                             <div className={'search-bar-end'} style={{ width: '100%', marginBottom: '10px' }}>
                             <input
                                 id="endInput"
                                 type="text"
+                                value={endNode}
                                 pattern="[A-Z]\d+(\.\d+)?"
                                 placeholder="Geben Sie Ihren Endpunkt an..."
                                 style={{ width: '100%', backgroundColor: endNode ? '#cfe3fa' : '#ffffff'}}
@@ -300,15 +303,17 @@ const increaseLineHeight = () => {
                         <div style={{ width: '20px' }}></div>
                         </div>
                 </div>
-                    <div className={'button-container'}>
-                        <Link to="/app2">
-                        <button disabled={!isValidInput} onClick={() => isValidInput || alert(errorMessage)} style={{
-                        backgroundColor: isValidInput ? '#0a65c0' : '#CCCCCC', 
-                        cursor: isValidInput ? 'pointer' : 'not-allowed'}}>                           
-                         Los!
-                        </button>
-                        </Link>
-                    </div>
+                <div className={'button-container'}>
+                  <button 
+                      disabled={!isValidInput} 
+                      onClick={isValidInput ? handleFindPath : () => alert(errorMessage)} 
+                      style={{
+                          backgroundColor: isValidInput ? '#0a65c0' : '#CCCCCC', 
+                          cursor: isValidInput ? 'pointer' : 'not-allowed'
+                      }}>                           
+                      Los!
+                  </button>
+                </div>
                     {!isValidInput && (
                         <p  style={{ color: 'red', fontSize: '20px', textAlign: 'center' }}>
                         {errorMessage}
@@ -321,7 +326,7 @@ const increaseLineHeight = () => {
           
         </div>
     );
-}
+  }
 
 function App() {
     return (
