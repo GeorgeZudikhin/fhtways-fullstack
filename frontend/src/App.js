@@ -223,23 +223,31 @@ function MainApp() {
             <div className={`App ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>                    
                     
                 <div className="top-right-buttons">             
-                <a href="#" onClick={() => { /* Action for Button 1 */ }}>
-                    <img className="top-image-button" src={adiobook} alt="Button für Screenreader" />
+                <a href="#" onClick={increaseFontSize}>
+                  <img className="top-image-button" src={aplus} alt="Button Schrift größer" title="Vergrößert die Schrift'+'" />
                 </a>
-                
-                <a href="#" onClick={increaseFontSize}><img className="top-image-button" src={aplus} alt="Button Schrift größer" /></a>
-                <a href="#" onClick={decreaseFontSize}><img className="top-image-button" src={aminus} alt="Button Schrift kleiner" /></a>
+                <a href="#" onClick={decreaseFontSize}>
+                  <img className="top-image-button" src={aminus} alt="Button Schrift kleiner" title="Verkleinert die Schrift'-'" />
+                </a>
+                <a href="#" onClick={toggleContrast}>
+                  <img className="top-image-button" src={bnw} alt="Button für Kontrast" title="Ändert den Kontrast'c'" />
+                </a>
+                <a href="#" onClick={resetContrast}>
+                  <img className="top-image-button" src={farbe} alt="Button für Kontrast zurücksetzen" title="Setzt den Kontrast zurück'd'" />
+                </a>
+                <a href="#" onClick={increaseLineHeight}>
+                  <img className="top-image-button" src={zplus} alt="Button für Zeileanbstand größer" title="Erhöht den Zeilenabstand'z'" />
+                </a>
+                <a href="#" onClick={resetLineHeight}>
+                  <img className="top-image-button" src={znormal} alt="Button für Zeilenabstand kleiner" title="Setzt den Zeilenabstand zurück't'" />
+                </a>
+                <a href="#" onClick={resetAll}>
+                  <img className="top-image-button" src={returnz} alt="Button für alles zurücksetzen" title="Setzt alles zurück'r'" />
+                </a>
+                <a href="#" onClick={() => { /* Aktion für Button 1 */ }}>
+                  <img className="top-image-button" src={sprache} alt="Button für Sprache ändern" title="Sprache ändern" />
+                </a>
 
-                <a href="#" onClick={toggleContrast}><img className="top-image-button" src={bnw} alt="Button für Kontrast" /></a>
-                <a href="#" onClick={resetContrast}><img className="top-image-button" src={farbe} alt="Button für Kontrast zurücksetzen" /></a>
-               
-                <a href="#" onClick={increaseLineHeight}><img className="top-image-button" src={zplus} alt="Button für Zeileanbstand größer" /></a>
-                <a href="#" onClick={resetLineHeight}><img className="top-image-button" src={znormal} alt="Button für Zeilenabstand kleiner" /></a>
-               
-                <a href="#" onClick={resetAll}><img className="top-image-button" src={returnz} alt="Button für alles zurücksetzen" /></a>
-                <a href="#" onClick={() => { /* Action for Button 1 */ }}>
-                    <img className="top-image-button" src={sprache} alt="Button für Sprache ändern" />
-                </a>
                 
             </div>
             <div className={'logo-container'}>
@@ -321,6 +329,9 @@ function MainApp() {
                     )}
                     <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit den Buchstaben "M", "W" oder “D” im [Zimmer] können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten navigieren</p>
                     <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes, z.B. F für das Gebäude </p>
+                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}>Barrierefreiheit-Tastenkombinationen: '+' Vergrößert die Schrift.   '-' Verkleinert die Schrift.   'c' Ändert den Kontrast.   'd' Setzt den Kontrast zurück.   'z' Erhöht den Zeilenabstand.   't' Setzt den Zeilenabstand zurück.   'r' Setzt alles zurück.</p>
+                    
+
                 </div>
             </div>
           
