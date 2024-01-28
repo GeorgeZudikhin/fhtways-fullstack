@@ -30,7 +30,7 @@ function MainApp() {
   const [endNode, setEndNode] = useState('');
   const [isValidInput, setIsValidInput] = useState(false);
 
-  const validNodes = ['F4', 'Aufzug', 'Toilette', 'F4.27', 'F4.26', 'F4.25', 'F4.24', 'F4.23', 'F4.22', 'F4.20', 'F4.08', 'F4.07', 'F4.06', 'F4.05', 'F4.04', 'F4.03', 'F4.02', 'F4.01'];
+  const validNodes = ['F4', 'AUFZUG', 'TOILETTE', 'F4.27', 'F4.26', 'F4.25', 'F4.24', 'F4.23', 'F4.22', 'F4.20', 'F4.08', 'F4.07', 'F4.06', 'F4.05', 'F4.04', 'F4.03', 'F4.02', 'F4.01'];
 
 //Contrast
   const toggleContrast = () => {
@@ -179,7 +179,7 @@ function MainApp() {
 
  
   const validateInput = (start, end) => {
-    const isValidFormat = /^[A-Z]\d+(\.\d+)?$/i.test(start) && /^[A-Z]\d+(\.\d+)?$/i.test(end);
+    const isValidFormat = /^(AUFZUG|TOILETTE|[A-Z]\d+(\.\d+)?)$/i.test(start) && /^(AUFZUG|TOILETTE|[A-Z]\d+(\.\d+)?)$/i.test(end);
     const isValid = validNodes.includes(start) && validNodes.includes(end) && isValidFormat;
   
     setIsValidInput(isValid);
@@ -223,23 +223,31 @@ function MainApp() {
             <div className={`App ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>                    
                     
                 <div className="top-right-buttons">             
-                <a href="#" onClick={() => { /* Action for Button 1 */ }}>
-                    <img className="top-image-button" src={adiobook} alt="Button für Screenreader" />
+                <a href="#" onClick={increaseFontSize}>
+                  <img className="top-image-button" src={aplus} alt="Button Schrift größer" title="Vergrößert die Schrift'+'" />
                 </a>
-                
-                <a href="#" onClick={increaseFontSize}><img className="top-image-button" src={aplus} alt="Button Schrift größer" /></a>
-                <a href="#" onClick={decreaseFontSize}><img className="top-image-button" src={aminus} alt="Button Schrift kleiner" /></a>
+                <a href="#" onClick={decreaseFontSize}>
+                  <img className="top-image-button" src={aminus} alt="Button Schrift kleiner" title="Verkleinert die Schrift'-'" />
+                </a>
+                <a href="#" onClick={toggleContrast}>
+                  <img className="top-image-button" src={bnw} alt="Button für Kontrast" title="Ändert den Kontrast'c'" />
+                </a>
+                <a href="#" onClick={resetContrast}>
+                  <img className="top-image-button" src={farbe} alt="Button für Kontrast zurücksetzen" title="Setzt den Kontrast zurück'd'" />
+                </a>
+                <a href="#" onClick={increaseLineHeight}>
+                  <img className="top-image-button" src={zplus} alt="Button für Zeileanbstand größer" title="Erhöht den Zeilenabstand'z'" />
+                </a>
+                <a href="#" onClick={resetLineHeight}>
+                  <img className="top-image-button" src={znormal} alt="Button für Zeilenabstand kleiner" title="Setzt den Zeilenabstand zurück't'" />
+                </a>
+                <a href="#" onClick={resetAll}>
+                  <img className="top-image-button" src={returnz} alt="Button für alles zurücksetzen" title="Setzt alles zurück'r'" />
+                </a>
+                <a href="#" onClick={() => { /* Aktion für Button 1 */ }}>
+                  <img className="top-image-button" src={sprache} alt="Button für Sprache ändern" title="Sprache ändern" />
+                </a>
 
-                <a href="#" onClick={toggleContrast}><img className="top-image-button" src={bnw} alt="Button für Kontrast" /></a>
-                <a href="#" onClick={resetContrast}><img className="top-image-button" src={farbe} alt="Button für Kontrast zurücksetzen" /></a>
-               
-                <a href="#" onClick={increaseLineHeight}><img className="top-image-button" src={zplus} alt="Button für Zeileanbstand größer" /></a>
-                <a href="#" onClick={resetLineHeight}><img className="top-image-button" src={znormal} alt="Button für Zeilenabstand kleiner" /></a>
-               
-                <a href="#" onClick={resetAll}><img className="top-image-button" src={returnz} alt="Button für alles zurücksetzen" /></a>
-                <a href="#" onClick={() => { /* Action for Button 1 */ }}>
-                    <img className="top-image-button" src={sprache} alt="Button für Sprache ändern" />
-                </a>
                 
             </div>
             <div className={'logo-container'}>
@@ -319,8 +327,11 @@ function MainApp() {
                         {errorMessage}
                       </p>
                     )}
-                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit den Buchstaben "M", "W" oder “D” im [Zimmer] können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten navigieren</p>
-                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes, z.B. F für das Gebäude </p>
+                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit "TOILETTE" und "AUFZUG" können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten bzw. Aufzügen navigieren</p>
+                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude bzw. in den Stockwerk verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes bzw. Stockwerkes, z.B. F4 für den Stockwerk</p>
+                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}>Barrierefreiheit-Tastenkombinationen: '+' Vergrößert die Schrift.   '-' Verkleinert die Schrift.   'c' Ändert den Kontrast.   'd' Setzt den Kontrast zurück.   'z' Erhöht den Zeilenabstand.   't' Setzt den Zeilenabstand zurück.   'r' Setzt alles zurück.</p>
+                    
+
                 </div>
             </div>
           

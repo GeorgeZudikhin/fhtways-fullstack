@@ -34,9 +34,9 @@ class GraphService:
         G.add_node("F4.20_conn",        coord=(20, 0),   type="conn")
 
         G.add_node("door_left",         coord=(21, 3),   type="door")
-        G.add_node("toilets",           coord=(24, 1),   type="toilets")
-        G.add_node("lift",              coord=(30, 1),   type="lift")
-        G.add_node("stairs_middle",     coord=(28, 6),   type="stairs")
+        G.add_node("TOILETTE",          coord=(25, 1),   type="TOILETTE")
+        G.add_node("AUFZUG",            coord=(30, 1),   type="AUFZUG")
+        G.add_node("F4",                coord=(28, 6),   type="stairs")
         G.add_node("door_right",        coord=(35, 3),   type="door")
         
         G.add_node("F4.08",             coord=(37, 5),   type="room")
@@ -146,7 +146,7 @@ class GraphService:
         G.add_edge("door_left", "F4.20_c", weight=1, description="Öffne die Tür und mache einen Schritt vorwärts in den Korridor. ")
         G.add_edge("F4.20_c", "door_left", weight=1, description="Gehe einen Schritt zur Tür vor dir. Öffne die Tür und du befindest dich in der Halle der 4. Etage. ")
 
-        G.add_edge("door_right", "F4.01_F4.08_c", weight=2, description="Öffne die Tür und mache 2 Schritte vorwärts in den Korridor. ")
+        G.add_edge("door_right", "F4.01_F4.08_c", weight=2, description="Öffne die Tür vor dir. ")
         G.add_edge("F4.01_F4.08_c", "door_right", weight=2, description="Gehe geradeaus weiter, bis du eine Tür vor dich spürst. Öffne die Tür und du befindest dich in der Halle der 4. Etage. ")
 
         # Add directed edges on the right side of the floor
@@ -157,35 +157,35 @@ class GraphService:
         G.add_edge("stairs_right", "stairs_right_conn", weight=5, description="Öffne die Tür, dann biege sofort links ab. Gehe 5 Schritte geradeaus bis die Wand links endet. ")
 
         # Binding the middle part of the hall
-        G.add_edge("door_left", "stairs_middle", weight=8, description="Gehe 5 Schritte geradeaus. Biege links ab und gehe 3 Schritte nach vorne zur Treppe der 4.Etage. ")
-        G.add_edge("stairs_middle", "door_left", weight=8, description="Du befindest dich auf der 4.Etage. Gehe 3 Schritte geradeaus. Biege rechts ab und gehe 5 Schritte nach vorne bis du die Tür vor dir erreichst. ")
+        G.add_edge("door_left", "F4", weight=8, description="Gehe 5 Schritte geradeaus. Biege links ab und gehe 3 Schritte nach vorne zur Treppe der 4.Etage. ")
+        G.add_edge("F4", "door_left", weight=8, description="Du befindest dich auf der 4.Etage. Gehe 3 Schritte geradeaus. Biege rechts ab und gehe 5 Schritte nach vorne bis du die Tür vor dir erreichst. ")
 
-        G.add_edge("door_left", "lift", weight=10, description="Halte dich auf der rechten Seite der Halle. Gehe 10 Schritte geradeaus entlang der rechten Wand. Du hast die Aufzüge erreicht. Fühle nach der Lifttaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug. ")
-        G.add_edge("lift", "door_left", weight=10, description="Verlasse den Lift mit 2 Schritten vorwärts und biege links ab. Gehe 8 Schritte geradeaus zur Tür vor dir. ")
+        G.add_edge("door_left", "AUFZUG", weight=9, description="Halte dich auf der rechten Seite der Halle. Gehe 10 Schritte geradeaus entlang der rechten Wand. Du hast die Aufzüge erreicht. Fühle nach der Aufzugtaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug. ")
+        G.add_edge("AUFZUG", "door_left", weight=9, description="Verlasse den Aufzug mit 2 Schritten vorwärts und biege links ab. Gehe 8 Schritte geradeaus zur Tür vor dir. ")
 
-        G.add_edge("door_left", "door_right", weight=14, description="Gehe 14 Schritte geradeaus durch die Halle des 4.Stocks bis zur Tür vor dir. ")
-        G.add_edge("door_right", "door_left", weight=14, description="Gehe 14 Schritte geradeaus durch die Halle des 4.Stocks bis zur Tür vor dir. ")
+        G.add_edge("door_left", "door_right", weight=12, description="Gehe 14 Schritte geradeaus durch die Halle des 4.Stocks bis zur Tür vor dir. ")
+        G.add_edge("door_right", "door_left", weight=12, description="Gehe 14 Schritte geradeaus durch die Halle des 4.Stocks bis zur Tür vor dir. ")
 
-        G.add_edge("door_left", "toilets", weight=3, description="Halte dich auf der rechten Seite der Halle. Gehe 3 Schritte geradeaus entlang der rechten Wand. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette. ")
-        G.add_edge("toilets", "door_left", weight=3, description="Öffne die Toilettentür. Halte dich auf der linken Seite der Wand. Gehe 3 Schritte geradeaus bis zur Tür links. ")
+        G.add_edge("door_left", "TOILETTE", weight=4, description="Halte dich auf der rechten Seite der Halle. Gehe 3 Schritte geradeaus entlang der rechten Wand. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette. ")
+        G.add_edge("TOILETTE", "door_left", weight=4, description="Öffne die Toilettentür. Halte dich auf der linken Seite der Wand. Gehe 3 Schritte geradeaus bis zur Tür links. ")
 
-        G.add_edge("toilets", "stairs_middle", weight=6, description="Öffne die Toilettentür. Gehe 2 Schritte geradeaus und drehe dich nach rechts. Mache 4 Schritte und drehe dich nach links. Du bist bei den Stiegen des 4. Stocks. ")
-        G.add_edge("stairs_middle", "toilets", weight=6, description="Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus und biege rechts ab. Gehe 4 Schritte nach vorne und drehe dich nach links. Gehe 2 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette. ")
+        G.add_edge("TOILETTE", "F4", weight=6, description="Öffne die Toilettentür. Gehe 2 Schritte geradeaus und drehe dich nach rechts. Mache 4 Schritte und drehe dich nach links. Du bist bei den Stiegen des 4. Stocks. ")
+        G.add_edge("F4", "TOILETTE", weight=6, description="Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus und biege rechts ab. Gehe 4 Schritte nach vorne und drehe dich nach links. Gehe 2 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette. ")
 
-        G.add_edge("toilets", "lift", weight=4, description="Öffne die Toilettentür. Halte dich auf der rechten Seite der Halle. Gehe 4 Schritte geradeaus entlang der rechten Wand. Du hast die Aufzüge erreicht. Fühle nach der Lifttaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug. ")
-        G.add_edge("lift", "toilets", weight=4, description="Verlasse den Lift mit 2 Schritten geradeaus. Biege nach links ab. Halte dich auf der linken Seite der Halle. Gehe 2 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette. ")
+        G.add_edge("TOILETTE", "AUFZUG", weight=6, description="Öffne die Toilettentür. Halte dich auf der rechten Seite der Halle. Gehe 4 Schritte geradeaus entlang der rechten Wand. Du hast die Aufzüge erreicht. Fühle nach der Aufzugtaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug. ")
+        G.add_edge("AUFZUG", "TOILETTE", weight=6, description="Verlasse den Aufzug mit 2 Schritten geradeaus. Biege nach links ab. Halte dich auf der linken Seite der Halle. Gehe 2 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette. ")
 
-        G.add_edge("door_right", "stairs_middle", weight=8, description="Du bist in der Halle der 4.Etage. Halte dich auf der rechten Seite der Halle. Gehe 8 Schritte geradeaus entlang der rechten Wand. Du bist bei den Stiegen des 4. Stocks. ")
-        G.add_edge("stairs_middle", "door_right", weight=8, description="Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus und biege nach links ab. Gehe 6 Schritte geradeaus zur Tür vor dir. ")
+        G.add_edge("door_right", "F4", weight=8, description="Halte dich auf der rechten Seite der Halle. Gehe 8 Schritte geradeaus entlang der rechten Wand. Du bist bei den Stiegen des 4. Stocks. ")
+        G.add_edge("F4", "door_right", weight=8, description="Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus und biege nach links ab. Gehe 6 Schritte geradeaus zur Tür vor dir. ")
 
-        G.add_edge("lift", "stairs_middle", weight=2, description="Verlasse den Lift mit 2 Schritten geradeaus. Du bist bei den Stiegen des 4. Stocks.")
-        G.add_edge("stairs_middle", "lift", weight=2, description="Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus. Du hast die Aufzüge erreicht. Fühle nach der Lifttaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug. ")
+        G.add_edge("AUFZUG", "F4", weight=2, description="Verlasse den Aufzug mit 2 Schritten geradeaus. Du bist bei den Stiegen des 4. Stocks.")
+        G.add_edge("F4", "AUFZUG", weight=2, description="Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus. Du hast die Aufzüge erreicht. Fühle nach der Aufzugtaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug. ")
 
-        G.add_edge("door_right", "toilets", weight=12, description="Du bist in der Halle der 4.Etage. Halte dich auf der linken Seite der Halle. Gehe 12 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette. ")
-        G.add_edge("toilets", "door_right", weight=12, description="Öffne die Toilettentür. Gehe 2 Schritte geradeaus und biege nach rechts ab. Gehe 10 Schritte nach vorne, bis zur Tür vor dir. ")
+        G.add_edge("door_right", "TOILETTE", weight=10, description="Halte dich auf der linken Seite der Halle. Gehe 12 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette. ")
+        G.add_edge("TOILETTE", "door_right", weight=10, description="Öffne die Toilettentür. Gehe 2 Schritte geradeaus und biege nach rechts ab. Gehe 10 Schritte nach vorne, bis zur Tür vor dir. ")
 
-        G.add_edge("door_right", "lift", weight=7, description="Du bist in der Halle der 4.Etage. Halte dich auf der linken Seite der Halle. Gehe 7 Schritte geradeaus. Du hast die Aufzüge erreicht. Fühle nach der Lifttaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug. ")
-        G.add_edge("lift", "door_right", weight=7, description="Verlasse den Lift mit 2 Schritten geradeaus und biege nach rechts ab. Gehe 5 Schritte geradeaus, bis zur Tür vor dir. ")
+        G.add_edge("door_right", "AUFZUG", weight=6, description="Halte dich auf der linken Seite der Halle. Gehe 7 Schritte geradeaus. Du hast die Aufzüge erreicht. Fühle nach der Aufzugtaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug. ")
+        G.add_edge("AUFZUG", "door_right", weight=6, description="Verlasse den Aufzug mit 2 Schritten geradeaus und biege nach rechts ab. Gehe 5 Schritte geradeaus, bis zur Tür vor dir. ")
 
         return G
 
