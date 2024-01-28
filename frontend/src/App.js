@@ -30,7 +30,7 @@ function MainApp() {
   const [endNode, setEndNode] = useState('');
   const [isValidInput, setIsValidInput] = useState(false);
 
-  const validNodes = ['F4', 'Aufzug', 'Toilette', 'F4.27', 'F4.26', 'F4.25', 'F4.24', 'F4.23', 'F4.22', 'F4.20', 'F4.08', 'F4.07', 'F4.06', 'F4.05', 'F4.04', 'F4.03', 'F4.02', 'F4.01'];
+  const validNodes = ['F4', 'AUFZUG', 'TOILETTE', 'F4.27', 'F4.26', 'F4.25', 'F4.24', 'F4.23', 'F4.22', 'F4.20', 'F4.08', 'F4.07', 'F4.06', 'F4.05', 'F4.04', 'F4.03', 'F4.02', 'F4.01'];
 
 //Contrast
   const toggleContrast = () => {
@@ -179,7 +179,7 @@ function MainApp() {
 
  
   const validateInput = (start, end) => {
-    const isValidFormat = /^[A-Z]\d+(\.\d+)?$/i.test(start) && /^[A-Z]\d+(\.\d+)?$/i.test(end);
+    const isValidFormat = /^(AUFZUG|TOILETTE|[A-Z]\d+(\.\d+)?)$/i.test(start) && /^(AUFZUG|TOILETTE|[A-Z]\d+(\.\d+)?)$/i.test(end);
     const isValid = validNodes.includes(start) && validNodes.includes(end) && isValidFormat;
   
     setIsValidInput(isValid);
@@ -327,8 +327,8 @@ function MainApp() {
                         {errorMessage}
                       </p>
                     )}
-                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit den Buchstaben "M", "W" oder “D” im [Zimmer] können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten navigieren</p>
-                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes, z.B. F für das Gebäude </p>
+                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *mit "TOILETTE" und "AUFZUG" können Sie direkt zu den nächstliegenden Herren-, Damen-, Diverstoiletten bzw. Aufzügen navigieren</p>
+                    <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}> *für den Eingang ins Gebäude bzw. in den Stockwerk verwenden Sie einfach die Buchstabe des jeweiligen Gebäudes bzw. Stockwerkes, z.B. F4 für den Stockwerk</p>
                     <p className="contrastable-text" style={{ fontSize: isParagraphLarge ? '24px' : 'inherit'}}>Barrierefreiheit-Tastenkombinationen: '+' Vergrößert die Schrift.   '-' Verkleinert die Schrift.   'c' Ändert den Kontrast.   'd' Setzt den Kontrast zurück.   'z' Erhöht den Zeilenabstand.   't' Setzt den Zeilenabstand zurück.   'r' Setzt alles zurück.</p>
                     
 

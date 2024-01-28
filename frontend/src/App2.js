@@ -149,28 +149,28 @@ useEffect(() => {
       <div className={`App ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>                    
                       
       <div className="top-right-buttons">             
-      <a href="#" onClick={increaseFontSize}>
+      <a onClick={increaseFontSize}>
       <img className="top-image-button" src={aplus} alt="Button Schrift größer" title="Vergrößert die Schrift'+'" />
       </a>
-      <a href="#" onClick={decreaseFontSize}>
+      <a onClick={decreaseFontSize}>
         <img className="top-image-button" src={aminus} alt="Button Schrift kleiner" title="Verkleinert die Schrift'-'" />
       </a>
-      <a href="#" onClick={toggleContrast}>
+      <a onClick={toggleContrast}>
         <img className="top-image-button" src={bnw} alt="Button für Kontrast" title="Ändert den Kontrast'c'" />
       </a>
-      <a href="#" onClick={resetContrast}>
+      <a onClick={resetContrast}>
         <img className="top-image-button" src={farbe} alt="Button für Kontrast zurücksetzen" title="Setzt den Kontrast zurück'd'" />
       </a>
-      <a href="#" onClick={increaseLineHeight}>
+      <a onClick={increaseLineHeight}>
         <img className="top-image-button" src={zplus} alt="Button für Zeileanbstand größer" title="Erhöht den Zeilenabstand'z'" />
       </a>
-      <a href="#" onClick={resetLineHeight}>
+      <a onClick={resetLineHeight}>
         <img className="top-image-button" src={znormal} alt="Button für Zeilenabstand kleiner" title="Setzt den Zeilenabstand zurück't'" />
       </a>
-      <a href="#" onClick={resetAll}>
+      <a onClick={resetAll}>
         <img className="top-image-button" src={returnz} alt="Button für alles zurücksetzen" title="Setzt alles zurück'r'" />
       </a>
-      <a href="#" onClick={() => { /* Aktion für Button 1 */ }}>
+      <a onClick={() => { /* Aktion für Button 1 */ }}>
         <img className="top-image-button" src={sprache} alt="Button für Sprache ändern" title="Sprache ändern" />
       </a>
 
