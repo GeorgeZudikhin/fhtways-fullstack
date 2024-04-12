@@ -1,0 +1,77 @@
+source;target;weight;description
+stairs_left;stairs_left_conn;6;Öffne die Tür. Biege sofort rechts ab. Gehe 6 Schritte geradeaus bis die Wand links endet.
+stairs_left_conn;stairs_left;6;Gehe 6 Schritte geradeaus weiter entlang bis zur Wand vorne. Die Treppentür befindet sich links.
+stairs_left_conn;F4.27_c;2;Gehe 2 Schritte im Korridor geradeaus.
+F4.27_c;stairs_left_conn;2;Gehe im Korridor 2 Schritte geradeaus bis zur Wand vor dir.
+F4.27;F4.27_c;4;Öffne die Tür vor dir und verlasse den Raum F4.27. Gehe 4 Schritte geradeaus in den Korridor.
+F4.27_c;F4.27;4;Gehe 4 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.27.
+F4.26;F4.26_c;2;Öffne die Tür vor dir und verlasse den Raum F4.26. Gehe 2 Schritte geradeaus in den Korridor.
+F4.26_c;F4.26;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.26.
+F4.25;F4.25_c;2;Öffne die Tür vor dir und verlasse den Raum F4.25. Gehe 2 Schritte geradeaus in den Korridor.
+F4.25_c;F4.25;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.25.
+F4.24;F4.24_c;2;Öffne die Tür vor dir und verlasse den Raum F4.24. Gehe 2 Schritte geradeaus in den Korridor.
+F4.24_c;F4.24;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.24.
+F4.23;F4.23_c;2;Öffne die Tür vor dir und verlasse den Raum F4.23. Gehe 2 Schritte geradeaus in den Korridor.
+F4.23_c;F4.23;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.23.
+F4.22;F4.22_c;2;Öffne die Tür vor dir und verlasse den Raum F4.22. Gehe 2 Schritte geradeaus in den Korridor.
+F4.22_c;F4.22;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.22.
+F4.20;F4.20_c;2;Öffne die Tür vor dir und verlasse den Raum F4.20. Gehe 2 Schritte geradeaus in den Korridor.
+F4.20_c;F4.20;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.20.
+F4.08;F4.01_F4.08_c;2;Öffne die Tür vor dir und verlasse den Raum F4.08. Gehe 2 Schritte geradeaus in den Korridor.
+F4.01_F4.08_c;F4.08;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.08.
+F4.07;F4.02_F4.07_c;2;Öffne die Tür vor dir und verlasse den Raum F4.07. Gehe 2 Schritte geradeaus in den Korridor.
+F4.02_F4.07_c;F4.07;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.07.
+F4.06;F4.03_F4.06_c;2;Öffne die Tür vor dir und verlasse den Raum F4.06. Gehe 2 Schritte geradeaus in den Korridor.
+F4.03_F4.06_c;F4.06;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.06.
+F4.05;F4.04_F4.05_c;3;Öffne die Tür vor dir und verlasse den Raum F4.05. Gehe 3 Schritte geradeaus in den Korridor.
+F4.04_F4.05_c;F4.05;3;Gehe 3 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.05.
+F4.04;F4.04_F4.05_c;3;Öffne die Tür vor dir und verlasse den Raum F4.04. Gehe 3 Schritte geradeaus in den Korridor.
+F4.04_F4.05_c;F4.04;3;Gehe 3 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.04.
+F4.03;F4.03_F4.06_c;2;Öffne die Tür vor dir und verlasse den Raum F4.03. Gehe 2 Schritte geradeaus in den Korridor.
+F4.03_F4.06_c;F4.03;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.03.
+F4.02;F4.02_F4.07_c;2;Öffne die Tür vor dir und verlasse den Raum F4.02. Gehe 2 Schritte geradeaus in den Korridor.
+F4.02_F4.07_c;F4.02;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.02.
+F4.01;F4.01_F4.08_c;2;Öffne die Tür vor dir und verlasse den Raum F4.01. Gehe 2 Schritte geradeaus in den Korridor.
+F4.01_F4.08_c;F4.01;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.01.
+F4.27_c;F4.26_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.26_c;F4.27_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.26_c;F4.25_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.25_c;F4.26_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.25_c;F4.24_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.24_c;F4.25_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.24_c;F4.23_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.23_c;F4.24_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.23_c;F4.22_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.22_c;F4.23_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.22_c;F4.20_conn;3;Gehe im Korridor weiter geradeaus bis zur Wand vor dir.
+F4.20_conn;F4.22_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.20_conn;F4.20_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.20_c;F4.20_conn;3;Gehe im Korridor 3 Schritte geradeaus bis zur Wand vor dir.
+door_left;F4.20_c;1;Öffne die Tür und mache einen Schritt vorwärts in den Korridor.
+F4.20_c;door_left;1;Gehe einen Schritt zur Tür vor dir. Öffne die Tür und du befindest dich in der Halle der 4. Etage.
+door_right;F4.01_F4.08_c;2;Öffne die Tür vor dir.
+F4.01_F4.08_c;door_right;2;Gehe geradeaus weiter bis du eine Tür vor dich spürst. Öffne die Tür und du befindest dich in der Halle der 4. Etage.
+F4.04_F4.05_c;stairs_right_conn;2;Gehe im Korridor 2 Schritte geradeaus bis zur Wand vor dir.
+stairs_right_conn;F4.04_F4.05_c;2;Gehe im Korridor 2 Schritte geradeaus.
+stairs_right_conn;stairs_right;5;Gehe 5 Schritte geradeaus weiter entlang bis zur Wand vorne. Die Treppentür befindet sich rechts.
+stairs_right;stairs_right_conn;5;Öffne die Tür und biege dann sofort links ab. Gehe 5 Schritte geradeaus bis die Wand links endet.
+door_left;F4;8;Gehe 5 Schritte geradeaus. Biege links ab und gehe 3 Schritte nach vorne zur Treppe der 4.Etage.
+F4;door_left;8;Du befindest dich auf der 4.Etage. Gehe 3 Schritte geradeaus. Biege rechts ab und gehe 5 Schritte nach vorne bis du die Tür vor dir erreichst.
+door_left;AUFZUG;9;Halte dich auf der rechten Seite der Halle. Gehe 10 Schritte geradeaus entlang der rechten Wand. Du hast die Aufzüge erreicht. Fühle nach der Aufzugtaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug.
+AUFZUG;door_left;9;Verlasse den Aufzug mit 2 Schritten vorwärts und biege links ab. Gehe 8 Schritte geradeaus zur Tür vor dir.
+door_left;door_right;12;Gehe 14 Schritte geradeaus durch die Halle des 4.Stocks bis zur Tür vor dir.
+door_right;door_left;12;Gehe 14 Schritte geradeaus durch die Halle des 4.Stocks bis zur Tür vor dir.
+door_left;TOILETTE;4;Halte dich auf der rechten Seite der Halle. Gehe 3 Schritte geradeaus entlang der rechten Wand. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette.
+TOILETTE;door_left;4;Öffne die Toilettentür. Halte dich auf der linken Seite der Wand. Gehe 3 Schritte geradeaus bis zur Tür links.
+TOILETTE;F4;6;Öffne die Toilettentür. Gehe 2 Schritte geradeaus und drehe dich nach rechts. Mache 4 Schritte und drehe dich nach links. Du bist bei den Stiegen des 4. Stocks.
+F4;TOILETTE;6;Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus und biege rechts ab. Gehe 4 Schritte nach vorne und drehe dich nach links. Gehe 2 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette.
+TOILETTE;AUFZUG;6;Öffne die Toilettentür. Halte dich auf der rechten Seite der Halle. Gehe 4 Schritte geradeaus entlang der rechten Wand. Du hast die Aufzüge erreicht. Fühle nach der Aufzugtaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug.
+AUFZUG;TOILETTE;6;Verlasse den Aufzug mit 2 Schritten geradeaus. Biege nach links ab. Halte dich auf der linken Seite der Halle. Gehe 2 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette.
+door_right;F4;8;Halte dich auf der rechten Seite der Halle. Gehe 8 Schritte geradeaus entlang der rechten Wand. Du bist bei den Stiegen des 4. Stocks.
+F4;door_right;8;Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus und biege nach links ab. Gehe 6 Schritte geradeaus zur Tür vor dir.
+AUFZUG;F4;2;Verlasse den Aufzug mit 2 Schritten geradeaus. Du bist bei den Stiegen des 4. Stocks.
+F4;AUFZUG;2;Du befindest dich auf der 4.Etage. Gehe 2 Schritte geradeaus. Du hast die Aufzüge erreicht. Fühle nach der Aufzugtaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug.
+door_right;TOILETTE;10;Halte dich auf der linken Seite der Halle. Gehe 12 Schritte geradeaus. Du hast die Toiletten erreicht. Links ist die Frauentoilette. In der Mitte ist die Toilette für Menschen mit Behinderungen. Rechts ist die Männertoilette.
+TOILETTE;door_right;10;Öffne die Toilettentür. Gehe 2 Schritte geradeaus und biege nach rechts ab. Gehe 10 Schritte vorwärts zur Tür vor dir.
+door_right;AUFZUG;6;Halte dich auf der linken Seite der Halle. Gehe 7 Schritte geradeaus. Du hast die Aufzüge erreicht. Fühle nach der Aufzugtaste. Sie befindet sich auf Brusthöhe. Drücke darauf und du rufst einen Aufzug.
+AUFZUG;door_right;6;Verlasse den Aufzug mit 2 Schritten geradeaus und biege nach rechts ab. Gehe 5 Schritte geradeaus zur Tür vor dir.

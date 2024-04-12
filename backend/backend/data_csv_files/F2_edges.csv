@@ -1,0 +1,41 @@
+source;target;weight;description
+stairs_middle;TOILETTE;6;Verlasse die Treppe und gehe 6 Schritte geradeaus. Die Toilette befindet sich dann direkt vor dir.
+stairs_middle;AUFZUG;5;Gehe von der Treppe aus 5 Schritte geradeaus. Der Aufzug befindet sich dann vor dir.
+stairs_middle;door_right;6;Verlasse die Treppe und gehe 6 Schritte geradeaus, indem du dich links hälst. Die Tür befindet sich dann rechts am Ende des Korridors.
+TOILETTE;stairs_middle;6;Verlasse die Toilette und gehe 6 Schritte geradeaus, indem du dich rechts hälst. Die Treppe befindet sich dann direkt vor dir.
+TOILETTE;AUFZUG;6;Von der Toilette aus biege gleich nach rechts ab und gehe 6 Schritte nach vorne. Der Aufzug ist dann direkt rechts von dir.
+AUFZUG;TOILETTE;6;Verlasse den Aufzug, gehe einen Schritt nach links und dann 6 Schritte geradeaus. Die Toilette befindet sich dann auf deiner linken Seite.
+AUFZUG;stairs_middle;5;Verlasse den Aufzug und gehe 5 Schritte geradeaus zur Treppe.
+TOILETTE;door_right;11;Von der Toilette aus, biege gleich nach rechts ab und gehe dann genau 11 Schritte vorwärts zur Tür am Ende des Korridors.
+door_right;TOILETTE;11;Von der Tür aus, biege nach links ab und gehe 11 Schritte geradeaus zur Toilette.
+AUFZUG;door_right;5;Verlasse den Aufzug, biege nach links ab und gehe dann 5 Schritte geradeaus zur Tür.
+door_right;AUFZUG;5;Von der Tür aus, biege gleich nach links ab und gehe 5 Schritte geradaus zum Aufzug. Der Aufzug befindet sich auf deiner linken Seite.
+door_right;stairs_middle;6;Von der Tür aus, gehe 6 Schritte zurück zur Treppe, indem du dich rechts hälst.
+door_right;door_right_c;2;Öffne die Tür und gehe 2 Schritte geradeaus in den Korridor.
+door_right_c;door_right;2;Von der Korridortür aus, gehe 2 Schritte zurück und öffne die Tür vor dir.
+door_right_c;F2.01_c;1;Im Korridor gehe 1 Schritt geradeaus.
+F2.01_c;door_right_c;1;Im Korridor gehe 1 Schritt geradeaus.
+F2.01;F2.01_c;3;Öffne die Tür des Raumes F2.01 und gehe 3 Schritte, um in den Korridor zu gelangen.
+F2.01_c;F2.01;3;Von der Korridorkreuzung aus, gehe 3 Schritte geraderaus und öffne die Tür direkt vor dir, um in den Raum F2.01 zu gelangen.
+F2.01_c;F2.02_c;4;Im Korridor gehe 4 Schritte geradeaus.
+F2.02_c;F2.01_c;4;Im Korridor gehe 4 Schritte geradeaus.
+F2.02;F2.02_c;3;Öffne die Tür des Raumes F2.02 und gehe 3 Schritte geradeaus, um in den Korridor zu gelangen.
+F2.02_c;F2.02;3;Von der Korridorkreuzung aus, gehe 3 Schritte geraderaus und öffne die Tür direkt vor dir, um in den Raum F2.02 zu gelangen.
+F2.02_c;F2.03_c;8;Im Korridor gehe 8 Schritte geradeaus.
+F2.03_c;F2.02_c;8;Im Korridor gehe 8 Schritte geradeaus.
+F2.03;F2.03_c;3;Öffne die Tür des Raumes F2.03 und gehe 3 Schritte geradeaus, um in den Korridor zu gelangen.
+F2.03_c;F2.03;3;Von der Korridorkreuzung aus, gehe 3 Schritte geraderaus und öffne die Tür direkt vor dir, um in den Raum F2.03 zu gelangen.
+F2.03_c;F2.04_c;1;Im Korridor gehe 1 Schritt geradeaus. 
+F2.04_c;F2.03_c;1;Im Korridor gehe 1 Schritt geradeaus.
+F2.04;F2.04_c;3;Öffne die Tür des Raumes F2.04 und gehe 3 Schritte geradeaus, um in den Korridor zu gelangen.
+F2.04_c;F2.04;3;Von der Korridorkreuzung aus, gehe 3 Schritte geraderaus und öffne die Tür direkt vor dir, um in den Raum F2.04 zu gelangen.
+F2.04_c;stairs_right_conn;2;Im Korridor gehe 2 Schritte geradeaus, indem du dich an der linken Seite hälst. So erreichst du die Tür.
+stairs_right_conn;F2.04_c;2;Von der Tür aus, gehe 2 Schritte geradeaus, indem du dich an der rechten Seite häst.
+stairs_right;stairs_right_conn;5;Von der Treppe aus, biege gleich nach links ab und gehe 5 Schritte geradeaus. So erreichst du die Tür vor dir.
+stairs_right_conn;stairs_right;5;Von der Tür aus, gehe 5 Schritte geradeaus bis zum Ende des Korridors. Am Ende rechts befindet sich die Treppentür.
+F2.04_c;F2.05_c;2;Im Korridor gehe 2 Schritte geradeaus. 
+F2.05_c;F2.04_c;2;Im Korridor gehe 2 Schritte geradeaus. 
+F2.05;F2.05_c;1;Öffne die Tür des Raumes F2.05 und gehe 1 Schritt geradeaus, um in den Korridor zu gelangen.
+F2.05_c;F2.05;1;Von der Korridorkreuzung aus, gehe 1 Schritt geraderaus und öffne die Tür direkt vor dir, um in den Raum F2.05 zu gelangen.
+F2.05_c;stairs_right_conn;3;Von der Kreuzung aus, gehe 3 Schritte nach vorne zur Tür vor dir.
+stairs_right_conn;F2.05_c;3;Von der Tür aus, gehe 3 Schritte nach vorne in den Korridor.
