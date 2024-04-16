@@ -26,3 +26,20 @@ services:
       - "8000:8000"
     environment:
       - PYTHONUNBUFFERED=1
+
+
+  db:
+    image: postgres
+    container_name: postgres_container
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "4000:5432"
+    environment:
+      - POSTGRES_DB=django_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    restart: always
+
+volumes:
+  postgres_data:
