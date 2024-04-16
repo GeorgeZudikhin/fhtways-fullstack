@@ -142,3 +142,6 @@ img {
   max-width: 100%;
   height: auto;
 }
+:focus {
+  outline: 2px solid #00ff00; /* Beispiel für einen blauen Rand */
+}

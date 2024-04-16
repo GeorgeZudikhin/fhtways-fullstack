@@ -89,6 +89,12 @@ function MainApp() {
         setLineHeightCounter(counter => counter + 1);
     }
   };  
+  const resetLineHeight = () => {
+    if (lineHeightCounter > 0) {
+      setLineHeight(lineHeight => lineHeight - 0.2);
+      setLineHeightCounter(counter => counter - 1);
+  }
+ };
   
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -128,7 +134,7 @@ function MainApp() {
     return () => {
         window.removeEventListener('keydown', handleKeyPress);
     };
-}, [fontSize]); 
+}, [fontSize,lineHeight]); 
 
     const handleFindPath = async () => {
         console.log("start: ", startNode);
@@ -155,12 +161,14 @@ function MainApp() {
         }       
   };
 
-  const resetLineHeight = () => {
-    if (lineHeightCounter > 0) {
-      setLineHeight(lineHeight=>lineHeight - 0.2);
-      setLineHeightCounter(counter => counter - 1);
-    }
- };
+ // Focus management: Set initial focus to the start input field
+ useEffect(() => {
+  const startInput = document.getElementById('startInput');
+  if (startInput) {
+    startInput.focus();
+  }
+}, []);
+
 
  //input
   const handleStartNodeChange = (e) => {

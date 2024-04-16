@@ -83,6 +83,13 @@ const increaseLineHeight = () => {
   }
 };  
 
+const resetLineHeight = () => {
+  if (lineHeightCounter > 0) {
+    setLineHeight(lineHeight=>lineHeight - 0.2);
+    setLineHeightCounter(counter => counter - 1);
+  }
+};
+
 useEffect(() => {
   const handleKeyPress = (event) => {
       if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
@@ -121,15 +128,9 @@ useEffect(() => {
   return () => {
       window.removeEventListener('keydown', handleKeyPress);
   };
-}, [fontSize]); 
+}, [fontSize,lineHeight]); 
 
 
-  const resetLineHeight = () => {
-    if (lineHeightCounter > 0) {
-      setLineHeight(lineHeight=>lineHeight - 0.2);
-      setLineHeightCounter(counter => counter - 1);
-    }
-  };
 
   //Reset
   const resetAll = () => {
@@ -144,35 +145,39 @@ useEffect(() => {
         element.style.color = ''; // Reset to default or your desired color
     });
   };
+  
 
   return (
-      <div className={`App ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>                    
-                      
-      <div className="top-right-buttons">             
-      <a onClick={increaseFontSize}>
+    <div className={`App ${contrastMode ? 'contrast-mode' : ''}`} style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}>                    
+                    
+    <div className="top-right-buttons">             
+    <a href="#" onClick={increaseFontSize}>
       <img className="top-image-button" src={aplus} alt="Button Schrift größer" title="Vergrößert die Schrift'+'" />
-      </a>
-      <a onClick={decreaseFontSize}>
-        <img className="top-image-button" src={aminus} alt="Button Schrift kleiner" title="Verkleinert die Schrift'-'" />
-      </a>
-      <a onClick={toggleContrast}>
-        <img className="top-image-button" src={bnw} alt="Button für Kontrast" title="Ändert den Kontrast'c'" />
-      </a>
-      <a onClick={resetContrast}>
-        <img className="top-image-button" src={farbe} alt="Button für Kontrast zurücksetzen" title="Setzt den Kontrast zurück'd'" />
-      </a>
-      <a onClick={increaseLineHeight}>
-        <img className="top-image-button" src={zplus} alt="Button für Zeileanbstand größer" title="Erhöht den Zeilenabstand'z'" />
-      </a>
-      <a onClick={resetLineHeight}>
-        <img className="top-image-button" src={znormal} alt="Button für Zeilenabstand kleiner" title="Setzt den Zeilenabstand zurück't'" />
-      </a>
-      <a onClick={resetAll}>
-        <img className="top-image-button" src={returnz} alt="Button für alles zurücksetzen" title="Setzt alles zurück'r'" />
-      </a>
-      <a onClick={() => { /* Aktion für Button 1 */ }}>
-        <img className="top-image-button" src={sprache} alt="Button für Sprache ändern" title="Sprache ändern" />
-      </a>
+    </a>
+    <a href="#" onClick={decreaseFontSize}>
+      <img className="top-image-button" src={aminus} alt="Button Schrift kleiner" title="Verkleinert die Schrift'-'" />
+    </a>
+    <a href="#" onClick={toggleContrast}>
+      <img className="top-image-button" src={bnw} alt="Button für Kontrast" title="Ändert den Kontrast'c'" />
+    </a>
+    <a href="#" onClick={resetContrast}>
+      <img className="top-image-button" src={farbe} alt="Button für Kontrast zurücksetzen" title="Setzt den Kontrast zurück'd'" />
+    </a>
+    <a href="#" onClick={increaseLineHeight}>
+      <img className="top-image-button" src={zplus} alt="Button für Zeileanbstand größer" title="Erhöht den Zeilenabstand'z'" />
+    </a>
+    <a href="#" onClick={resetLineHeight}>
+      <img className="top-image-button" src={znormal} alt="Button für Zeilenabstand kleiner" title="Setzt den Zeilenabstand zurück't'" />
+    </a>
+    <a href="#" onClick={resetAll}>
+      <img className="top-image-button" src={returnz} alt="Button für alles zurücksetzen" title="Setzt alles zurück'r'" />
+    </a>
+    <a href="#" onClick={() => { /* Aktion für Button 1 */ }}>
+      <img className="top-image-button" src={sprache} alt="Button für Sprache ändern" title="Sprache ändern" />
+    </a>
+
+    
+
 
       
   </div>
