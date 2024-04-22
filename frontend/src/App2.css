@@ -25,4 +25,6 @@
     max-width: 100%;
     height: auto;
   }
-      
+.button-container button:focus {
+    outline: 2px solid #ff9d00; /* Beispiel für einen blauen Rand */
+}
