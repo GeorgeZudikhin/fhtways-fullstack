@@ -6,8 +6,8 @@ stairs_left_lift_conn;5;-1;conn
 lift;7;0;lift
 door_middle;7;1;door
 A2_F1_conn;7;-1;conn
+A2_F1;7;-2;cooridor
 A2.01B;5;3;room
-A2.01B_C_conn;7;2;conn
 stairs_middle;7;3;stairs
 A2.01C;9;3;room
 stairs_A3_left_conn;9;-1;conn
@@ -24,7 +24,7 @@ A2.03A;32;-1;cooridor
 A2.03A_conn;31;-1;conn
 A2.04;36;-1;room
 A2.04_conn;36;0;conn
-stairs_right;37;-2;stairs
-A2.04_conn;37;1;conn
+stairs_right;37;2;stairs
+stairs_right_A2.05_conn;37;1;conn
 A2.05;38;-1;room
 A2.06A;35;4;room
