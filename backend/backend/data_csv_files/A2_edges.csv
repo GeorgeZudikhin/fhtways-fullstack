@@ -1,0 +1,75 @@
+source;target;weight;description
+A1.04B;stairs_left_conn;2;Verlasse Raum A1.04B und gehe 2 Schritte geradeaus und biege nach links ab.
+stairs_left_conn;A1.04B;2;"Gehe 2 Schritte geradeaus zum Raum A1.04B. Dieser befindet sich auf der rechten Seite. "
+A1.04B;stairs_left;2;Verlasse Raum A1.04B, biege nach links ab und gehe 2 Schritte geradeaus zu den Treppen.
+stairs_left;A1.04B;2;"Nachdem du den 2.Stock mit der Treppe erreicht hast,  gehe 2 Schritte geradeaus zum Raum A1.04B. Dieser befindet sich auf der rechten Seite. "
+stairs_left_conn;stairs_left;1;Gehe einen Schritt geradeaus, um die Treppen zu erreichen.
+stairs_left;stairs_left_conn;1;Nachdem du den 2.Stock mit der Treppe erreicht hast, biege nach links ab und gehe einen Schritt geradeaus.
+stairs_left_lift_conn;stairs_left_conn;4;Gehe 4 Schritte geradeaus.
+stairs_left_conn;stairs_left_lift_conn;4;Gehe 4 Schritte geradeaus.
+stairs_left_lift_conn;lift;6;Gehe 6 Schritte geradeaus und biege nach rechts ab, um den Lift zu erreichen.
+lift;stairs_left_lift_conn;4;Verlasse den Lift, biege nach links ab und gehe 4 Schritte geradeaus.
+stairs_left_lift_conn;door_middle;7;Gehe 7 Schritte geradeaus und biege nach rechts ab, um die Treppentür zu erreichen. Diese befindet sich links von dir.
+door_middle;stairs_left_lift_conn;7;Nachdem du die Treppentür geöffnet hast, nehme die rechte Seite und gehe 47 Schritte geradeaus.
+stairs_left_lift_conn;A2_F1_conn;2;"Gehe 2 Schritte geradeaus, um die Tür in den Gang zu erreichen, der in das F-Gebäude führt. Diese befindet sich rechts von dir. "
+A2_F1_conn;stairs_left_lift_conn;2;Nachdem du den Gang verlassen und das A-Gebäude erreicht hast, öffne die Tür, biege nach links ab und mache 2 Schritte geradeaus.
+lift;door_middle;2;"Verlasse den Lift und mache 2 Schritte geradeaus, um die Treppentür zu erreichen. "
+door_middle;lift;2;Nachdem du die Treppentür geöffnet hast, gehe 2 Schritte, um den Lift zu erreichen.
+lift;stairs_A3_left;3;"Verlasse den Lift, biege nach rechts ab, gehe 3 Schritte geradeaus, um die Treppen zu erreichen. Diese befinden sich rechts von dir. "
+stairs_A3_left;lift;3;"Nachdem du mit den Treppen den 2.Stock erreicht hast, gehe 3 Schritte, um den Lift zu erreichen. Dieser befindet sich links von dir. "
+lift;stairs_A3_left_conn;6;"Verlasse den Lift und biege nach rechts ab. Mache 4 Schritte geradeaus, biehe nochmals nach rechts an und gehe 2 weitere Schritte nach vorne. "
+stairs_A3_left_conn;lift;6;Biege nach rechts ab und mache 4 weitere Schritte nach vorne. Biege danach nach links ab und gehe geradeaus, bis du den Lift erreicht hast. Dieser befindet sich links von dir.
+A2_F1_conn;stairs_A3_left_conn;2;Nachdem du den Gang verlassen und das A-Gebäude erreicht hast, biege nach rechts ab und gehe 2 Schritte geradeaus.
+stairs_A3_left_conn;A2_F1_conn;2;"Gehe 2 Schritte geradeaus, um den Gang zu erreichen, der in das F-Gebäude führt. Dieser bedindet sich links von dir. "
+stairs_middle;door_middle;2;"Gehe von den Treppen 2 Schritte geradeaus zu den Treppentüren. "
+door_middle;stairs_middle;2;"Öffne die Treppentür und gehe 2 Schritte geradeaus, um die Treppen zu erreichen. "
+door_middle;stairs_A3_left_conn;3;"Nachdem du die Treppentür verlassen hast, nehme die linke Seite und gehe 3 Schritte geradeaus. "
+stairs_A3_left_conn;door_middle;3;Biege nach rechts ab und gehe 3 Schritte geradeaus. Die Treppentür befindet sich links von dir.
+stairs_A3_left;stairs_A3_left_conn;1;Nachdem du mit den Treppen den 2.Stock erreicht hast, biege nach links ab und gehe 1 Schritt geradeaus.
+stairs_A3_left_conn;stairs_A3_left;1;Biege nach links ab, um mit den Treppen auf den 1.Stock zu gelangen.
+A2_F1_conn;A2_F1;2;Öffne die Gangtür, die in das F-Gebäude führt.
+A2_F1;A2_F1_conn;2;Verlasse den Korridor und öffne die Gangtür, um in das A-Gebäude zu gelangen.
+door_middle;A2.01B;3;Nachdem du die Tür geöffnet hast, nehme die rechte Seite und gehe 3 Schritte geradeaus, um in den Raum A2.01B zu gelangen.
+A2.01B;door_middle;3;"Verlasse den Raum A2.01B, mache 2 Schritte geradeaus, biege nach links ab und gehe 1 Schritt geradeaus zur Korridortür. Diese befindet sich rechts von dir. "
+door_middle;A2.01C;3;Nachdem du die Tür geöffnet hast, nehme die linke Seite und gehe 3 Schritte geradeaus, um in den Raum A2.01C zu gelangen.
+A2.01C;door_middle;3;"Verlasse den Raum A2.01C, mache 2 Schritte geradeaus, biege nach links ab und gehe 1 Schritt geradeaus zur Korridortür. Diese befindet sich links von dir. "
+door_middle;stairs_A3_left;4;Nachdem du die Treppentür verlassen hast, nehme die linke Seite und gehe 4 Schritte geradeaus, um die Treppe zu erreichen und in den 1.Stock zu gelangen.
+stairs_A3_left;door_middle;4;Biege nach rechts ab und gehe 4 Schritte geradeaus. Die Treppentür befindet sich links von dir.
+stairs_A3_left_conn;A2.12_conn;13;Gehe im Korridor 13 Schritte geradeaus.
+A2.12_conn;stairs_A3_left_conn;13;Gehe im Korridor 13 Schritte geradeaus.
+A2.12;A2.12_conn;2;Öffne die Tür vor dir und verlasse den Raum A2.12. Gehe 2 Schritte geradeaus in den Korridor.
+A2.12_conn;A2.12;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes A2.12.
+toilet;toilet_stairs_A3_right_conn;2;Öffne die Toilettentür und gehe 2 Schritte geradeaus in den Korridor.
+toilet_stairs_A3_right_conn;toilet;1;Geh 2 Schritte geradeaus. Vor dir ist die Toilette: für Frauen, Behinderte und Männer von links nach rechts.
+stairs_A3_right;toilet_stairs_A3_right_conn;1;Nachdem du mit den Treppen den 2.Stock erreicht hast, gehe 1 Schritt geradeaus.
+toilet_stairs_A3_right_conn;stairs_A3_right;1;Gehe 1 Schritt geradeaus, um mit der Treppe in den 1.Stock zu gelangen.
+toilet_stairs_A3_right_conn;A2.12_conn;3;Gehe im Korridor 3 Schritte geradeaus.
+toilet_stairs_A3_right_conn;A2.07_A2.06_conn;8;Nehme die linke Seite und gehe 8 Schritte im Korridor geradeaus.
+A2.07_A2.06_conn;toilet_stairs_A3_right_conn;8;Nehme die rechte Seite und gehe 8 Schritte im Korridor geradeaus.
+A2.12_conn;toilet_stairs_A3_right_conn;3;Gehe im Korridor 3 Schritte geradeaus.
+stairs_A3_right;A2.07_A2.06_conn;6;Nachdem du auf den 2.Stock gelangt bist, biege nach rechts ab. Mache 1 Schritt und biege nochmals nach rechts ab. Gehe 5 Schritte geradeaus.
+A2.07_A2.06_conn;stairs_A3_right;6;"Gehe 5 Schritte geradeaus und biege nach rechts ab. Mache noch einen 1 Schritt, um zur Treppe zu gelangen. Die Treppe befindet sich links von dir. "
+A2.07;A2.07_A2.06_conn;2;Öffne die Tür vor dir und verlasse den Raum A2.07. Gehe 2 Schritte geradeaus in den Korridor.
+A2.07_A2.06_conn;A2.07;2;Gehe 2 Schritte geradeaus und halte dich der linken Seite. Vor dir ist die Tür des Raumes A2.07.
+A2.06;A2.07_A2.06_conn;2;Öffne die Tür vor dir und verlasse den Raum A2.06. Gehe 2 Schritte geradeaus in den Korridor.
+A2.07_A2.06_conn;A2.06;2;Gehe 2 Schritte geradeaus und halte dich der rechten Seite. Vor dir ist die Tür des Raumes A2.06.
+A2.07_A2.06_conn;A2.03A_conn;2;Gehe im Korridor 2 Schritte geradeaus.
+A2.03A_conn;A2.07_A2.06_conn;2;Gehe im Korridor 2 Schritte geradeaus.
+A2.03A;A2.03A_conn;2;Öffne die Tür vor dir und verlasse den Raum A2.03A. Gehe 2 Schritte geradeaus in den Korridor.
+A2.03A_conn;A2.03A;2;Gehe 2 Schritte geradeaus und halte dich der rechten Seite. Vor dir ist die Tür des Raumes A2.03A.
+A2.03A_conn;A2.04_conn;5;Nehme die linke Seite und gehe 5 Schritte im Korridor geradeaus.
+A2.04_conn;A2.03A_conn;5;Nehme die linke Seite und gehe 5 Schritte im Korridor geradeaus.
+A2.07_A2.06_conn;A2.04_conn;7;Nehme die linke Seite und gehe 7 Schritte im Korridor geradeaus.
+A2.04_conn;A2.07_A2.06_conn;7;Nehme die linke Seite und gehe 7 Schritte im Korridor geradeaus.
+A2.04;A2.04_conn;2;Öffne die Tür vor dir und verlasse den Raum A2.04. Gehe 2 Schritte geradeaus in den Korridor.
+A2.04_conn;A2.04;2;Gehe 2 Schritte geradeaus und halte dich der rechten Seite. Vor dir ist die Tür des Raumes A2.04.
+A2.04_conn;stairs_right_A2.05_conn;2;"Gehe im Korridor 2 Schritte geradeaus, indem du leicht nach links abbiegst. "
+stairs_right_A2.05_conn;A2.04_conn;2;"Gehe im Korridor 2 Schritte geradeaus, indem du leicht nach rechts abbiegst. "
+stairs_right;stairs_right_A2.05_conn;2;Nachdem du auf den 2.Stock gelangt bist, gehe 2 Schritte geradeaus.
+stairs_right_A2.05_conn;stairs_right;2;"Gehe 2 Schritte geradeaus, um zur Treppe zu gelangen. Die Treppe befindet sich direkt vor dir. "
+A2.05;stairs_right_A2.05_conn;2;Öffne die Tür vor dir und verlasse den Raum A2.05. Biege nach links ab und gehe 2 Schritte geradeaus in den Korridor.
+stairs_right_A2.05_conn;A2.05;2;Biege nach rechts ab, gehe 2 Schritte geradeaus und halte dich der rechten Seite. Vor dir ist die Tür des Raumes A2.05.
+A2.06A;A2.06;5;"Öffne die Tür vor dir und verlasse den Raum A2.06A. Nun bist du im Raum A2.06.  Gehe geradeaus bis zur Wand vor dir und biege nach links ab. Dann gehe bis zur Tür vor dir geradeaus und öffne diese, um in den Korridor zu gelangen. "
+A2.06;A2.06A;5;"Im Raum A2.06 gehe geradeaus bis zur Wand vor dir und biege nach rechts ab. Dann gehe bis zur Tür vor dir geradeaus und öffne diese, um in den Raum A2.06A zu gelangen.  "
+A2_F1_door;A2_F1;18;Nachdem du die Gangtür geöffnet hast, um in das A-Gebäude zu gelangen, gehe 18 Schritte geradeaus.
+A2_F1;A2_F1_door;18;"Gehe 18 Schritte geradeaus, um die Tür in den Gang zu erreichen, die in das F-Gebäude führt, und öffne diese. "

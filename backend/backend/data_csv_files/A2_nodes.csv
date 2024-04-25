@@ -7,6 +7,7 @@ lift;7;0;lift
 door_middle;7;1;door
 A2_F1_conn;7;-1;conn
 A2_F1;7;-2;cooridor
+A2_F1_door;7;-20;door
 A2.01B;5;3;room
 stairs_middle;7;3;stairs
 A2.01C;9;3;room
