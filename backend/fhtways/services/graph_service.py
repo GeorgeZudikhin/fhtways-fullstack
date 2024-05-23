@@ -3,7 +3,8 @@ import math
 
 
 class GraphService:
-    def create_graph(self):
+    @staticmethod
+    def create_graph():
         # Create a directed graph
         G = nx.DiGraph()
 
@@ -38,7 +39,7 @@ class GraphService:
         G.add_node("AUFZUG",            coord=(30, 1),   type="AUFZUG")
         G.add_node("F4",                coord=(28, 6),   type="stairs")
         G.add_node("door_right",        coord=(35, 3),   type="door")
-        
+
         G.add_node("F4.08",             coord=(37, 5),   type="room")
         G.add_node("F4.01",             coord=(37, 1),   type="room")
         G.add_node("F4.01_F4.08_c",     coord=(37, 3),   type="corridor")
@@ -59,7 +60,7 @@ class GraphService:
         G.add_node("stairs_right",      coord=(48, 8),   type="stairs")
 
 
-    # Add directed edges on the left side of the floor
+        # Add directed edges on the left side of the floor
         G.add_edge("stairs_left", "stairs_left_conn", weight=6, description="Öffne die Tür. Biege sofort rechts ab. Gehe 6 Schritte geradeaus bis die Wand links endet. ")
         G.add_edge("stairs_left_conn", "stairs_left", weight=6, description="Gehe 6 Schritte geradeaus weiter entlang bis zur Wand vorne. Die Treppentür befindet sich links. ")
 
@@ -99,7 +100,7 @@ class GraphService:
         G.add_edge("F4.05", "F4.04_F4.05_c", weight=3, description="Öffne die Tür vor dir und verlasse den Raum F4.05. Gehe 3 Schritte geradeaus in den Korridor. ")
         G.add_edge("F4.04_F4.05_c", "F4.05", weight=3, description="Gehe 3 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.05. ")
 
-    
+
         G.add_edge("F4.04", "F4.04_F4.05_c", weight=3, description="Öffne die Tür vor dir und verlasse den Raum F4.04. Gehe 3 Schritte geradeaus in den Korridor. ")
         G.add_edge("F4.04_F4.05_c", "F4.04", weight=3, description="Gehe 3 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.04. ")
 
@@ -195,7 +196,7 @@ class GraphService:
         angle1 = angle1 % 360
         angle2 = angle2 % 360
         print(f"angle1: {angle1}, angle2: {angle2}")
-        
+
         # Calculate the difference in angle
         angle_diff = (angle2 - angle1 + 180) % 360 - 180  # Angle difference in range [-180, 180]
         print(f"angle_diff: {angle_diff}")
@@ -226,7 +227,7 @@ class GraphService:
             return None
 
         # Extract the coord parameter from the nodes
-        coord1 = node_data1.get('coord') 
+        coord1 = node_data1.get('coord')
         coord2 = node_data2.get('coord')
         coord3 = node_data3.get('coord') if node_data3 else None
 
@@ -234,15 +235,15 @@ class GraphService:
             return ''
 
         print(f"coord1: {coord1}, coord2: {coord2}, coord3: {coord3}")
-        
+
         # Calculate the vectors for the incoming and outgoing paths
         vector_in = (coord2[0] - coord1[0], coord2[1] - coord1[1])
         vector_out = (coord3[0] - coord2[0], coord3[1] - coord2[1])
-        
+
         # Calculate the angle between vectors
         angle_in = math.atan2(vector_in[1], vector_in[0])
         angle_out = math.atan2(vector_out[1], vector_out[0])
-        
+
         # Use the angles to determine the direction
         return self.calculate_turn_direction(math.degrees(angle_in), math.degrees(angle_out))
 
@@ -272,13 +273,13 @@ class GraphService:
 
                 turn = self.calculate_angles(graph, prev_node, current_node, next_node)
 
-                if (graph.nodes[current_node]['type'] == 'corridor' and graph.nodes[next_node]['type'] == 'corridor' or 
+                if (graph.nodes[current_node]['type'] == 'corridor' and graph.nodes[next_node]['type'] == 'corridor' or
                     graph.nodes[current_node]['type'] == 'conn' and graph.nodes[next_node]['type'] == 'corridor'):
                     print("Condition for skipping edges is met")
                     # Accumulate distance
                     accumulated_distance += edge_data['weight']
                     accumulated_nodes += 1
-                    
+
                     if turn:
                         descriptions.append(f"Biege um 90 Grad {turn} ab. ")
 
@@ -293,14 +294,14 @@ class GraphService:
 
                     if turn:
                         descriptions.append(f"Biege um 90 Grad {turn} ab. ")
-            
+
                     # If there is no accumulated distance, add the current edge's description
                     print("Simply appending edge description")
                     descriptions.append(edge_data['description'])
 
                 print(descriptions)
-            
+
             return path, descriptions
-        
+
         except nx.NetworkXNoPath:
             return None, "No path exists between the specified nodes."

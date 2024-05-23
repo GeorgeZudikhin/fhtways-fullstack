@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import logo from './assets/Logo.jpg';
-import fhtwlogo from  './assets/fhtw_logo.svg.png';
-import adiobook from  './assets/audiobook.PNG';
-import aplus from  './assets/aplus.PNG';
-import aminus from  './assets/aminus.PNG';
-import bnw from  './assets/black&white.PNG';
-import farbe from  './assets/farbe.PNG';
-import znormal from  './assets/znormal.PNG';
-import zplus from  './assets/zplus.PNG';
-import returnz from  './assets/return.PNG';
-import sprache from  './assets/sprache.PNG';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import logo from './assets/logos/fhtways_logo.jpg';
+import fhtwlogo from './assets/logos/fhtw_logo.png';
+import aplus from './assets/accessibility/aplus.PNG';
+import aminus from './assets/accessibility/aminus.PNG';
+import bnw from './assets/accessibility/black&white.PNG';
+import farbe from './assets/accessibility/farbe.PNG';
+import znormal from './assets/accessibility/znormal.PNG';
+import zplus from './assets/accessibility/zplus.PNG';
+import returnz from './assets/accessibility/reset.PNG';
+import sprache from './assets/accessibility/sprache.PNG';
 
 function App2(){
   const location = useLocation();
   const { startNode, endNode, pathDescription } = location.state || {};
   const pathInfo = startNode && endNode ? `${startNode} -> ${endNode}` : 'No path information available';
-  console.log("Path Description in App2:", pathDescription);
   const [contrastMode, setContrastMode] = useState(false);
   const [fontSize, setFontSize] = useState(16); // Initial font size of 16px
   const [lineHeight, setLineHeight] = useState(1.5); // Initial line height

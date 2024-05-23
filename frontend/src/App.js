@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; 
-import { useNavigate } from 'react-router-dom';
-import Logo from './assets/Logo.jpg';
-import fhtwlogo from  './assets/fhtw_logo.svg.png';
-import adiobook from  './assets/audiobook.PNG';
-import aplus from  './assets/aplus.PNG';
-import aminus from  './assets/aminus.PNG';
-import bnw from  './assets/black&white.PNG';
-import farbe from  './assets/farbe.PNG';
-import znormal from  './assets/znormal.PNG';
-import zplus from  './assets/zplus.PNG';
-import returnz from  './assets/return.PNG';
-import sprache from  './assets/sprache.PNG';
+import React, {useEffect, useState} from 'react';
+import {BrowserRouter as Router, Route, Routes, useNavigate} from 'react-router-dom';
+import Logo from './assets/logos/fhtways_logo.jpg';
+import fhtwlogo from './assets/logos/fhtw_logo.png';
+import aplus from './assets/accessibility/aplus.PNG';
+import aminus from './assets/accessibility/aminus.PNG';
+import bnw from './assets/accessibility/black&white.PNG';
+import farbe from './assets/accessibility/farbe.PNG';
+import znormal from './assets/accessibility/znormal.PNG';
+import zplus from './assets/accessibility/zplus.PNG';
+import returnz from './assets/accessibility/reset.PNG';
+import sprache from './assets/accessibility/sprache.PNG';
 
 import './App.css';
 import App2 from './App2.js';
+import AdminPanel from './components/AdminPanel.js';
 
 
 function MainApp() {
@@ -353,6 +352,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainApp />} />
                 <Route path="/app2" element={<App2 />} />
+                <Route path="/admin" element={<AdminPanel />} />
             </Routes>
         </Router>
     );
