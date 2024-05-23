@@ -13,7 +13,7 @@ import sprache from './assets/accessibility/sprache.PNG';
 
 import './App.css';
 import App2 from './App2.js';
-import AdminPanel from './components/AdminPanel.js';
+import AdminPanel from './components/AdminPanel.jsx';
 
 
 function MainApp() {
