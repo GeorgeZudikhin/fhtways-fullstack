@@ -1,20 +1,21 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import '../styles/NodeModal.css';
 
 function NodeModal({ node, onSave, onClose }) {
-
     const [updatedNode, setUpdatedNode] = useState(node);
 
     const handleChange = (e) => {
-        setUpdatedNode({
-            ...updatedNode,
-            [e.target.name]: e.target.value
-        });
+        const { name, value } = e.target;
+        setUpdatedNode(prevNode => ({ ...prevNode, [name]: value }));
+    };
+
+    const handleSave = () => {
+        onSave(updatedNode);
     };
 
     return (
-        <Modal show={true} onHide={onClose} centered>
+        <Modal show onHide={onClose} centered>
             <Modal.Header>
                 <Modal.Title>Edit Node</Modal.Title>
             </Modal.Header>
@@ -43,7 +44,7 @@ function NodeModal({ node, onSave, onClose }) {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" onClick={() => onSave(updatedNode)}>Save Changes</Button>
+                <Button variant="primary" onClick={handleSave}>Save Changes</Button>
                 <Button variant="secondary" onClick={onClose}>Close</Button>
             </Modal.Footer>
         </Modal>
