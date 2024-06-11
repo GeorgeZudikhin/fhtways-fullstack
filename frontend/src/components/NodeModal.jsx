@@ -15,16 +15,12 @@ function NodeModal({ node, onSave, onClose }) {
     };
 
     return (
-        <Modal show onHide={onClose} centered>
-            <Modal.Header>
+        <Modal show onHide={onClose} centered className="node-modal">
+            <Modal.Header closeButton>
                 <Modal.Title>Edit Node</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Form.Group>
-                        <Form.Label>ID</Form.Label>
-                        <Form.Control type="text" readOnly value={updatedNode.id} />
-                    </Form.Group>
                     <Form.Group>
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" name="name" value={updatedNode.name} onChange={handleChange} />
@@ -39,12 +35,16 @@ function NodeModal({ node, onSave, onClose }) {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Type</Form.Label>
-                        <Form.Control type="text" name="type" value={updatedNode.type} onChange={handleChange} />
+                        <Form.Control as="select" name="type" value={updatedNode.type} onChange={handleChange}>
+                            <option value="room">room</option>
+                            <option value="corridor">corridor</option>
+                            <option value="toilet">toilet</option>
+                        </Form.Control>
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" onClick={handleSave}>Save Changes</Button>
+                <Button variant="primary" onClick={handleSave}>Save</Button>
                 <Button variant="secondary" onClick={onClose}>Close</Button>
             </Modal.Footer>
         </Modal>
