@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   frontend:
     build:
@@ -10,7 +11,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - WDS_SOCKET_HOST=127.0.0.1 
+      - WDS_SOCKET_HOST=127.0.0.1
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true
     stdin_open: true
@@ -26,3 +27,20 @@ services:
       - "8000:8000"
     environment:
       - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app  # Add this line to include /app in the PYTHONPATH
+    depends_on:
+      - db  # Ensure db service is up before backend starts
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

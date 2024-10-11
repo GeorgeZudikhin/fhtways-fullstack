@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'backend',
     'fhtways',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,10 +82,13 @@ CORS_ALLOW_ALL_ORIGINS = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'mydb',  # Same as POSTGRES_DB in docker-compose
+        'USER': 'myuser',  # Same as POSTGRES_USER in docker-compose
+        'PASSWORD': 'mypassword',  # Same as POSTGRES_PASSWORD in docker-compose
+        'HOST': 'db',  # The name of the service in docker-compose
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
