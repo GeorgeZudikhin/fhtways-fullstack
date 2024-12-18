@@ -1,42 +1,13 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    ports:
-      - "3000:3000"
-    environment:
-      - WDS_SOCKET_HOST=127.0.0.1
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true
-    stdin_open: true
-    tty: true
-
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    volumes:
-      - ./backend:/app
-    ports:
-      - "8000:8000"
-    environment:
-      - PYTHONUNBUFFERED=1
-      - PYTHONPATH=/app  # Add this line to include /app in the PYTHONPATH
-    depends_on:
-      - db  # Ensure db service is up before backend starts
-
   db:
     image: postgres:13
+    container_name: fhtways_db
     environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
+      POSTGRES_USER: fhtways_user
+      POSTGRES_PASSWORD: fhtways_pw
+      POSTGRES_DB: fhtways_db
     ports:
       - "5432:5432"
     volumes:

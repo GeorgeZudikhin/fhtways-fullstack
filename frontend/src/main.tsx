@@ -1,15 +1,24 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import FHTWaysApp from "./FHTWaysApp.tsx";
+import FHTWaysPage from "./pages/FHTWaysPage.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HowItWorksPage from "./pages/HowItWorksPage.tsx";
+import ContactUsPage from "./pages/ContactUsPage.tsx";
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <QueryClientProvider client={queryClient}>
-            <FHTWaysApp />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<FHTWaysPage />} />
+                    <Route path="/how-it-works" element={<HowItWorksPage />} />
+                    <Route path="/contact-us" element={<ContactUsPage />} />
+                </Routes>
+            </BrowserRouter>
         </QueryClientProvider>
-    </StrictMode>
+    </StrictMode>,
 );

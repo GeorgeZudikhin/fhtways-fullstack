@@ -81,11 +81,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydb',  # Same as POSTGRES_DB in docker-compose
-        'USER': 'myuser',  # Same as POSTGRES_USER in docker-compose
-        'PASSWORD': 'mypassword',  # Same as POSTGRES_PASSWORD in docker-compose
-        'HOST': 'db',  # The name of the service in docker-compose
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fhtways_db',  # Same as POSTGRES_DB in docker-compose
+        'USER': 'fhtways_user',  # Same as POSTGRES_USER in docker-compose
+        'PASSWORD': 'fhtways_pw',  # Same as POSTGRES_PASSWORD in docker-compose
+        'HOST': '127.0.0.1',  # The name of the service in docker-compose
         'PORT': '5432',
     }
 }

@@ -22,12 +22,14 @@ export default function HeroSection({
 }: Readonly<HeroSectionProps>) {
     return (
         <>
-            <h2 className="text-2xl font-bold mb-4">Navigate FHTW Easily</h2>
+            <h1 className="text-4xl font-bold mb-10 mt-3">
+                Find Your Way Around FHTW
+            </h1>
             <form
                 onSubmit={onSubmit}
-                className="flex flex-col items-center gap-4"
+                className="flex flex-col items-center gap-6"
             >
-                <div className="flex gap-4 items-center justify-center">
+                <div className="flex gap-6 items-center justify-center">
                     <InputField
                         id="startNode"
                         label="Start"
@@ -36,7 +38,9 @@ export default function HeroSection({
                         error={errors.startNode}
                         options={getFilteredSuggestions("", endNode)}
                     />
-                    <h2 className="text-2xl font-bold mb-4">➡</h2>
+                    <div className="flex items-center">
+                        <p className="text-2xl font-bold">→</p>
+                    </div>
                     <InputField
                         id="endNode"
                         label="Destination"
@@ -46,7 +50,7 @@ export default function HeroSection({
                         options={getFilteredSuggestions("", startNode)}
                     />
                 </div>
-                <Button text="Find Route" />
+                <Button text="Search" />
             </form>
         </>
     );

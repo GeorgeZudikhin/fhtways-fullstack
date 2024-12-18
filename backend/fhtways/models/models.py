@@ -4,7 +4,7 @@ class Node(models.Model):
     name = models.CharField(max_length=255)
     coord_x = models.IntegerField()
     coord_y = models.IntegerField()
-    node_type = models.CharField(max_length=50)  # e.g., "room", "corridor", etc.
+    node_type = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name

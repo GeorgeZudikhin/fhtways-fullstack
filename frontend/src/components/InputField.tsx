@@ -20,20 +20,21 @@ export default function InputField({
     options,
 }: Readonly<InputFieldProps>) {
     return (
-        <div className="flex items-center gap-4">
+        <div className="w-48">
             <Controller
                 name={id}
                 control={control}
-                rules={{ validate: validateNode }}
+                rules={{
+                    validate: (value) => validateNode(value, options),
+                }}
                 render={({ field: { value, onChange } }) => (
                     <Autocomplete
                         freeSolo
                         options={options}
                         value={value || ""}
-                        onChange={(newValue) => {
-                            if (typeof newValue === "string") {
-                                onChange(newValue);
-                            }
+                        onChange={(event, newValue) => {
+                            onChange(newValue ?? "");
+                            console.log(event);
                         }}
                         inputValue={value || ""}
                         onInputChange={(newInputValue) => {
@@ -45,24 +46,27 @@ export default function InputField({
                                 label={label}
                                 placeholder={placeholder || ""}
                                 error={!!error}
-                                helperText={error ? error.message : ""}
                                 variant="outlined"
                             />
                         )}
                     />
                 )}
             />
-            {/* {error && <p className="text-red-500 text-sm">{error.message}</p>} */}
+            <div className="h-1">
+                {error && (
+                    <p className="text-red-500 text-xs">{error.message}</p>
+                )}
+            </div>
         </div>
     );
 }
 
-function validateNode(node: string) {
+function validateNode(node: string, options: string[]) {
     if (!node) {
-        return "Bitte geben Sie einen Wert ein.";
+        return "Please insert a value.";
     }
-    if (!/^(AUFZUG|TOILETTE|[A-Z]\d+(\.\d+)?)$/i.test(node)) {
-        return "Ungültiges Eingabeformat! Bitte geben Sie die Zimmernummer im richtigen Format ein.";
+    if (!options.includes(node.toUpperCase())) {
+        return "Please choose a valid room.";
     }
     return true;
 }
