@@ -1,30 +1,68 @@
+import { Autocomplete, TextField } from "@mui/material";
+import { Control, Controller, FieldError } from "react-hook-form";
+import { PathRequest } from "../api/find-path/findPath";
+
 interface InputFieldProps {
-    id: string;
+    id: keyof PathRequest;
     label: string;
+    control: Control<PathRequest>;
     placeholder: string;
-    value: string;
-    onChange: (e: any) => void;
+    error: FieldError | undefined;
+    options: string[];
 }
 
 export default function InputField({
     id,
     label,
+    control,
     placeholder,
-    value,
-    onChange,
+    error,
+    options,
 }: Readonly<InputFieldProps>) {
     return (
         <div className="flex items-center gap-4">
-            <p className="font-bold m-0 text-4xl">{label}</p>
-            <input
-                id={id}
-                className="w-full bg-white p-5 text-xl border border-gray-300 rounded-full"
-                type="text"
-                value={value}
-                pattern="[A-Z]\d+(\.\d+)?"
-                placeholder={placeholder}
-                onChange={onChange}
+            <Controller
+                name={id}
+                control={control}
+                rules={{ validate: validateNode }}
+                render={({ field: { value, onChange } }) => (
+                    <Autocomplete
+                        freeSolo
+                        options={options}
+                        value={value || ""}
+                        onChange={(newValue) => {
+                            if (typeof newValue === "string") {
+                                onChange(newValue);
+                            }
+                        }}
+                        inputValue={value || ""}
+                        onInputChange={(newInputValue) => {
+                            onChange(newInputValue);
+                        }}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label={label}
+                                placeholder={placeholder || ""}
+                                error={!!error}
+                                helperText={error ? error.message : ""}
+                                variant="outlined"
+                            />
+                        )}
+                    />
+                )}
             />
+            {/* {error && <p className="text-red-500 text-sm">{error.message}</p>} */}
         </div>
     );
+}
+
+function validateNode(node: string) {
+    if (!node) {
+        return "Bitte geben Sie einen Wert ein.";
+    }
+    if (!/^(AUFZUG|TOILETTE|[A-Z]\d+(\.\d+)?)$/i.test(node)) {
+        return "Ungültiges Eingabeformat! Bitte geben Sie die Zimmernummer im richtigen Format ein.";
+    }
+    return true;
 }
