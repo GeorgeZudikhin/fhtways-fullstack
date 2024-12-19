@@ -104,4 +104,4 @@ class GraphService:
             return path, descriptions
         
         except nx.NetworkXNoPath:
-            return None, "No path exists between the specified nodes."
+            return None, "No path exists between the specified nodes: " + start_node + " and " + end_node

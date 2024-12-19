@@ -13,7 +13,7 @@ const emptyPathRequest: PathRequest = {
 };
 
 export default function FHTWaysPage() {
-    const [pathDescription, setPathDescription] = useState<string>("");
+    const [pathDescription, setPathDescription] = useState<string[]>([]);
 
     const { mutate: findPath } = useFindPath();
 
@@ -55,7 +55,7 @@ export default function FHTWaysPage() {
     };
 
     const handleNewSearch = () => {
-        setPathDescription("");
+        setPathDescription([]);
         reset();
     };
 
@@ -63,7 +63,7 @@ export default function FHTWaysPage() {
         <>
             <Navbar />
             <main className="flex flex-col flex-grow justify-center items-center mt-28">
-                {!pathDescription ? (
+                {pathDescription.length === 0 ? (
                     <HeroSection
                         startNode={startNode}
                         endNode={endNode}

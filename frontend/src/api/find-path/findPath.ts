@@ -7,7 +7,7 @@ export interface PathRequest {
 }
 
 export interface PathResponse {
-    path: string;
+    path: string[];
 }
 
 export const findPath = async (data: PathRequest): Promise<PathResponse> => {
