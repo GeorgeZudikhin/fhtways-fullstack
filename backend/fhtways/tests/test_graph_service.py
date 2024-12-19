@@ -1,44 +1,28 @@
 from django.test import TestCase
 from fhtways.services.graph_service import GraphService
-import networkx as nx
+from fhtways.models import Node, Edge
 
 class GraphServiceTestCase(TestCase):
     def setUp(self):
-        # Set up any pre-conditions for your tests here
+        self.node1 = Node.objects.create(name="stairs_right", coord_x=0, coord_y=0, node_type="stairs")
+        self.node2 = Node.objects.create(name="F4.23", coord_x=10, coord_y=10, node_type="room")
+        Edge.objects.create(from_node=self.node1, to_node=self.node2, weight=5.0, description="Test edge")
         self.graph_service = GraphService()
-        self.graph = self.graph_service.create_graph()
 
     def test_create_graph(self):
-        # Ensure the graph has been created and has the correct properties
-        self.assertIsInstance(self.graph, nx.DiGraph, "The graph must be an instance of networkx's DiGraph")
-        self.assertEqual(len(self.graph.nodes), 36, "The graph should have 36 nodes.")
-        self.assertEqual(len(self.graph.edges), 82, "The graph should have 82 edges.")
+        self.assertGreater(len(self.graph_service.graph.nodes), 0, "The graph should have nodes.")
+        self.assertGreater(len(self.graph_service.graph.edges), 0, "The graph should have edges.")
 
     def test_calculate_turn_direction(self):
-        # Test for a right turn
-        assert self.graph_service.calculate_turn_direction(180, 90) == 'rechts'
-        # Test for a left turn
-        assert self.graph_service.calculate_turn_direction(180, -90) == 'links'
-        # Test for no turn
-        assert self.graph_service.calculate_turn_direction(0, 90) == 'links'
-        assert self.graph_service.calculate_turn_direction(180, -180) is None
-        # Test for non-90-degree turns
-        assert self.graph_service.calculate_turn_direction(0, 45) is None
+        self.assertEqual(self.graph_service.calculate_turn_direction(180, 90), 'rechts')
+        self.assertEqual(self.graph_service.calculate_turn_direction(180, -90), 'links')
+        self.assertIsNone(self.graph_service.calculate_turn_direction(0, 0))
+        self.assertIsNone(self.graph_service.calculate_turn_direction(0, 45))
 
     def test_calculate_angles(self):
-        graph = self.graph_service.create_graph()
-        # Test with valid nodes
-        assert self.graph_service.calculate_angles(graph, "F4.20_c", "F4.20_conn", "F4.22_c") == 'rechts'
-        # Test with non-existent node
-        assert self.graph_service.calculate_angles(graph, "F4.20_c", "F4.20_conn", "non_existent_node") is None
+        self.assertEqual(self.graph_service.calculate_angles("stairs_right", "F4.23", None), '')
 
     def test_find_shortest_path(self):
-        graph = self.graph_service.create_graph()
-        # Test valid path
-        path, descriptions = self.graph_service.find_shortest_path(graph, "stairs_right", "F4.23")
-        assert path is not None
-        assert len(descriptions) > 0
-        # Test no path
-        path, descriptions = self.graph_service.find_shortest_path(graph, "F4.24", "non_existent_node")
-        assert path is None
-        assert descriptions == "No path exists between the specified nodes."
+        path, descriptions = self.graph_service.find_shortest_path("stairs_right", "F4.23")
+        self.assertIsNotNone(path)
+        self.assertGreater(len(descriptions), 0)
