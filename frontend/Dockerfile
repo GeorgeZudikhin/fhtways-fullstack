@@ -2,8 +2,8 @@ FROM node:22-slim AS base
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package*.json ./
+RUN npm install && npm ci
 
 COPY . .
 RUN npm run build
