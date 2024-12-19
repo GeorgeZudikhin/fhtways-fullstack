@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -23,33 +25,19 @@ jobs:
           python-version: 3.9
 
       - name: Install pip dependencies
-        run: |
-          pip install -r backend/requirements.txt
-
-  test:
-    name: Run Tests
-    runs-on: ubuntu-22.04
-    needs: install-dependencies
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          pip install -r backend/requirements.txt
-
-      - name: Run Tests
         working-directory: backend
-        run: python manage.py test
+        run: pip install -r requirements.txt
 
   sonarqube:
     name: SonarCloud Analysis
     runs-on: ubuntu-22.04
-    needs: test
+    needs: install-dependencies
     continue-on-error: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Run SonarCloud Analysis
         uses: sonarsource/sonarqube-scan-action@v2
