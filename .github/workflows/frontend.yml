@@ -35,6 +35,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: install dependencies
+        run: npm ci
+
       - name: Lint the code
         working-directory: frontend
         run: npm run lint
