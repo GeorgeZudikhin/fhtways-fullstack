@@ -45,7 +45,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=fhtways-fullstack
+            -Dsonar.projectKey=GeorgeZudikhin_fhtways-fullstack
             -Dsonar.organization=fhtways
             -Dsonar.host.url=https://sonarcloud.io
 
