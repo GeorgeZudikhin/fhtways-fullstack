@@ -6,9 +6,8 @@ class Command(BaseCommand):
     help = "Populates the Node and Edge tables with data from CSV files."
 
     def handle(self, *args, **kwargs):
-        # Populate Nodes
         self.stdout.write("Populating Nodes...")
-        with open('fhtways/data_csv/F4_nodes.csv', newline='', encoding='utf-8') as csvfile:
+        with open('fhtways/data_csv/F3_nodes.csv', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=';')
             for row in reader:
                 node, created = Node.objects.get_or_create(
@@ -20,9 +19,8 @@ class Command(BaseCommand):
                 if created:
                     self.stdout.write(f"Created Node: {node.name}")
 
-        # Populate Edges
         self.stdout.write("Populating Edges...")
-        with open('fhtways/data_csv/F4_edges.csv', newline='', encoding='utf-8') as csvfile:
+        with open('fhtways/data_csv/F3_edges.csv', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=';')
             for row in reader:
                 from_node = Node.objects.get(name=row['source'])

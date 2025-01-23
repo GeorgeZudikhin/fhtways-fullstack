@@ -7,9 +7,6 @@ interface PathDescriptionProps {
     onNewSearch: () => void;
 }
 
-// TODO F4.27 and F4.05
-// TODO between F4.01_4.08_c and F4.02_F4.07_c
-
 export default function PathDescription({
     startNode,
     endNode,

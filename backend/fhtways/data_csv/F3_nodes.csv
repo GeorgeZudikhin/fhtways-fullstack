@@ -1,8 +1,8 @@
 node;coord_x;coord_y;type
-toilet;1;2;TOILETTE
-stairs_middle;6;8;stairs
-lift;7;2;AUFZUG
-door_right;12;4;door
+TOILETTE_F3;1;2;TOILETTE
+F3;6;8;stairs
+AUFZUG_F3;7;2;AUFZUG
+door_right_F3;12;4;door
 F3.01;16;1;room
 F3.01_F3.02_c;16;4;conn
 F3.10;18;5;room
@@ -16,5 +16,5 @@ F3.04_F3.07_F3.08_c;23;4;conn
 F3.07;28;5;room
 F3.06;30;2;room
 F3.06_c;30;4;conn
-stairs_right_conn;32;4;conn
-stairs_right;32;8;stairs
+stairs_right_conn_F3;32;4;conn
+stairs_right_F3;32;8;stairs

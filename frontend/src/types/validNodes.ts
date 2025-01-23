@@ -1,7 +1,5 @@
 export const validNodes = [
     "F4",
-    "AUFZUG",
-    "TOILETTE",
     "F4.27",
     "F4.26",
     "F4.25",
@@ -17,4 +15,13 @@ export const validNodes = [
     "F4.03",
     "F4.02",
     "F4.01",
+    "F3.10",
+    "F3.09",
+    "F3.08",
+    "F3.07",
+    "F3.06",
+    "F3.04",
+    "F3.03",
+    "F3.02",
+    "F3.01",
 ];

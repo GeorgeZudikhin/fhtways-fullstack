@@ -59,6 +59,8 @@ export default function FHTWaysPage() {
         reset();
     };
 
+    console.log(JSON.stringify(pathDescription));
+
     return (
         <>
             <Navbar />

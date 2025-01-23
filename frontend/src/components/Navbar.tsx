@@ -4,19 +4,19 @@ import AccessibilityButtonGroup from "./AccessibilityButtonGroup";
 
 export default function Navbar() {
     return (
-        <nav className="bg-white shadow-lg fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3">
-            <div className="flex items-center gap-8">
+        <nav className="bg-white shadow-lg fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 sm:px-6 md:px-8">
+            <div className="flex items-center gap-4 md:gap-8">
                 <div className="flex items-center">
-                    <img src={logo} alt="Logo" className="h-8 mr-2" />
+                    <img src={logo} alt="Logo" className="h-6 sm:h-8 mr-2" />
                     <Link
                         to="/"
-                        className="text-default text-2xl font-bold hover:opacity-80"
+                        className="text-default text-lg sm:text-2xl font-bold hover:opacity-80"
                     >
                         FHTWays
                     </Link>
                 </div>
 
-                <ul className="flex gap-8 items-center leading-none">
+                <ul className="flex gap-4 sm:gap-8 items-center text-sm sm:text-lg">
                     <li>
                         <Link
                             to="/how-it-works"

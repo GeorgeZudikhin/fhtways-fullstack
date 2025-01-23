@@ -33,6 +33,12 @@ F4.02;F4.02_F4.07_c;2;Öffne die Tür vor dir und verlasse den Raum F4.02. Gehe 
 F4.02_F4.07_c;F4.02;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.02.
 F4.01;F4.01_F4.08_c;2;Öffne die Tür vor dir und verlasse den Raum F4.01. Gehe 2 Schritte geradeaus in den Korridor.
 F4.01_F4.08_c;F4.01;2;Gehe 2 Schritte geradeaus. Vor dir ist die Tür des Raumes F4.01.
+F4.01_F4.08_c;F4.02_F4.07_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.02_F4.07_c;F4.01_F4.08_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.03_F4.06_c;F4.02_F4.07_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.02_F4.07_c;F4.03_F4.06_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.04_F4.05_c;F4.03_F4.06_c;3;Gehe im Korridor 3 Schritte geradeaus.
+F4.03_F4.06_c;F4.04_F4.05_c;3;Gehe im Korridor 3 Schritte geradeaus.
 F4.27_c;F4.26_c;3;Gehe im Korridor 3 Schritte geradeaus.
 F4.26_c;F4.27_c;3;Gehe im Korridor 3 Schritte geradeaus.
 F4.26_c;F4.25_c;3;Gehe im Korridor 3 Schritte geradeaus.
